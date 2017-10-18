@@ -3,7 +3,7 @@ from django.conf import settings
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.text import slugify
-
+from idprovider.models import IdProvider
 
 DEFAULT_PEFIX = os.path.basename(settings.BASE_DIR)
 
@@ -25,7 +25,7 @@ RELATION_TYPES = (
 )
 
 
-class SkosNamespace(models.Model):
+class SkosNamespace(IdProvider):
     namespace = models.URLField(blank=True, default=DEFAULT_NAMESPACE)
     prefix = models.CharField(max_length=50, blank=True, default=DEFAULT_PEFIX)
 
@@ -33,7 +33,7 @@ class SkosNamespace(models.Model):
         return "{}".format(self.prefix)
 
 
-class SkosConceptScheme(models.Model):
+class SkosConceptScheme(IdProvider):
     dc_title = models.CharField(max_length=300, blank=True)
     namespace = models.ForeignKey(SkosNamespace, blank=True, null=True)
     dct_creator = models.URLField(blank=True)
@@ -56,7 +56,7 @@ class SkosConceptScheme(models.Model):
         return "{}:{}".format(self.namespace, self.dc_title)
 
 
-class SkosLabel(models.Model):
+class SkosLabel(IdProvider):
     label = models.CharField(max_length=100, blank=True, help_text="The entities label or name.")
     label_type = models.CharField(
         max_length=30, blank=True, choices=LABEL_TYPES, help_text="The type of the label.")
@@ -73,7 +73,7 @@ class SkosLabel(models.Model):
         return reverse('vocabs:skoslabel_detail', kwargs={'pk': self.id})
 
 
-class SkosConcept(models.Model):
+class SkosConcept(IdProvider):
     pref_label = models.CharField(max_length=300, blank=True)
     pref_label_lang = models.CharField(max_length=3, blank=True, default="eng")
     scheme = models.ManyToManyField(SkosConceptScheme, blank=True)
