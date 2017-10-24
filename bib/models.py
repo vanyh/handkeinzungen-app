@@ -123,6 +123,7 @@ class PartOfQuote(IdProvider):
     source = models.ForeignKey(Work, blank=True, null=True)
     follows = models.ForeignKey('self', blank=True, null=True, related_name='has_follower')
     translates = models.ManyToManyField('self', blank=True, related_name='has_translation')
+    correct_translation_sure = models.BooleanField(default=True)
     language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language')
     partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type')
     speaker = models.ManyToManyField(Speaker, blank=True)
