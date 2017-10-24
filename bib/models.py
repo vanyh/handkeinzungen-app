@@ -61,6 +61,9 @@ class Work(IdProvider):
     title = models.CharField(
         verbose_name="Titel", max_length=500, blank=True, null=True,
         help_text="Geben Sie hier den Titel des publizierten Werks ein")
+    siglum = models.CharField(
+        verbose_name="Sigle", max_length=500, blank=True, null=True,
+        help_text="Geben Sie hier die Sigle des publizierten Werks ein")
     alt_title = models.ManyToManyField(
         SkosConcept, blank=True, related_name="is_work_alt_title")
     creation_start_date = models.DateField(blank=True, null=True)
