@@ -1,0 +1,116 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block Titel %} {{ object.id }} {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="panel panel-default procustom-panel-create">
+        <div class="panel-heading procustom-panel-heading">
+            <div class="row">
+                <div class="col-md-2">
+                {% if object.get_prev %}
+                    <h2>
+                        <a href="{% url 'browsing:work_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <h1 style="text-align: center;">
+                      {{ object.title }}
+                    </h1>
+                </div>
+                <div class="col-md-2">
+                {% if object.get_next %}
+                    <h2>
+                        <a href="{% url 'browsing:work_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <legend>Angaben zum Werk</legend>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        Alternative Titel
+                    </th>
+                    <td>
+                        {% for x in object.alt_title.all %}
+                            <li>
+                                {{ x }}
+                            </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Autor(en)
+                    </th>
+                    <td>
+                        {% for x in object.work_author.all %}
+                            <li>
+                                {{ x }}
+                            </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Übersetzer
+                    </th>
+                    <td>
+                        {% for x in object.work_translator.all %}
+                            <li>
+                                {{ x }}
+                            </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Entstehungszeitraum
+                    </th>
+                    <td>
+                        {% if object.start_date_sure %} {% else %} ca {% endif %}
+                        {{ object.creation_start_date }} -
+                        {% if object.end_date_sure %} {% else %} ca {% endif %} {{ object.creation_end_date }}
+                    </td>
+                </tr>
+            </table>
+            <legend>Ausgaben und Zitate dieses Werkes</legend>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Ausgabe</th>
+                        <th>Zitat</th>
+                        <th>Chunk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in object.published_in.all %}
+                        <tr>
+                            <th>{{ x }}</th>
+                            <td>
+                                {% for quote in x.has_quotes.all %}
+                                    <ul>
+                                        {{ quote }}
+                                    </ul>
+                                {% endfor %}
+                            </td>
+                            <td>{% for quote in x.has_quotes.all %}
+                                    {% for chunk in quote.has_chunks.all %}
+                                        <li>
+                                            {{ chunk.text }} {{ chunk.language }}
+                                        </li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
