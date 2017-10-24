@@ -3,22 +3,31 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from .models import Book
-# following line has to match the settings-file you are using
 from django.conf import settings
+
 
 
 def sync_zotero(request):
     """ renders a simple template with a button to trigger sync_zotero_action function """
-    return render(request, 'bib/synczotero.html')
+    context = {}
+    try:
+        context['base_url'] = settings.Z_COLLECTION_URL
+        context['collection_title'] = settings.Z_TITLE
+    except:
+        context['base_url'] = ''
+        context['collection_title'] = 'PLEASE PROVIDE TITEL IN SETTINGS FILE'
+    # context['base_url'] = 'hansi'
+    # context['collection_title'] = 'TITLE'
+    return render(request, 'bib/synczotero.html', context)
 
 
 @login_required
 def sync_zotero_action(request):
     """ fetches the last n items form zoter and syncs it with the bib entries in defc-db"""
-    root = "https://api.zotero.org/users/"
+    root = "https://api.zotero.org/"
     try:
-        params = "{}/items/top?v=3&key={}".format(
-            settings.Z_USER_ID, settings.Z_API_KEY
+        params = "{}/{}/collections/{}/items/top?v=3&key={}".format(
+            settings.Z_ID_TYPE, settings.Z_ID, settings.Z_COLLECTION, settings.Z_API_KEY
         )
     except AttributeError as err:
         context = {}
@@ -48,17 +57,15 @@ def sync_zotero_action(request):
                 name = "{}, {}".format(lastname, firstname)
         except:
             name = "no name provided"
-
         NewBook = Book(
             zoterokey=x["data"]["key"], item_type=x["data"]["itemType"],
             author=name,
             title=x["data"]["title"],
             short_title=x["data"]["shortTitle"]
         )
-
         try:
             NewBook.save()
-            saved.append(x["data"])
+            saved.append(NewBook)
         except:
             failed(x['data'])
     books_after = len(Book.objects.all())

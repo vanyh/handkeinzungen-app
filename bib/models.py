@@ -15,8 +15,8 @@ class Person(IdProvider):
         return "{}, {}".format(self.last_name, self.first_name)
 
 
-class Book(IdProvider):
-    zoterokey = models.CharField(max_length=100, blank=True, null=True)
+class Book(models.Model):
+    zoterokey = models.CharField(primary_key=True, max_length=100, blank=True)
     item_type = models.CharField(max_length=100, blank=True, null=True)
     author = models.CharField(
         max_length=250, blank=True, null=True,
@@ -40,9 +40,13 @@ class Book(IdProvider):
     def get_zotero_url(self):
         "Returns the objects URL pointing to its Zotero entry"
         try:
-            return "/".join([settings.Z_BASE_URL, settings.Z_COLLECTION, 'itemKey', self.zoterokey])
-        except:
-            return None
+            base = "https://www.zotero.org/{}/".format(settings.Z_ID_TYPE)
+            url = "{}{}/peter_handke_stage_texts/items/itemKey/{}".format(
+                base, settings.Z_ID, self.zoterokey
+            )
+            return url
+        except AttributeError:
+            return "please provide Zotero settings"
 
     def __str__(self):
         return "{}, {}".format(self.author, self.title)
