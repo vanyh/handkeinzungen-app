@@ -11,7 +11,7 @@ class Person(IdProvider):
     last_name = models.CharField(max_length=100, blank=True, null=True)
     person_gnd = models.CharField(max_length=100, blank=True, null=True)
 
-    def __init__(self):
+    def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
 
@@ -53,7 +53,11 @@ class Book(models.Model):
 
 
 class Work(IdProvider):
-    work_author = models.ManyToManyField(Person, blank=True)
+    work_author = models.ManyToManyField(
+        Person, blank=True, related_name="has_work_created")
+    work_translator = models.ManyToManyField(
+        Person, blank=True, related_name="has_work_translated"
+    )
     title = models.CharField(
         verbose_name="Titel", max_length=500, blank=True, null=True,
         help_text="Geben Sie hier den Titel des publizierten Werks ein")

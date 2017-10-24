@@ -33,7 +33,7 @@ def sync_zotero_action(request):
         context = {}
         context['error'] = "{}".format(err)
         return render(request, 'bib/synczotero_action.html', context)
-    url = root + params + "&sort=dateModified&limit=25"
+    url = root + params + "&sort=dateModified"
     print(url)
     books_before = len(Book.objects.all())
     try:
