@@ -68,8 +68,14 @@ class Work(IdProvider):
     start_date_sure = models.BooleanField(default=True)
     end_date_sure = models.BooleanField(default=True)
     creation_place = models.ManyToManyField(Place, blank=True)
+    creation_place_sure = models.BooleanField(default=True)
     published_in = models.ManyToManyField(Book, blank=True)
     work_type = models.ManyToManyField(SkosConcept, blank=True)
+    main_language = models.ForeignKey(
+        SkosConcept, null=True, blank=True, related_name="language_of_work")
+    has_translation = models.ForeignKey(
+        'self', blank=True, null=True, related_name="is_translation_of"
+    )
 
     def __str__(self):
         return "Work: {}".format(self.title)
@@ -80,6 +86,8 @@ class Speaker(IdProvider):
     definition = models.CharField(max_length=500, blank=True, null=True)
     alt_name = models.ManyToManyField(SkosConcept, blank=True)
 
+    def __str__(self):
+        return "Speaker: {}".format(self.name)
 
 class Quote(IdProvider):
     """Provides the context of quotes"""
