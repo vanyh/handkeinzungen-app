@@ -1,8 +1,0 @@
-{% if record.cluster.pk %}
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="first_consonant">{{ record.cluster.first_consonant }}</a>
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="second_consonant">{{ record.cluster.second_consonant }}</a>
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="third_consonant">{{ record.cluster.third_consonant }}</a>
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="third_consonant">{{ record.cluster.fourth_consonant }}</a>
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="size">{{ record.cluster.size }}</a>
-<a href="{% url 'tokens:cluster_detail' pk=record.cluster.pk %}" title="preferred_cluster">{{ record.cluster.preferred_cluster }}</a>
-{% endif %}

@@ -56,6 +56,7 @@ class Book(models.Model):
 
 
 class Work(IdProvider):
+    "Some Description would be nice"
     work_author = models.ManyToManyField(
         Person, blank=True, related_name="has_work_created",
         verbose_name="Autor")

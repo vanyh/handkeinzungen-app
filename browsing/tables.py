@@ -4,20 +4,16 @@ from bib.models import *
 
 
 class WorkTable(tables.Table):
-    id = tables.LinkColumn(
-        'browsing:work_detail',
-        args=[A('pk')], verbose_name='ID'
-    )
     title = tables.LinkColumn(
         'browsing:work_detail',
         args=[A('pk')], verbose_name='Titel'
     )
-    # lemma = tables.RelatedLinkColumn()
-    # cluster = tables.RelatedLinkColumn()
-    # label = tables.RelatedLinkColumn()
-    # date = tables.RelatedLinkColumn(accessor='text_source.mean_date', verbose_name='Date')
+    author = tables.TemplateColumn(
+        template_name='browsing/tables/work_author.html', orderable=False)
+    main_language = tables.Column()
+    creation_start_date = tables.Column()
 
     class Meta:
         model = Work
-        sequence = ('title', 'id')
+        sequence = ('title', 'author', 'main_language', 'creation_start_date',)
         attrs = {"class": "table table-responsive table-hover"}
