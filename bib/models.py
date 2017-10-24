@@ -106,13 +106,13 @@ class Quote(IdProvider):
 class PartOfQuote(IdProvider):
     """A class modeling quotes"""
     text = models.CharField(blank=True, max_length=500)
-    part_of = models.ManyToManyField(Quote, blank=True)
+    part_of = models.ForeignKey(Quote, blank=True, null=True)
     source = models.ForeignKey(Work, blank=True, null=True)
-    follows = models.ManyToManyField('self', blank=True, related_name='has_follower')
+    follows = models.ForeignKey('self', blank=True, null=True, related_name='has_follower')
     translates = models.ManyToManyField('self', blank=True, related_name='has_translation')
     language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language')
     partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type')
     speaker = models.ManyToManyField(Speaker, blank=True)
 
     def __str__(self):
-        return "{}".format(self.text)
+        return "{} - {}".format(self.id, self.text)
