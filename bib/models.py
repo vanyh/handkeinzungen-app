@@ -18,6 +18,10 @@ class Person(IdProvider):
 class Book(IdProvider):
     zoterokey = models.CharField(max_length=100, blank=True, null=True)
     item_type = models.CharField(max_length=100, blank=True, null=True)
+    author = models.CharField(
+        max_length=250, blank=True, null=True,
+        verbose_name="Author Name fetched from Zotero"
+    )
     book_author = models.ManyToManyField(Person, blank=True)
     title = models.CharField(max_length=500, blank=True, null=True)
     publication_title = models.CharField(max_length=100, blank=True, null=True)
@@ -28,6 +32,9 @@ class Book(IdProvider):
     issn = models.CharField(max_length=500, blank=True, null=True)
     doi = models.CharField(max_length=500, blank=True, null=True)
     book_gnd = models.CharField(max_length=500, blank=True, null=True)
+    item_type = models.CharField(
+        max_length=500, blank=True, null=True, verbose_name="type fetched from Zotero"
+    )
     book_type = models.ManyToManyField(SkosConcept, blank=True)
 
     def get_zotero_url(self):
@@ -46,7 +53,8 @@ class Work(IdProvider):
     title = models.CharField(
         verbose_name="Titel", max_length=500, blank=True, null=True,
         help_text="Geben Sie hier den Titel des publizierten Werks ein")
-    alt_title = models.ManyToManyField(SkosConcept, blank=True)
+    alt_title = models.ManyToManyField(
+        SkosConcept, blank=True, related_name="is_work_alt_title")
     creation_start_date = models.DateField(blank=True, null=True)
     creation_end_date = models.DateField(blank=True, null=True)
     start_date_sure = models.BooleanField(default=True)
@@ -89,8 +97,6 @@ class PartOfQuote(IdProvider):
     language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language')
     partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type')
     speaker = models.ManyToManyField(Speaker, blank=True)
-
-
 
     def __str__(self):
         return "{}".format(self.text)
