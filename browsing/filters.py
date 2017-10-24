@@ -26,21 +26,10 @@ class WorkListFilter(django_filters.FilterSet):
         help_text=Work._meta.get_field('title').help_text,
         label=Work._meta.get_field('title').verbose_name
         )
-    # left_context = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Work._meta.get_field('left_context').help_text,
-    #     label=Work._meta.get_field('left_context').verbose_name
-    #     )
-    # plain_word = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Work._meta.get_field('plain_word').help_text,
-    #     label=Work._meta.get_field('plain_word').verbose_name
-    #     )
-    # right_context = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Work._meta.get_field('right_context').help_text,
-    #     label=Work._meta.get_field('right_context').verbose_name
-    #     )
+    creation_start_date = django_filters.DateFromToRangeFilter()
+    creation_end_date = django_filters.DateFromToRangeFilter()
+    start_date_sure = django_filters.BooleanFilter()
+    end_date_sure = django_filters.BooleanFilter()
     work_author = django_filters.ModelMultipleChoiceFilter(
         queryset=Person.objects.all(),
         help_text=Work._meta.get_field('work_author').help_text,
@@ -52,12 +41,12 @@ class WorkListFilter(django_filters.FilterSet):
         label=Work._meta.get_field('work_translator').verbose_name
         )
     alt_title = django_filters.ModelMultipleChoiceFilter(
-        queryset=SkosConcept.objects.all(),
+        queryset=SkosConcept.objects.filter(scheme__dc_title="WorkAltTitle"),
         help_text=Work._meta.get_field('alt_title').help_text,
         label=Work._meta.get_field('alt_title').verbose_name
         )
     main_language = django_filters.ModelMultipleChoiceFilter(
-        queryset=SkosConcept.objects.all(),
+        queryset=SkosConcept.objects.filter(scheme__dc_title="Sprachen"),
         help_text=Work._meta.get_field('main_language').help_text,
         label=Work._meta.get_field('main_language').verbose_name
         )
