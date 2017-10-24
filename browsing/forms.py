@@ -28,17 +28,15 @@ class WorkFilterFormHelper(FormHelper):
             Accordion(
                 AccordionGroup(
                     'Basic search options',
-                    'legacy_id',
-                    'left_context',
-                    'plain_word',
-                    'right_context',
-                    'spelling2',
+                    'title',
+                    'work_author',
                     css_id="basic_search_fields"
                 ),
                 AccordionGroup(
-                    'Lexicon related search options',
-                    'lemma__name',
-                    'lemma__pos',
+                    'Advanced search options',
+                    'work_translator',
+                    'alt_title',
+                    'main_language',
                     css_id="lexicon_search_options"),
                 css_id="accordion",
                 )

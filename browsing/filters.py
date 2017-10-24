@@ -41,11 +41,26 @@ class WorkListFilter(django_filters.FilterSet):
     #     help_text=Work._meta.get_field('right_context').help_text,
     #     label=Work._meta.get_field('right_context').verbose_name
     #     )
-    # spelling2 = django_filters.ModelMultipleChoiceFilter(
-    #     queryset=SchwaPresent.objects.all(),
-    #     help_text=Work._meta.get_field('spelling2').help_text,
-    #     label=Work._meta.get_field('spelling2').verbose_name
-    #     )
+    work_author = django_filters.ModelMultipleChoiceFilter(
+        queryset=Person.objects.all(),
+        help_text=Work._meta.get_field('work_author').help_text,
+        label=Work._meta.get_field('work_author').verbose_name
+        )
+    work_translator = django_filters.ModelMultipleChoiceFilter(
+        queryset=Person.objects.all(),
+        help_text=Work._meta.get_field('work_translator').help_text,
+        label=Work._meta.get_field('work_translator').verbose_name
+        )
+    alt_title = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.all(),
+        help_text=Work._meta.get_field('alt_title').help_text,
+        label=Work._meta.get_field('alt_title').verbose_name
+        )
+    main_language = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.all(),
+        help_text=Work._meta.get_field('main_language').help_text,
+        label=Work._meta.get_field('main_language').verbose_name
+        )
     # lemma__name = django_filters.CharFilter(
     #     lookup_expr='icontains',
     #     help_text=Lemma._meta.get_field('name').help_text,

@@ -57,9 +57,11 @@ class Book(models.Model):
 
 class Work(IdProvider):
     work_author = models.ManyToManyField(
-        Person, blank=True, related_name="has_work_created")
+        Person, blank=True, related_name="has_work_created",
+        verbose_name="Autor")
     work_translator = models.ManyToManyField(
-        Person, blank=True, related_name="has_work_translated"
+        Person, blank=True, related_name="has_work_translated",
+        verbose_name="Übersetzer"
     )
     title = models.CharField(
         verbose_name="Titel", max_length=500, blank=True, null=True,
@@ -94,6 +96,9 @@ class Work(IdProvider):
 
     def __str__(self):
         return "Work: {}".format(self.title)
+
+    def get_absolute_url(self):
+        return reverse('browsing:work_detail', kwargs={'pk': self.id})
 
 
 class Speaker(IdProvider):
