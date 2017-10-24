@@ -16,8 +16,6 @@ def sync_zotero(request):
     except:
         context['base_url'] = ''
         context['collection_title'] = 'PLEASE PROVIDE TITEL IN SETTINGS FILE'
-    # context['base_url'] = 'hansi'
-    # context['collection_title'] = 'TITLE'
     return render(request, 'bib/synczotero.html', context)
 
 

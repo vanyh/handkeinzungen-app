@@ -77,6 +77,18 @@ class Work(IdProvider):
         'self', blank=True, null=True, related_name="is_translation_of"
     )
 
+    def get_next(self):
+        next = Work.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Work.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
     def __str__(self):
         return "Work: {}".format(self.title)
 
@@ -89,9 +101,10 @@ class Speaker(IdProvider):
     def __str__(self):
         return "Speaker: {}".format(self.name)
 
+
 class Quote(IdProvider):
     """Provides the context of quotes"""
-    book_source = models.ForeignKey(Book, blank=True, null=True)
+    book_source = models.ForeignKey(Book, blank=True, null=True, related_name="has_quotes")
     startpage = models.IntegerField(blank=True)
     endpage = models.IntegerField(blank=True)
     text = models.TextField(blank=True)
@@ -106,7 +119,7 @@ class Quote(IdProvider):
 class PartOfQuote(IdProvider):
     """A class modeling quotes"""
     text = models.CharField(blank=True, max_length=500)
-    part_of = models.ForeignKey(Quote, blank=True, null=True)
+    part_of = models.ForeignKey(Quote, blank=True, null=True, related_name="has_chunks")
     source = models.ForeignKey(Work, blank=True, null=True)
     follows = models.ForeignKey('self', blank=True, null=True, related_name='has_follower')
     translates = models.ManyToManyField('self', blank=True, related_name='has_translation')
