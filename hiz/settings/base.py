@@ -50,7 +50,7 @@ REST_FRAMEWORK = {
 }
 
 SPAGHETTI_SAUCE = {
-    'apps': ['vocabs', 'places', 'bib'],
+    'apps': ['vocabs', 'places', 'bib', 'words'],
     'show_fields': False,
     'exclude': {'auth': ['user']}
 }

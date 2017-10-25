@@ -31,9 +31,6 @@ class Book(models.Model):
     short_title = models.CharField(max_length=500, blank=True, null=True)
     publication_year = models.IntegerField(blank=True, null=True)
     pub_place = models.ManyToManyField(Place, blank=True)
-    isbn = models.CharField(max_length=500, blank=True, null=True)
-    issn = models.CharField(max_length=500, blank=True, null=True)
-    doi = models.CharField(max_length=500, blank=True, null=True)
     book_gnd = models.CharField(max_length=500, blank=True, null=True)
     item_type = models.CharField(
         max_length=500, blank=True, null=True, verbose_name="type fetched from Zotero"
