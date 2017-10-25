@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'bib',
     'sparql',
     'news',
-    'browsing'
+    'browsing',
+    'words',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
