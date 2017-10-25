@@ -50,7 +50,7 @@
                     <td>
                         {% for x in object.work_author.all %}
                             <li>
-                                {{ x }}
+                                <a href="{% url 'browsing:person_detail' pk=x.id %}">{{ x }}</a>
                             </li>
                         {% endfor %}
                     </td>
@@ -62,7 +62,7 @@
                     <td>
                         {% for x in object.work_translator.all %}
                             <li>
-                                {{ x }}
+                                <a href="{% url 'browsing:person_detail' pk=x.id %}">{{ x }}</a>
                             </li>
                         {% endfor %}
                     </td>

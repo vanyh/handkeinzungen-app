@@ -20,6 +20,30 @@ django_filters.filters.LOOKUP_TYPES = [
 ]
 
 
+class PersonListFilter(django_filters.FilterSet):
+    last_name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Person._meta.get_field('last_name').help_text,
+        label=Person._meta.get_field('last_name').verbose_name
+        )
+    first_name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Person._meta.get_field('first_name').help_text,
+        label=Person._meta.get_field('first_name').verbose_name
+        )
+    person_gnd = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Person._meta.get_field('person_gnd').help_text,
+        label=Person._meta.get_field('person_gnd').verbose_name
+        )
+
+    class Meta:
+        model = Person
+        fields = [
+            'id'
+        ]
+
+
 class WorkListFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(
         lookup_expr='icontains',
@@ -50,36 +74,6 @@ class WorkListFilter(django_filters.FilterSet):
         help_text=Work._meta.get_field('main_language').help_text,
         label=Work._meta.get_field('main_language').verbose_name
         )
-    # lemma__name = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Lemma._meta.get_field('name').help_text,
-    #     label=Lemma._meta.get_field('name').verbose_name
-    #     )
-    # lemma__pos = django_filters.ModelMultipleChoiceFilter(
-    #     queryset = SkosConcept.objects.filter(scheme__dc_title__iexact='ecce-pos'),
-    #     help_text=Lemma._meta.get_field('pos').help_text,
-    #     label=Lemma._meta.get_field('pos').verbose_name
-    #     )
-    # pos = django_filters.ModelMultipleChoiceFilter(
-    #     queryset=SkosConcept.objects.filter(scheme__dc_title__iexact='ecce-pos'),
-    #     help_text=Work._meta.get_field('pos').help_text,
-    #     label=Work._meta.get_field('pos').verbose_name
-    #     )
-    # label = django_filters.ModelMultipleChoiceFilter(
-    #     queryset=WorkLabel.objects.all(),
-    #     help_text=Work._meta.get_field('label').help_text,
-    #     label=Work._meta.get_field('label').verbose_name
-    #     )
-    # medial_suffix = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Work._meta.get_field('medial_suffix').help_text,
-    #     label=Work._meta.get_field('medial_suffix').verbose_name
-    #     )
-    # final_suffix = django_filters.CharFilter(
-    #     lookup_expr='icontains',
-    #     help_text=Work._meta.get_field('final_suffix').help_text,
-    #     label=Work._meta.get_field('final_suffix').verbose_name
-    #     )
 
     class Meta:
         model = Work

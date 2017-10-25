@@ -11,6 +11,21 @@ class Person(IdProvider):
     last_name = models.CharField(max_length=100, blank=True, null=True)
     person_gnd = models.CharField(max_length=100, blank=True, null=True)
 
+    def get_next(self):
+        next = Person.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Person.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
+    def get_absolute_url(self):
+        return reverse('browsing:person_detail', kwargs={'pk': self.id})
+
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
