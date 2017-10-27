@@ -33,3 +33,4 @@ dev_secret.py
 /docs/_*/*
 /vocabs/data/spreadsheets/cv_burial.xlsx
 /db_copy.sqlite3
+/Untitled.ipynb

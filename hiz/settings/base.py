@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'django_tables2',
     'rest_framework',
     'idprovider',
-    'webpage',
     'vocabs',
     'places',
     'bib',
@@ -40,6 +39,8 @@ INSTALLED_APPS = [
     'news',
     'browsing',
     'words',
+    'stats',
+    'webpage',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"

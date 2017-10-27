@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
 {% load webpage_extras %}
+{% load stats_extras %}
 {% load news_extras %}
 {% block content %}
     <div class="container text-center">
@@ -26,7 +27,11 @@
         {% for x in models %}
         <div class="col-lg-4 col-md-4 col-sm-6 grid-item type-one">
             <div class="div-tile">
-                <h5>{{x.name}}</h5>
+                {% if x.link %}
+                    <a href="{{ x.link }}"><h5>{{x.name}}</h5></a>
+                    {% else %}
+                    <h5>{{x.name}}</h5>
+                {% endif %}
                 <hr class="hrtile">
                 <h5 class="count">{{x.count}}</h5>
             </div>

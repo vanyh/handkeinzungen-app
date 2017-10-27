@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from idprovider.models import IdProvider
 from vocabs.models import SkosConcept
@@ -10,6 +11,10 @@ class Person(IdProvider):
     first_name = models.CharField(max_length=100, blank=True, null=True)
     last_name = models.CharField(max_length=100, blank=True, null=True)
     person_gnd = models.CharField(max_length=100, blank=True, null=True)
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_persons')
 
     def get_next(self):
         next = Person.objects.filter(id__gt=self.id)
@@ -94,6 +99,10 @@ class Work(IdProvider):
     has_translation = models.ForeignKey(
         'self', blank=True, null=True, related_name="is_translation_of"
     )
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_works')
 
     def get_next(self):
         next = Work.objects.filter(id__gt=self.id)
