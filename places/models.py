@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from idprovider.models import IdProvider
 
 
@@ -39,6 +40,10 @@ class Place(IdProvider):
         "Place", null=True, blank=True, help_text="A place (country) this place is part of."
     )
     place_type = models.CharField(choices=PLACE_TYPES, null=True, blank=True, max_length=50)
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('places:place_list')
 
     def __str__(self):
         return "{}".format(self.name)
