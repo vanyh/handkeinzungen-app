@@ -20,6 +20,25 @@ django_filters.filters.LOOKUP_TYPES = [
 ]
 
 
+class QuoteListFilter(django_filters.FilterSet):
+    text = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Quote._meta.get_field('text').help_text,
+        label=Quote._meta.get_field('text').verbose_name
+        )
+    book_source = django_filters.ModelMultipleChoiceFilter(
+        queryset=Book.objects.all(),
+        help_text=Quote._meta.get_field('book_source').help_text,
+        label=Quote._meta.get_field('book_source').verbose_name
+        )
+
+    class Meta:
+        model = Quote
+        fields = [
+            'id'
+        ]
+
+
 class PersonListFilter(django_filters.FilterSet):
     last_name = django_filters.CharFilter(
         lookup_expr='icontains',

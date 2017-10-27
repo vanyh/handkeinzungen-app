@@ -92,7 +92,7 @@ class Work(IdProvider):
     end_date_sure = models.BooleanField(default=True)
     creation_place = models.ManyToManyField(Place, blank=True)
     creation_place_sure = models.BooleanField(default=True)
-    published_in = models.ManyToManyField(Book, blank=True)
+    published_in = models.ManyToManyField(Book, blank=True, related_name="publication_of_work")
     work_type = models.ManyToManyField(SkosConcept, blank=True)
     main_language = models.ForeignKey(
         SkosConcept, null=True, blank=True, related_name="language_of_work")
@@ -142,8 +142,27 @@ class Quote(IdProvider):
     part_of = models.ManyToManyField('self', blank=True)
     auto_trans = models.ManyToManyField('self', blank=True)
 
+    def get_next(self):
+        next = Quote.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Quote.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_quotes')
+
     def __str__(self):
         return "{}".format(self.text)
+
+    def get_absolute_url(self):
+        return reverse('browsing:quote_detail', kwargs={'pk': self.id})
 
 
 class PartOfQuote(IdProvider):

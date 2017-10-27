@@ -3,6 +3,19 @@ from django_tables2.utils import A
 from bib.models import *
 
 
+class QuoteTable(tables.Table):
+    text = tables.LinkColumn(
+        'browsing:quote_detail',
+        args=[A('pk')], verbose_name='Text'
+    )
+    book_source = tables.Column()
+
+    class Meta:
+        model = Quote
+        sequence = ('text', 'book_source')
+        attrs = {"class": "table table-responsive table-hover"}
+
+
 class PersonTable(tables.Table):
     first_name = tables.LinkColumn(
         'browsing:person_detail',

@@ -94,7 +94,7 @@
                             <td>
                                 {% for quote in x.has_quotes.all %}
                                     <ul>
-                                        {{ quote }}
+                                        <a href="{% url 'browsing:quote_detail' pk=quote.id %}">{{ quote }}</a>
                                     </ul>
                                 {% endfor %}
                             </td>
