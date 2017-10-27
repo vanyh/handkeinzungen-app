@@ -3,6 +3,20 @@ from django_tables2.utils import A
 from bib.models import *
 
 
+class PartOfQuoteTable(tables.Table):
+    text = tables.LinkColumn(
+        'browsing:partofquote_detail',
+        args=[A('pk')], verbose_name='Text'
+    )
+    part_of = tables.Column()
+    language = tables.Column()
+
+    class Meta:
+        model = Quote
+        sequence = ('text', 'part_of')
+        attrs = {"class": "table table-responsive table-hover"}
+
+
 class QuoteTable(tables.Table):
     text = tables.LinkColumn(
         'browsing:quote_detail',

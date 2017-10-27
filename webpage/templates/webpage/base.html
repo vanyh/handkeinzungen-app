@@ -105,6 +105,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'browsing:browse_works' %}">Werke</a></li>
                             <li><a href="{% url 'browsing:browse_quotes' %}">Zitate</a></li>
+                            <li><a href="{% url 'browsing:browse_partofquotes' %}">Zitat-Teile</a></li>
                             <li><a href="{% url 'browsing:browse_persons' %}">Personen</a></li>
                             <li><a href="{% url 'places:place_list' %}">Locations</a></li>
                             {% if user.is_authenticated %}

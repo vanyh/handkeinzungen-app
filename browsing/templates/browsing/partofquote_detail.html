@@ -1,0 +1,81 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block Titel %} {{ object.id }} {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="panel panel-default procustom-panel-create">
+        <div class="panel-heading procustom-panel-heading">
+            <div class="row">
+                <div class="col-md-2">
+                {% if object.get_prev %}
+                    <h2>
+                        <a href="{% url 'browsing:partofquote_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <h3 style="text-align: center;">
+                      <blockquote>{{ object.text }}</blockquote
+                  </h3>
+                </div>
+                <div class="col-md-2">
+                {% if object.get_next %}
+                    <h2>
+                        <a href="{% url 'browsing:partofquote_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <legend>Zungen</legend>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        Sprache
+                    </th>
+                    <td>
+                        {{ object.language }}
+                    </td>
+                <tr>
+                {% if object.translates.all %}
+                    <tr>
+                        <th>
+                            Übersetzung(en)
+                        </th>
+                        <td>
+                            {% for x in object.translates.all %}
+                            <li>
+                                <a href="{% url 'browsing:partofquote_detail' pk=x.id %}">{{ x.text }}</a>
+                            </li>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endif %}
+            </table>
+
+            <legend>Kontext</legend>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        Zitat
+                    </th>
+                    <td>
+                        {{ object.part_of.serialize_quote|safe }}<br/>
+                        <small><a href="{% url 'browsing:quote_detail' pk=object.part_of.id %}">zum Zitat</a></small>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        in
+                    </th>
+                    <td>
+                        {{ object.part_of.book_source }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

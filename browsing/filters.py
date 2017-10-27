@@ -20,6 +20,30 @@ django_filters.filters.LOOKUP_TYPES = [
 ]
 
 
+class PartOfQuoteListFilter(django_filters.FilterSet):
+    text = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=PartOfQuote._meta.get_field('text').help_text,
+        label=PartOfQuote._meta.get_field('text').verbose_name
+        )
+    part_of = django_filters.ModelMultipleChoiceFilter(
+        queryset=Book.objects.all(),
+        help_text=PartOfQuote._meta.get_field('part_of').help_text,
+        label=PartOfQuote._meta.get_field('part_of').verbose_name
+        )
+    language = django_filters.ModelMultipleChoiceFilter(
+        queryset=Book.objects.all(),
+        help_text=PartOfQuote._meta.get_field('language').help_text,
+        label=PartOfQuote._meta.get_field('language').verbose_name
+        )
+
+    class Meta:
+        model = PartOfQuote
+        fields = [
+            'id'
+        ]
+
+
 class QuoteListFilter(django_filters.FilterSet):
     text = django_filters.CharFilter(
         lookup_expr='icontains',

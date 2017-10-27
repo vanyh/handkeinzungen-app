@@ -4,6 +4,7 @@ from django.conf import settings
 from idprovider.models import IdProvider
 from vocabs.models import SkosConcept
 from places.models import Place
+from .helper_functions import create_tag
 
 
 class Person(IdProvider):
@@ -142,6 +143,14 @@ class Quote(IdProvider):
     part_of = models.ManyToManyField('self', blank=True)
     auto_trans = models.ManyToManyField('self', blank=True)
 
+    def serialize_quote(self):
+        """ retuns the quote's text with tagged part of quote chunks"""
+        partofs = PartOfQuote.objects.filter(part_of=self)
+        quote = self.text
+        for x in partofs:
+            quote = quote.replace(x.text, create_tag(x))
+        return quote
+
     def get_next(self):
         next = Quote.objects.filter(id__gt=self.id)
         if next:
@@ -176,6 +185,25 @@ class PartOfQuote(IdProvider):
     language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language')
     partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type')
     speaker = models.ManyToManyField(Speaker, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('browsing:partofquote_detail', kwargs={'pk': self.id})
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_partofquotes')
+
+    def get_next(self):
+        next = PartOfQuote.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = PartOfQuote.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
 
     def __str__(self):
         return "{} - {}".format(self.id, self.text)

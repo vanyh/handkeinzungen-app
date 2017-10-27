@@ -35,6 +35,36 @@ class GenericListView(SingleTableView):
         return context
 
 
+class PartOfQuoteListView(GenericListView):
+    model = PartOfQuote
+    table_class = PartOfQuoteTable
+    filter_class = PartOfQuoteListFilter
+    formhelper_class = PartOfQuoteFilterFormHelper
+    init_columns = ['text', 'part_of', 'language']
+
+    def get_all_cols(self):
+        all_cols = list(self.table_class.base_columns.keys())
+        return all_cols
+
+    def get_context_data(self, **kwargs):
+        context = super(PartOfQuoteListView, self).get_context_data()
+        context[self.context_filter_name] = self.filter
+        togglable_colums = [x for x in self.get_all_cols() if x not in self.init_columns]
+        context['togglable_colums'] = togglable_colums
+        return context
+
+    def get_table(self, **kwargs):
+        table = super(GenericListView, self).get_table()
+        RequestConfig(self.request, paginate={
+            'page': 1, 'per_page': self.paginate_by}).configure(table)
+        default_cols = self.init_columns
+        all_cols = self.get_all_cols()
+        selected_cols = self.request.GET.getlist("columns") + default_cols
+        exclude_vals = [x for x in all_cols if x not in selected_cols]
+        table.exclude = exclude_vals
+        return table
+
+
 class QuoteListView(GenericListView):
     model = Quote
     table_class = QuoteTable

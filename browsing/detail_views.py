@@ -1,5 +1,5 @@
 from django.views.generic.detail import DetailView
-from bib.models import Work, Person, Quote
+from bib.models import Work, Person, Quote, PartOfQuote
 
 
 class WorkDetailView(DetailView):
@@ -15,3 +15,8 @@ class PersonDetailView(DetailView):
 class QuoteDetailView(DetailView):
     model = Quote
     template_name = 'browsing/quote_detail.html'
+
+
+class PartOfQuoteDetailView(DetailView):
+    model = PartOfQuote
+    template_name = 'browsing/partofquote_detail.html'
