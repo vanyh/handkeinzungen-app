@@ -18,4 +18,7 @@ urlpatterns = [
     url(r'foreignlemmas/$', views.ForeignLemmaListView.as_view(), name='browse_foreignlemmas'),
     url(r'^foreignlemma/(?P<pk>[0-9]+)$', detail_views.ForeignLemmaDetailView.as_view(),
         name='foreignlemma_detail'),
+    url(r'germanlemmas/$', views.GermanLemmaListView.as_view(), name='browse_germanlemmas'),
+    url(r'^germanlemma/(?P<pk>[0-9]+)$', detail_views.GermanLemmaDetailView.as_view(),
+        name='germanlemma_detail'),
 ]

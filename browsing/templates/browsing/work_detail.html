@@ -94,14 +94,14 @@
                             <td>
                                 {% for quote in x.has_quotes.all %}
                                     <ul>
-                                        <a href="{% url 'browsing:quote_detail' pk=quote.id %}">{{ quote }}</a>
+                                        <a href="{{ quote.get_absolute_url}}">{{ quote }}</a>
                                     </ul>
                                 {% endfor %}
                             </td>
                             <td>{% for quote in x.has_quotes.all %}
                                     {% for chunk in quote.has_chunks.all %}
                                         <li>
-                                            {{ chunk.text }} {{ chunk.language }}
+                                            <a href="{{ chunk.get_absolute_url }}">{{ chunk.text }}</a> {{ chunk.language }}
                                         </li>
                                     {% endfor %}
                                 {% endfor %}

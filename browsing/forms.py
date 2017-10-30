@@ -17,6 +17,26 @@ class GenericFilterFormHelper(FormHelper):
         self.add_input(Submit('Filter', 'Search'))
 
 
+class GermanLemmaFilterFormHelper(FormHelper):
+    def __init__(self, *args, **kwargs):
+        super(GermanLemmaFilterFormHelper, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.form_class = 'genericFilterForm'
+        self.form_method = 'GET'
+        self.helper.form_tag = False
+        self.add_input(Submit('Filter', 'Search'))
+        self.layout = Layout(
+            Accordion(
+                AccordionGroup(
+                    'Basic search options',
+                    'lemma',
+                    'pos',
+                    css_id="basic_search_fields"
+                ),
+            )
+        )
+
+
 class ForeignLemmaFilterFormHelper(FormHelper):
     def __init__(self, *args, **kwargs):
         super(ForeignLemmaFilterFormHelper, self).__init__(*args, **kwargs)

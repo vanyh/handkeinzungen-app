@@ -1,0 +1,63 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block Titel %} {{ object }} {% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="panel panel-default procustom-panel-create">
+        <div class="panel-heading procustom-panel-heading">
+            <div class="row">
+                <div class="col-md-2">
+                {% if object.get_prev %}
+                    <h2>
+                        <a href="{% url 'browsing:foreignlemma_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous"></span></a>
+                    </h2>
+                {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <h1 style="text-align: center;">
+                      {{ object }}
+                    </h1>
+                </div>
+                <div class="col-md-2">
+                    {% if object.get_next %}
+                        <h2>
+                            <a href="{% url 'browsing:foreignlemma_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next"></span></a>
+                        </h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <legend>something</legend>
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        translation
+                    </th>
+                    <td>
+                        {% for x in object.has_translation.all %}
+                            <li>
+                                <a href="{{x.get_absolute_url }}"/>{{ x }}</a> ({{ x.language }})
+                            </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Verwendet in
+                    </th>
+                    <td>
+                        {% for x in object.used_in.all %}
+                            <li>
+                                <a href="{% url 'browsing:quote_detail' pk=x.id %}">{{ x }}</a>
+                            </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

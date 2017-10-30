@@ -20,6 +20,30 @@ django_filters.filters.LOOKUP_TYPES = [
     ('not_contains', 'Does not contain'),
 ]
 
+class GermanLemmaListFilter(django_filters.FilterSet):
+    lemma = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=GermanLemma._meta.get_field('lemma').help_text,
+        label=GermanLemma._meta.get_field('lemma').verbose_name
+        )
+    url = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=GermanLemma._meta.get_field('url').help_text,
+        label=GermanLemma._meta.get_field('url').verbose_name
+        )
+    pos = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.filter(scheme__dc_title="POS"),
+        help_text=GermanLemma._meta.get_field('pos').help_text,
+        label=GermanLemma._meta.get_field('pos').verbose_name
+        )
+
+
+    class Meta:
+        model = GermanLemma
+        fields = [
+            'id'
+        ]
+
 
 class ForeignLemmaListFilter(django_filters.FilterSet):
     lemma = django_filters.CharFilter(
@@ -49,7 +73,7 @@ class ForeignLemmaListFilter(django_filters.FilterSet):
         )
 
     class Meta:
-        model = PartOfQuote
+        model = ForeignLemma
         fields = [
             'id'
         ]

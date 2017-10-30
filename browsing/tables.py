@@ -4,6 +4,18 @@ from bib.models import *
 from words.models import ForeignLemma, GermanLemma
 
 
+class GermanLemmaTable(tables.Table):
+    lemma = tables.LinkColumn(
+        'browsing:germanlemma_detail',
+        args=[A('pk')], verbose_name='Lemma'
+    )
+
+    class Meta:
+        model = GermanLemma
+        sequence = ('lemma',)
+        attrs = {"class": "table table-responsive table-hover"}
+
+
 class ForeignLemmaTable(tables.Table):
     lemma = tables.LinkColumn(
         'browsing:foreignlemma_detail',

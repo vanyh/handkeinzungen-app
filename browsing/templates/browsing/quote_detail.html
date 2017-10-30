@@ -45,7 +45,7 @@
                     </th>
                     <td>
                         {% for x in object.book_source.publication_of_work.all %}
-                            <a href="{% url 'browsing:work_detail' pk=x.id %}">{{ x }}</a>
+                            <a href="{{ x.get_absolute_url }}">{{ x }}</a>
                         {% endfor %}
                     </td>
                 </tr>
@@ -54,11 +54,18 @@
                         Foreign Lemmas
                     </th>
                     <td>
-                        {% for x in object.has_lemma.all %}
-                            <li>
-                                {{ x }}
-                            </li>
-                        {% endfor %}
+                        <ul>
+                            {% for x in object.has_lemma.all %}
+                                <li>
+                                    <a href="{{ x.get_absolute_url }}">{{ x }}</a>
+                                    {% for y in x.german.all %}
+                                    <li>
+                                        <a href="{{ y.get_absolute_url }}">{{ y }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </td>
                 <tr>
             </table>
