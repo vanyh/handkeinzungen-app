@@ -9,9 +9,12 @@ from .helper_functions import create_tag
 
 class Person(IdProvider):
     """Eine Person, zum Beispiel die Verfasserin eines Werks."""
-    first_name = models.CharField(max_length=100, blank=True, null=True)
-    last_name = models.CharField(max_length=100, blank=True, null=True)
-    person_gnd = models.CharField(max_length=100, blank=True, null=True)
+    first_name = models.CharField(max_length=100, blank=True, null=True,
+    verbose_name="Vorname der Person")
+    last_name = models.CharField(max_length=100, blank=True, null=True,
+    verbose_name="Nachname der Person")
+    person_gnd = models.CharField(max_length=100, blank=True, null=True,
+    verbose_name="GND-ID der Person")
 
     @classmethod
     def get_listview_url(self):
@@ -37,24 +40,33 @@ class Person(IdProvider):
 
 
 class Book(models.Model):
-    zoterokey = models.CharField(primary_key=True, max_length=100, blank=True)
-    item_type = models.CharField(max_length=100, blank=True, null=True)
+    """Bibliographische Informationen zu einem publizierten Buch."""
+    zoterokey = models.CharField(verbose_name="Zoterokey", primary_key=True, max_length=100, blank=True,
+    help_text="Zoterokey des bibliographischen Eintrags aus der Zoterolibrary 'Peter Handke stage texts'")
+    item_type = models.CharField(max_length=100, blank=True, null=True,
+    verbose_name="Item type")
     author = models.CharField(
         max_length=250, blank=True, null=True,
-        verbose_name="Author Name fetched from Zotero"
+        verbose_name="Autor*innenname laut Zotero-Eintrag"
     )
-    book_author = models.ManyToManyField(Person, blank=True)
-    title = models.CharField(max_length=500, blank=True, null=True)
+    book_author = models.ManyToManyField(Person, blank=True,
+    verbose_name="Autor*innenname")
+    title = models.CharField(max_length=500, blank=True, null=True,
+    verbose_name="Titel des Werks")
     siglum = models.CharField(
         verbose_name="Sigle", max_length=500, blank=True, null=True,
-        help_text="Geben Sie hier die Sigle des publizierten Werks ein")
+        help_text="Sigle des publizierten Werks (laut Handkeonline)")
     publication_title = models.CharField(max_length=100, blank=True, null=True)
     short_title = models.CharField(max_length=500, blank=True, null=True)
-    publication_year = models.IntegerField(blank=True, null=True)
-    pub_place = models.ManyToManyField(Place, blank=True)
-    book_gnd = models.CharField(max_length=500, blank=True, null=True)
+    publication_year = models.IntegerField(blank=True, null=True,
+    verbose_name="Jahr der Veröffentlichung")
+    pub_place = models.ManyToManyField(Place, blank=True,
+    verbose_name="Ort der Veröffentlichung")
+    book_gnd = models.CharField(max_length=500, blank=True, null=True,
+    verbose_name="GND-ID des Buchs")
     item_type = models.CharField(
-        max_length=500, blank=True, null=True, verbose_name="type fetched from Zotero"
+        max_length=500, blank=True, null=True,
+        verbose_name="Item type laut Zotero-Eintrag"
     )
     book_type = models.ManyToManyField(SkosConcept, blank=True)
 
@@ -74,31 +86,30 @@ class Book(models.Model):
 
 
 class Work(IdProvider):
-    "Some Description would be nice"
+    """Ein Werk an sich (unabhängig von seiner Nicht-/Publikation)"""
     work_author = models.ManyToManyField(
         Person, blank=True, related_name="has_work_created",
-        verbose_name="Autor")
+        verbose_name="Autor*in des Werks")
     work_translator = models.ManyToManyField(
         Person, blank=True, related_name="has_work_translated",
-        verbose_name="Übersetzer"
+        verbose_name="Übersetzer*in des werks"
     )
     title = models.CharField(
-        verbose_name="Titel", max_length=500, blank=True, null=True,
-        help_text="Geben Sie hier den Titel des publizierten Werks ein")
+        verbose_name="Titel des Werks", max_length=500, blank=True, null=True)
     alt_title = models.ManyToManyField(
-        SkosConcept, blank=True, related_name="is_work_alt_title")
-    creation_start_date = models.DateField(blank=True, null=True)
-    creation_end_date = models.DateField(blank=True, null=True)
-    start_date_sure = models.BooleanField(default=True)
-    end_date_sure = models.BooleanField(default=True)
-    creation_place = models.ManyToManyField(Place, blank=True)
-    creation_place_sure = models.BooleanField(default=True)
-    published_in = models.ManyToManyField(Book, blank=True, related_name="publication_of_work")
-    work_type = models.ManyToManyField(SkosConcept, blank=True)
+        SkosConcept, blank=True, related_name="is_work_alt_title", verbose_name="Titelvarianten")
+    creation_start_date = models.DateField(blank=True, null=True, verbose_name="entstanden von")
+    creation_end_date = models.DateField(blank=True, null=True, verbose_name="entstanden bis")
+    start_date_sure = models.BooleanField(default=True, verbose_name="Anfangsdatum gesichert")
+    end_date_sure = models.BooleanField(default=True, verbose_name="Enddatum gesichert")
+    creation_place = models.ManyToManyField(Place, blank=True, verbose_name="Entstehungsort")
+    creation_place_sure = models.BooleanField(default=True, verbose_name="Entstehungsort gesichert")
+    published_in = models.ManyToManyField(Book, blank=True, related_name="publication_of_work", verbose_name="veröffentlicht in")
+    work_type = models.ManyToManyField(SkosConcept, blank=True, verbose_name="Werktyp")
     main_language = models.ForeignKey(
-        SkosConcept, null=True, blank=True, related_name="language_of_work")
+        SkosConcept, null=True, blank=True, related_name="language_of_work", verbose_name="dominante Schreibsprache")
     has_translation = models.ForeignKey(
-        'self', blank=True, null=True, related_name="is_translation_of"
+        'self', blank=True, null=True, related_name="is_translation_of", verbose_name="Übersetzung"
     )
 
     @classmethod
@@ -125,23 +136,24 @@ class Work(IdProvider):
 
 
 class Speaker(IdProvider):
-    name = models.CharField(max_length=500, blank=True, null=True)
-    definition = models.CharField(max_length=500, blank=True, null=True)
-    alt_name = models.ManyToManyField(SkosConcept, blank=True)
+    """Figur, die spricht"""
+    name = models.CharField(max_length=500, blank=True, null=True, verbose_name="Figurenname")
+    definition = models.CharField(max_length=500, blank=True, null=True, verbose_name="weitere Informationen zur Figur")
+    alt_name = models.ManyToManyField(SkosConcept, blank=True, verbose_name="alternative Figurenbezeichnungen")
 
     def __str__(self):
         return "Speaker: {}".format(self.name)
 
 
 class Quote(IdProvider):
-    """Provides the context of quotes"""
-    book_source = models.ForeignKey(Book, blank=True, null=True, related_name="has_quotes")
-    startpage = models.IntegerField(blank=True)
-    endpage = models.IntegerField(blank=True)
-    text = models.TextField(blank=True)
-    quote_type = models.ManyToManyField(SkosConcept, blank=True)
-    part_of = models.ManyToManyField('self', blank=True)
-    auto_trans = models.ManyToManyField('self', blank=True)
+    """ein Zitat, das auch Kontext zu fremdsprachigen Textstellen beinhaltet"""
+    book_source = models.ForeignKey(Book, blank=True, null=True, related_name="has_quotes", verbose_name="Quelle")
+    startpage = models.IntegerField(blank=True, verbose_name="Seite (von)")
+    endpage = models.IntegerField(blank=True, verbose_name="Seite (bis)")
+    text = models.TextField(blank=True, verbose_name="Text")
+    quote_type = models.ManyToManyField(SkosConcept, blank=True, verbose_name="Zitattyp")
+    part_of = models.ManyToManyField('self', blank=True, verbose_name="Teil von Zitat", help_text="Dieses Zitat ist Teil eines umfangreicheren Zitats")
+    auto_trans = models.ManyToManyField('self', blank=True, verbose_name="Selbstübersetzung")
 
     def serialize_quote(self):
         """ retuns the quote's text with tagged part of quote chunks"""
@@ -175,16 +187,16 @@ class Quote(IdProvider):
 
 
 class PartOfQuote(IdProvider):
-    """A class modeling quotes"""
-    text = models.CharField(blank=True, max_length=500)
-    part_of = models.ForeignKey(Quote, blank=True, null=True, related_name="has_chunks")
-    source = models.ForeignKey(Work, blank=True, null=True)
-    follows = models.ForeignKey('self', blank=True, null=True, related_name='has_follower')
-    translates = models.ManyToManyField('self', blank=True, related_name='has_translation')
-    correct_translation_sure = models.BooleanField(default=True)
-    language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language')
-    partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type')
-    speaker = models.ManyToManyField(Speaker, blank=True)
+    """fremdsprachiger Zitatteil"""
+    text = models.CharField(blank=True, max_length=500, verbose_name="Text")
+    part_of = models.ForeignKey(Quote, blank=True, null=True, related_name="has_chunks", verbose_name="Teil von Zitat", help_text="Dieses Teilzitat ist Teil eines umfangreicheren Zitats")
+    source = models.ForeignKey(Work, blank=True, null=True, verbose_name="Quelle")
+    follows = models.ForeignKey('self', blank=True, null=True, related_name='has_follower', verbose_name="folgt auf", help_text="Dieses Teilzitat folgt einem anderen")
+    translates = models.ManyToManyField('self', blank=True, related_name='has_translation', verbose_name="Übersetzung", help_text="Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb des Texts")
+    correct_translation_sure = models.BooleanField(default=True, verbose_name="Übersetzung korrekt")
+    language = models.ForeignKey(SkosConcept, blank=True, null=True, related_name='quote_language', verbose_name="Sprache")
+    partofquote_type = models.ManyToManyField(SkosConcept, blank=True, related_name='quote_type', verbose_name="Teilzitattyp")
+    speaker = models.ManyToManyField(Speaker, blank=True, verbose_name="Figur")
 
     def get_absolute_url(self):
         return reverse('browsing:partofquote_detail', kwargs={'pk': self.id})
