@@ -1,5 +1,16 @@
 from django.views.generic.detail import DetailView
 from bib.models import Work, Person, Quote, PartOfQuote
+from words.models import GermanLemma, ForeignLemma
+
+
+class GermanLemmaDetailView(DetailView):
+    model = GermanLemma
+    template_name = 'browsing/germanlemma_detail.html'
+
+
+class ForeignLemmaDetailView(DetailView):
+    model = ForeignLemma
+    template_name = 'browsing/foreignlemma_detail.html'
 
 
 class WorkDetailView(DetailView):

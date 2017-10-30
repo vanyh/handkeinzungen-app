@@ -1,6 +1,7 @@
 import django_filters
 from dal import autocomplete
 from bib.models import *
+from words.models import ForeignLemma, GermanLemma
 from vocabs.models import SkosConcept
 
 django_filters.filters.LOOKUP_TYPES = [
@@ -18,6 +19,40 @@ django_filters.filters.LOOKUP_TYPES = [
     ('icontains', 'Contains (case insensitive)'),
     ('not_contains', 'Does not contain'),
 ]
+
+
+class ForeignLemmaListFilter(django_filters.FilterSet):
+    lemma = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=ForeignLemma._meta.get_field('lemma').help_text,
+        label=ForeignLemma._meta.get_field('lemma').verbose_name
+        )
+    german = django_filters.ModelMultipleChoiceFilter(
+        queryset=GermanLemma.objects.all(),
+        help_text=ForeignLemma._meta.get_field('german').help_text,
+        label=ForeignLemma._meta.get_field('german').verbose_name
+        )
+    pos = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.filter(scheme__dc_title="POS"),
+        help_text=ForeignLemma._meta.get_field('pos').help_text,
+        label=ForeignLemma._meta.get_field('pos').verbose_name
+        )
+    language = django_filters.ModelMultipleChoiceFilter(
+        queryset=SkosConcept.objects.filter(scheme__dc_title="Sprachen"),
+        help_text=ForeignLemma._meta.get_field('language').help_text,
+        label=ForeignLemma._meta.get_field('language').verbose_name
+        )
+    used_in = django_filters.ModelMultipleChoiceFilter(
+        queryset=Quote.objects.all(),
+        help_text=ForeignLemma._meta.get_field('used_in').help_text,
+        label=ForeignLemma._meta.get_field('used_in').verbose_name
+        )
+
+    class Meta:
+        model = PartOfQuote
+        fields = [
+            'id'
+        ]
 
 
 class PartOfQuoteListFilter(django_filters.FilterSet):

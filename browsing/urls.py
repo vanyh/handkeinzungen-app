@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'quotes/$', views.QuoteListView.as_view(), name='browse_quotes'),
     url(r'^quote/(?P<pk>[0-9]+)$', detail_views.QuoteDetailView.as_view(),
         name='quote_detail'),
+    url(r'foreignlemmas/$', views.ForeignLemmaListView.as_view(), name='browse_foreignlemmas'),
+    url(r'^foreignlemma/(?P<pk>[0-9]+)$', detail_views.ForeignLemmaDetailView.as_view(),
+        name='foreignlemma_detail'),
 ]

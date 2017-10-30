@@ -49,6 +49,18 @@
                         {% endfor %}
                     </td>
                 </tr>
+                <tr>
+                    <th>
+                        Foreign Lemmas
+                    </th>
+                    <td>
+                        {% for x in object.has_lemma.all %}
+                            <li>
+                                {{ x }}
+                            </li>
+                        {% endfor %}
+                    </td>
+                <tr>
             </table>
 
             <legend>Analyze</legend>

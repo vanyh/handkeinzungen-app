@@ -1,6 +1,19 @@
 import django_tables2 as tables
 from django_tables2.utils import A
 from bib.models import *
+from words.models import ForeignLemma, GermanLemma
+
+
+class ForeignLemmaTable(tables.Table):
+    lemma = tables.LinkColumn(
+        'browsing:foreignlemma_detail',
+        args=[A('pk')], verbose_name='Lemma'
+    )
+
+    class Meta:
+        model = ForeignLemma
+        sequence = ('lemma',)
+        attrs = {"class": "table table-responsive table-hover"}
 
 
 class PartOfQuoteTable(tables.Table):
@@ -12,7 +25,7 @@ class PartOfQuoteTable(tables.Table):
     language = tables.Column()
 
     class Meta:
-        model = Quote
+        model = PartOfQuote
         sequence = ('text', 'part_of')
         attrs = {"class": "table table-responsive table-hover"}
 
