@@ -10,19 +10,19 @@
                 <div class="col-md-2">
                 {% if object.get_prev %}
                     <h2>
-                        <a href="{% url 'browsing:foreignlemma_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous"></span></a>
+                        <a href="{% url 'browsing:germanlemma_detail' pk=object.get_prev %}"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" title="previous"></span></a>
                     </h2>
                 {% endif %}
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                      {{ object }}
+                    <small>german lemma:</small> {{ object }}
                     </h1>
                 </div>
                 <div class="col-md-2">
                     {% if object.get_next %}
                         <h2>
-                            <a href="{% url 'browsing:foreignlemma_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next"></span></a>
+                            <a href="{% url 'browsing:germanlemma_detail' pk=object.get_next %}" style="float:right"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" title="next"></span></a>
                         </h2>
                     {% endif %}
                 </div>

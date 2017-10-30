@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-md-8">
                     <h3 style="text-align: center;">
-                      <blockquote>{{ object }}</blockquote
+                      <small>quote:</small> <blockquote>{{ object }}</blockquote
                   </h3>
                 </div>
                 <div class="col-md-2">
@@ -54,18 +54,16 @@
                         Foreign Lemmas
                     </th>
                     <td>
-                        <ul>
-                            {% for x in object.has_lemma.all %}
-                                <li>
-                                    <a href="{{ x.get_absolute_url }}">{{ x }}</a>
+                        {% for x in object.has_lemma.all %}
+                                <abbr title="{{ x.language }}"><a href="{{ x.get_absolute_url }}">{{ x }}</a></abbr>
+                                <ul>
                                     {% for y in x.german.all %}
-                                    <li>
-                                        <a href="{{ y.get_absolute_url }}">{{ y }}</a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ y.get_absolute_url }}">{{ y }}</a>
+                                        </li>
                                     {% endfor %}
-                                </li>
-                            {% endfor %}
-                        </ul>
+                                </ul>
+                        {% endfor %}
                     </td>
                 <tr>
             </table>
