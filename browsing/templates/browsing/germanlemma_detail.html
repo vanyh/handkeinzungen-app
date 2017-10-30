@@ -43,18 +43,6 @@
                         {% endfor %}
                     </td>
                 </tr>
-                <tr>
-                    <th>
-                        Verwendet in
-                    </th>
-                    <td>
-                        {% for x in object.used_in.all %}
-                            <li>
-                                <a href="{% url 'browsing:quote_detail' pk=x.id %}">{{ x }}</a>
-                            </li>
-                        {% endfor %}
-                    </td>
-                </tr>
                 </tbody>
             </table>
         </div>

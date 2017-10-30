@@ -9,10 +9,11 @@ class GermanLemmaTable(tables.Table):
         'browsing:germanlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
+    language = tables.Column()
 
     class Meta:
         model = GermanLemma
-        sequence = ('lemma',)
+        sequence = ('id', 'lemma',)
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -21,10 +22,11 @@ class ForeignLemmaTable(tables.Table):
         'browsing:foreignlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
+    language = tables.Column()
 
     class Meta:
         model = ForeignLemma
-        sequence = ('lemma',)
+        sequence = ('id', 'lemma',)
         attrs = {"class": "table table-responsive table-hover"}
 
 
