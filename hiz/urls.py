@@ -2,7 +2,9 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from places.apis_views import PlaceViewSet, GeoJsonViewSet
+from words.api_views import *
 from bib.api_views import *
+
 
 from vocabs import api_views
 
@@ -19,6 +21,8 @@ router.register(r'person', PersonViewSet)
 router.register(r'speaker', SpeakerViewSet)
 router.register(r'quote', QuoteViewSet)
 router.register(r'partofquote', PartOfQuoteViewSet)
+router.register(r'germanlemma', GermanLemmaViewSet)
+router.register(r'foreignlemma', ForeignLemmaViewSet)
 
 
 urlpatterns = [
