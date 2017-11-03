@@ -6,7 +6,6 @@ from .models import Book
 from django.conf import settings
 
 
-
 def sync_zotero(request):
     """ renders a simple template with a button to trigger sync_zotero_action function """
     context = {}
