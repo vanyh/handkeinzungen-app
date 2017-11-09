@@ -21,4 +21,7 @@ urlpatterns = [
     url(r'germanlemmas/$', views.GermanLemmaListView.as_view(), name='browse_germanlemmas'),
     url(r'^germanlemma/(?P<pk>[0-9]+)$', detail_views.GermanLemmaDetailView.as_view(),
         name='germanlemma_detail'),
+    url(r'books/$', views.BookListView.as_view(), name='browse_books'),
+    url(r'^book/(?P<pk>[0-9]+)$', detail_views.BookDetailView.as_view(),
+        name='book_detail')
 ]

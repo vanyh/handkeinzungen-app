@@ -85,3 +85,15 @@ class WorkTable(tables.Table):
         model = Work
         sequence = ('title', 'author', 'main_language', 'creation_start_date',)
         attrs = {"class": "table table-responsive table-hover"}
+
+
+class BookTable(tables.Table):
+    title = tables.LinkColumn(
+        'browsing:book_detail',
+        args=[A('pk')], verbose_name='Titel'
+    )
+
+    class Meta:
+        model = Work
+        sequence = ('id', 'title',)
+        attrs = {"class": "table table-responsive table-hover"}

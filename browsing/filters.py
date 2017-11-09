@@ -182,3 +182,17 @@ class WorkListFilter(django_filters.FilterSet):
         fields = [
             'id'
         ]
+
+
+class BookListFilter(django_filters.FilterSet):
+    title = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Book._meta.get_field('title').help_text,
+        label=Book._meta.get_field('title').verbose_name
+        )
+
+    class Meta:
+        model = Work
+        fields = [
+            'id'
+        ]

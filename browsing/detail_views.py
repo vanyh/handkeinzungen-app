@@ -1,5 +1,5 @@
 from django.views.generic.detail import DetailView
-from bib.models import Work, Person, Quote, PartOfQuote
+from bib.models import Work, Person, Quote, PartOfQuote, Book
 from words.models import GermanLemma, ForeignLemma
 
 
@@ -31,3 +31,8 @@ class QuoteDetailView(DetailView):
 class PartOfQuoteDetailView(DetailView):
     model = PartOfQuote
     template_name = 'browsing/partofquote_detail.html'
+
+
+class BookDetailView(DetailView):
+    model = Book
+    template_name = 'browsing/book_detail.html'
