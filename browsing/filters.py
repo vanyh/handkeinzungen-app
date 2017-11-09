@@ -20,6 +20,7 @@ django_filters.filters.LOOKUP_TYPES = [
     ('not_contains', 'Does not contain'),
 ]
 
+
 class GermanLemmaListFilter(django_filters.FilterSet):
     lemma = django_filters.CharFilter(
         lookup_expr='icontains',
@@ -36,7 +37,6 @@ class GermanLemmaListFilter(django_filters.FilterSet):
         help_text=GermanLemma._meta.get_field('pos').help_text,
         label=GermanLemma._meta.get_field('pos').verbose_name
         )
-
 
     class Meta:
         model = GermanLemma
