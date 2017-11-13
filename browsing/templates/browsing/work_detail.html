@@ -90,11 +90,11 @@
                 <tbody>
                     {% for x in object.published_in.all %}
                         <tr>
-                            <th>{{ x }}</th>
+                            <th><a href="{{ x.get_absolute_url }}">{{ x }}</a></th>
                             <td>
                                 {% for quote in x.has_quotes.all %}
                                     <ul>
-                                        <a href="{{ quote.get_absolute_url}}">{{ quote }}</a>
+                                        <a href="{{ quote.get_absolute_url }}">{{ quote }}</a>
                                     </ul>
                                 {% endfor %}
                             </td>
