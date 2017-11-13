@@ -72,6 +72,10 @@ class Book(models.Model):
     )
     book_type = models.ManyToManyField(SkosConcept, blank=True)
 
+    def get_absolute_url(self):
+        return reverse('browsing:book_detail', kwargs={'pk': self.zoterokey})
+        # return "hansi4ever"
+
     def get_zotero_url(self):
         "Returns the objects URL pointing to its Zotero entry"
         try:
