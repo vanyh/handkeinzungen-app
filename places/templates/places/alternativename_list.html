@@ -1,0 +1,22 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block Title %}List of Alternative Place Names{% endblock %}
+
+{% block content %}
+
+<div class="panel panel-default">
+  <div class="panel-heading">List all names</div>
+  <div class="panel-body">
+      <ul>
+          {% for x in object_list %}
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'places:alternativename_detail' pk=x.id %}">{{ x }}</a></li>
+          {% else %}
+          <li>{{ x }}</li>
+          {% endif %}
+          {% endfor %}
+      </ul>
+  </div>
+</div>
+
+{% endblock %}

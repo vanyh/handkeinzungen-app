@@ -3,6 +3,7 @@ from dal import autocomplete
 from bib.models import *
 from words.models import ForeignLemma, GermanLemma
 from vocabs.models import SkosConcept
+from places.models import Place, AlternativeName
 
 django_filters.filters.LOOKUP_TYPES = [
     ('', '---------'),
@@ -193,6 +194,35 @@ class BookListFilter(django_filters.FilterSet):
 
     class Meta:
         model = Work
+        fields = [
+            'id'
+        ]
+
+
+class PlaceListFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Place._meta.get_field('name').help_text,
+        label=Place._meta.get_field('name').verbose_name
+        )
+    geonames_id = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Place._meta.get_field('geonames_id').help_text,
+        label=Place._meta.get_field('geonames_id').verbose_name
+        )
+    alternative_name = django_filters.ModelMultipleChoiceFilter(
+        queryset=AlternativeName.objects.all(),
+        help_text=Place._meta.get_field('alternative_name').help_text,
+        label=Place._meta.get_field('alternative_name').verbose_name
+        )
+    part_of = django_filters.ModelMultipleChoiceFilter(
+        queryset=Place.objects.all(),
+        help_text=Place._meta.get_field('part_of').help_text,
+        label=Place._meta.get_field('part_of').verbose_name
+        )
+
+    class Meta:
+        model = Place
         fields = [
             'id'
         ]

@@ -1,0 +1,21 @@
+{% extends "webpage/base.html" %}
+{% block Title %} Create/Modify Alternative Name {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Create/Edit Alternative Name</h1>
+    </div>
+    <div class="panel-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% crispy form %}
+            {% if object %}
+            <a class ="btn btn-danger btn-sm" href="{% url 'places:alternativename_delete' pk=object.id %}">delete</a>
+            {% endif %}
+        </form>
+   </div>
+</div>
+</div>
+{% endblock content %}

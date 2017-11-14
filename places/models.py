@@ -9,6 +9,31 @@ class AlternativeName(IdProvider):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('places:alternativename_detail', kwargs={'pk': self.id})
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('places:alternativename_list')
+
+    def get_next(self):
+        next = AlternativeName.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = AlternativeName.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
+    def get_absolute_url(self):
+        return reverse('places:alternativename_detail', kwargs={'pk': self.id})
+
+    def __str__(self):
+        return "{}".format(self.name)
+
 
 class Place(IdProvider):
     PLACE_TYPES = (
@@ -23,7 +48,8 @@ class Place(IdProvider):
     alternative_name = models.ManyToManyField(
         AlternativeName,
         max_length=250, blank=True,
-        help_text="Alternative names"
+        help_text="Alternative names",
+        related_name="related_places"
     )
     geonames_id = models.CharField(
         max_length=50, blank=True,
@@ -44,6 +70,9 @@ class Place(IdProvider):
     @classmethod
     def get_listview_url(self):
         return reverse('places:place_list')
+
+    def get_absolute_url(self):
+        return reverse('places:place_detail', kwargs={'pk': self.id})
 
     def __str__(self):
         return "{}".format(self.name)

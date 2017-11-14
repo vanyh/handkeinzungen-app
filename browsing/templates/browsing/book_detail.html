@@ -103,12 +103,13 @@
                     <th>
                         Ort der Veröffentlichung
                     </th>
-                    <td>
+                    <td>{% if object.pub_place %}
                         {% for x in object.pub_place.all %}
                             <li>
-                                <a href="">{{ x }}</a>
+                                <a href="{% url 'places:place_detail' pk=x.id %}">{{ x }}</a>
                             </li>
                         {% endfor %}
+                        {% endif %}
                     </td>
                 </tr>
                 <tr>
