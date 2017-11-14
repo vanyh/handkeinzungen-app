@@ -23,5 +23,6 @@ urlpatterns = [
         name='germanlemma_detail'),
     url(r'books/$', views.BookListView.as_view(), name='browse_books'),
     url(r'^book/(?P<pk>[\w\-]+)$', detail_views.BookDetailView.as_view(),
-        name='book_detail')
+        name='book_detail'),
+    url(r'places/$', views.PlaceListView.as_view(), name='browse_places')
 ]
