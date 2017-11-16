@@ -24,5 +24,10 @@ urlpatterns = [
     url(r'books/$', views.BookListView.as_view(), name='browse_books'),
     url(r'^book/(?P<pk>[\w\-]+)$', detail_views.BookDetailView.as_view(),
         name='book_detail'),
-    url(r'places/$', views.PlaceListView.as_view(), name='browse_places')
+    url(r'places/$', views.PlaceListView.as_view(), name='browse_places'),
+    url(r'^places/(?P<pk>[0-9]+)$', detail_views.PlaceDetailView.as_view(),
+        name='place_detail'),
+    url(r'altnames/$', views.AlternativeNameListView.as_view(), name='browse_altnames'),
+    url(r'^altnames/(?P<pk>[0-9]+)$', detail_views.AlternativeNameDetailView.as_view(),
+        name='alternativename_detail')
 ]

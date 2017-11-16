@@ -2,7 +2,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^altnames/$', views.AlternativeNameListView.as_view(), name='alternativename_list'),
     url(r'^altnames/detail/(?P<pk>[0-9]+)$', views.AlternativeNameDetailView.as_view(),
         name='alternativename_detail'),
     url(r'^altnames/edit/(?P<pk>[0-9]+)$', views.AlternativeNameUpdate.as_view(),
