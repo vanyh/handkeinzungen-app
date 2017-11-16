@@ -14,7 +14,7 @@ class AlternativeName(IdProvider):
 
     @classmethod
     def get_listview_url(self):
-        return reverse('places:alternativename_list')
+        return reverse('browsing:browse_altnames')
 
     def get_next(self):
         next = AlternativeName.objects.filter(id__gt=self.id)

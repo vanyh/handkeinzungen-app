@@ -2,6 +2,7 @@ import django_tables2 as tables
 from django_tables2.utils import A
 from bib.models import *
 from words.models import ForeignLemma, GermanLemma
+from places.models import Place, AlternativeName
 
 
 class GermanLemmaTable(tables.Table):
@@ -101,11 +102,23 @@ class BookTable(tables.Table):
 
 class PlaceTable(tables.Table):
     title = tables.LinkColumn(
-        'browsing:place_detail',
+        'places:place_detail',
         args=[A('pk')], verbose_name='Titel'
     )
 
     class Meta:
-        model = Work
+        model = Place
         sequence = ('name', 'GeoNames',)
+        attrs = {"class": "table table-responsive table-hover"}
+
+
+class AlternativeNameTable(tables.Table):
+    name = tables.LinkColumn(
+        'places:alternativename_detail',
+        args=[A('pk')], verbose_name='Name'
+    )
+
+    class Meta:
+        model = AlternativeName
+        sequence = ('name',)
         attrs = {"class": "table table-responsive table-hover"}

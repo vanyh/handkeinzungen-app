@@ -12,14 +12,6 @@ from .models import Place, AlternativeName
 from .forms import PlaceForm, PlaceFormCreate, AlternativeNameForm
 
 
-class AlternativeNameListView(generic.ListView):
-    # template_name = "places/list_alternativenames.html"
-    context_object_name = 'object_list'
-
-    def get_queryset(self):
-        return AlternativeName.objects.all()
-
-
 class AlternativeNameUpdate(UpdateView):
 
     model = AlternativeName
