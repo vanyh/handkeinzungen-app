@@ -83,43 +83,43 @@
                  <ul class="nav navbar-nav">
                  <li><a href="/">Home</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Über das Projekt
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'webpage:staticpage' template='about' %}">About project</a></li>
-                            <li><a href="{% url 'datamodel:plate' %}">Application's data model</a></li>
-                            <li><a href="{% url 'webpage:staticpage' template='imprint' %}">Impressum / Imprint</a></li>
+                            <li><a href="{% url 'webpage:staticpage' template='about' %}">Beschreibung</a></li>
+                            <li><a href="{% url 'datamodel:plate' %}">Datenmodell</a></li>
+                            <li><a href="{% url 'webpage:staticpage' template='imprint' %}">Impressum</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         {% if user.is_authenticated %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Curate and Browse the Data <span class="caret"></span>
+                            Einträge durchblättern und kuratieren<span class="caret"></span>
                         </a>
                         {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Browse the Data <span class="caret"></span>
+                            Einträge durchblättern<span class="caret"></span>
                         </a>
                         {% endif %}
                         <ul class="dropdown-menu">
                             <li><a href="{% url 'browsing:browse_works' %}">Werke</a></li>
                             <li><a href="{% url 'browsing:browse_quotes' %}">Zitate</a></li>
                             <li><a href="{% url 'browsing:browse_partofquotes' %}">Zitat-Teile</a></li>
-                            <li><a href="{% url 'browsing:browse_germanlemmas' %}">GermanLemma</a></li>
-                            <li><a href="{% url 'browsing:browse_foreignlemmas' %}">ForeignLemma</a></li>
+                            <li><a href="{% url 'browsing:browse_germanlemmas' %}">Deutsche Lemmata</a></li>
+                            <li><a href="{% url 'browsing:browse_foreignlemmas' %}">Fremdsprachige Lemmata</a></li>
                             <li><a href="{% url 'browsing:browse_persons' %}">Personen</a></li>
-                            <li><a href="{% url 'places:place_list' %}">Locations</a></li>
-                            <li><a href="{% url 'browsing:browse_altnames' %}">Alternative Names</a></li>
+                            <li><a href="{% url 'places:place_list' %}">Orte</a></li>
+                            <li><a href="{% url 'browsing:browse_altnames' %}">Alternative Ortsbezeichnungen</a></li>
                             {% if user.is_authenticated %}
                                 <li role="separator" class="divider"></li>
-                                <li><a href="{% url 'bib:synczotero' %}">Import new Items from Zotero</a></li>
+                                <li><a href="{% url 'bib:synczotero' %}">Einträge aus Zotero importieren</a></li>
                             {% endif %}
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                           Retrieve the Data <span class="caret"></span>
+                           Daten wiederherstellen<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                         <li><a href="/api">API</a></li></ul>
@@ -127,16 +127,16 @@
                     {% if user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Vocabs Curation <span class="caret"></span>
+                            Vocabs Curation<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'vocabs:skosconceptscheme_list' %}">Concept Schemes</a></li>
-                            <li><a href="{% url 'vocabs:browse_vocabs' %}">Concepts</a></li>
-                            <li><a href="{% url 'vocabs:skoslabel_list' %}">Labels</a></li>
+                            <li><a href="{% url 'vocabs:skosconceptscheme_list' %}">Concept Schemes durchblättern</a></li>
+                            <li><a href="{% url 'vocabs:browse_vocabs' %}">Concepts durchblättern</a></li>
+                            <li><a href="{% url 'vocabs:skoslabel_list' %}">Labels durchblättern</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{% url 'vocabs:skos_import' %}">Import SKOS (RDF/XML)</a></li>
-                            <li><a href="{% url 'vocabs:skos_csv_import' %}">Import Vocabs from CSV</a></li>
-                            <li><a href="{% url 'api-root' %}">Export SKOS (API)</a></li>
+                            <li><a href="{% url 'vocabs:skos_import' %}">SKOS (RDF/XML) importieren</a></li>
+                            <li><a href="{% url 'vocabs:skos_csv_import' %}">Vocabs aus CSV importieren</a></li>
+                            <li><a href="{% url 'api-root' %}">SKOS (API) exportieren</a></li>
                         </ul>
                     </li>
                     {% endif %}
@@ -149,14 +149,14 @@
                                 {{ user.get_username }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{% url 'webpage:user_logout' %}">Log-Out</a></li>
+                                <li><a href="{% url 'webpage:user_logout' %}">Log-out</a></li>
                             </ul>
                         {% else %}
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{% url 'webpage:user_login' %}">Log-In</a></li>
+                                <li><a href="{% url 'webpage:user_login' %}">Log-in</a></li>
                             </ul>
                         {% endif %}
                     </li>
@@ -167,7 +167,7 @@
 </header>
 <div class="alert alert-warning alert-dismissable">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Warning</strong> Under construction.
+  <strong>Hinweis</strong> In Arbeit.
 </div>
 <section class="main-content">
     <div id="content" class="container">{% block content %}{% endblock %}</div>

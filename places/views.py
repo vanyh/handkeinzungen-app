@@ -37,7 +37,7 @@ class AlternativeNameCreate(CreateView):
 class AlternativeNameDelete(DeleteView):
     model = AlternativeName
     template_name = 'webpage/confirm_delete.html'
-    success_url = reverse_lazy('places:alternativename_list')
+    success_url = reverse_lazy('browsing:browse_altnames')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

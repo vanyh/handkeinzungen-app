@@ -143,7 +143,7 @@ class WorkFilterFormHelper(FormHelper):
                     css_id="basic_search_fields"
                 ),
                 AccordionGroup(
-                    'Enstehungszeit',
+                    'Entstehungszeit',
                     'creation_start_date',
                     'start_date_sure',
                     'creation_end_date',

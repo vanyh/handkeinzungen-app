@@ -7,16 +7,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">Confirm delete</h3>
+                <h3 class="modal-title">Löschen bestätigen</h3>
             </div>
             <div class="modal-body">
                 <form action="" method="post">
                     {% csrf_token %}
                     <h4>
-                        Are you sure you want to delete the {{ object.get_classname }}:<br />
-                        <strong>{{ object }}</strong> ?
+                        Möchten Sie <strong>{{ object }}</strong> wirklich löschen?
                     </h4>
-                    <input  class="btn btn-danger" type="submit" value="Yes, I want to delete" />
+                    <input  class="btn btn-danger" type="submit" value="Ja, löschen" />
                 </form>
             </div>
             <div class="modal-footer"></div>

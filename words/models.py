@@ -72,6 +72,5 @@ class ForeignLemma(IdProvider):
     def get_absolute_url(self):
         return reverse('browsing:foreignlemma_detail', kwargs={'pk': self.id})
 
-
     def __str__(self):
         return "{}".format(self.lemma)
