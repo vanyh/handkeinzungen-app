@@ -101,7 +101,7 @@ class GermanLemmaListView(GenericListView):
     table_class = GermanLemmaTable
     filter_class = GermanLemmaListFilter
     formhelper_class = GermanLemmaFilterFormHelper
-    init_columns = ['id', 'lemma', 'language']
+    init_columns = ['id', 'lemma']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
