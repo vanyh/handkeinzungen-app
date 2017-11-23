@@ -1,6 +1,6 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block Titel %} {{ object.id }} {% endblock %}
+{% block title %} {{ object.id }} {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -17,6 +17,12 @@
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
                     <small>person:</small> {{ object }}
+                    {% if user.is_authenticated %}
+                    <small><a href="{% url 'bib:person_edit' pk=object.id %}">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
+                    </a>
+                </small>
+                {% endif %}
                     </h1>
                 </div>
                 <div class="col-md-2">

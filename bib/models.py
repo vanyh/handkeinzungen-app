@@ -9,12 +9,15 @@ from .helper_functions import create_tag
 
 class Person(IdProvider):
     """Eine Person, zum Beispiel die Verfasserin eines Werks."""
-    first_name = models.CharField(max_length=100, blank=True, null=True,
-    verbose_name="Vorname der Person")
-    last_name = models.CharField(max_length=100, blank=True, null=True,
-    verbose_name="Nachname der Person")
-    person_gnd = models.CharField(max_length=100, blank=True, null=True,
-    verbose_name="GND-ID der Person")
+    first_name = models.CharField(
+        max_length=100, blank=True, null=True,
+        verbose_name="Vorname der Person")
+    last_name = models.CharField(
+        max_length=100, blank=True, null=True,
+        verbose_name="Nachname der Person")
+    person_gnd = models.CharField(
+        max_length=100, blank=True, null=True,
+        verbose_name="GND-ID der Person")
 
     @classmethod
     def get_listview_url(self):
@@ -90,6 +93,11 @@ class Book(models.Model):
     def __str__(self):
         return "{}, {}".format(self.author, self.title)
 
+    def get_classname(self):
+        """Returns the name of the class. Needed to fetch the class name in templates"""
+        class_name = "{}".format(self.__class__.__name__)
+        return class_name
+
 
 class Work(IdProvider):
     """Ein Werk an sich (unabhängig von seiner Nicht-/Publikation)"""
@@ -155,6 +163,11 @@ class Speaker(IdProvider):
 
     def __str__(self):
         return "Speaker: {}".format(self.name)
+
+    def get_classname(self):
+        """Returns the name of the class. Needed to fetch the class name in templates"""
+        class_name = "{}".format(self.__class__.__name__)
+        return class_name
 
 
 class Quote(IdProvider):

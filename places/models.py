@@ -74,5 +74,22 @@ class Place(IdProvider):
     def get_absolute_url(self):
         return reverse('places:place_detail', kwargs={'pk': self.id})
 
+    def get_classname(self):
+        """Returns the name of the class. Needed to fetch the class name in templates"""
+        class_name = "{}".format(self.__class__.__name__)
+        return class_name
+
     def __str__(self):
         return "{}".format(self.name)
+
+    def get_next(self):
+        next = Place.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Place.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False

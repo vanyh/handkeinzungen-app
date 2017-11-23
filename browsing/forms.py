@@ -28,7 +28,7 @@ class GermanLemmaFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'lemma',
                     'pos',
                     css_id="basic_search_fields"
@@ -48,7 +48,7 @@ class ForeignLemmaFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'lemma',
                     'german',
                     css_id="basic_search_fields"
@@ -75,7 +75,7 @@ class PartOfQuoteFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'text',
                     'part_of',
                     'language',
@@ -96,7 +96,7 @@ class QuoteFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'text',
                     'book_source',
                     css_id="basic_search_fields"
@@ -116,7 +116,7 @@ class PersonFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'first_name',
                     'last_name',
                     'person_gnd',
@@ -137,7 +137,7 @@ class WorkFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'title',
                     'work_author',
                     css_id="basic_search_fields"
@@ -151,7 +151,7 @@ class WorkFilterFormHelper(FormHelper):
                     css_id="entstehungszeit"
                 ),
                 AccordionGroup(
-                    'Advanced search options',
+                    'Erweiterte Suche',
                     'work_translator',
                     'alt_title',
                     'main_language',
@@ -172,7 +172,7 @@ class BookFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'title',
                     css_id="basic_search_fields"
                 ),
@@ -191,7 +191,7 @@ class PlaceFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'name',
                     'alternative_name',
                     css_id="basic_search_fields"
@@ -217,7 +217,7 @@ class AlternativeNameFilterFormHelper(FormHelper):
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Basic search options',
+                    'Einfache Suche',
                     'name',
                     css_id="basic_search_fields"
                 ),

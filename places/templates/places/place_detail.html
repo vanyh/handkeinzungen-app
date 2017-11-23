@@ -1,6 +1,6 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block Title %}Place Detail{% endblock %}
+{% block title %}Details für {{ object.get_classname }}: {{object.name}}{% endblock %}
 
 {% block scriptHeader %}
 <!-- In case you are using any autocomplete-functions, don´t forget to
@@ -105,7 +105,7 @@ include 'autocomplete_light/static.html
                             {% if x.id %}
                             <li><a href="{% url 'places:place_detail' pk=x.id %}">{{ x }}</a></li>
                             {% endif %}
-                            {% endfor %}                       
+                            {% endfor %}
                         </ul>
                     </td>
                 </tr>

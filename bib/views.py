@@ -1,8 +1,13 @@
 import requests
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-
-from .models import Book
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.views.generic.detail import DetailView
+from .models import Book, Person
+from .forms import PersonForm
+from django.utils.decorators import method_decorator
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 
@@ -16,6 +21,38 @@ def sync_zotero(request):
         context['base_url'] = ''
         context['collection_title'] = 'PLEASE PROVIDE TITEL IN SETTINGS FILE'
     return render(request, 'bib/synczotero.html', context)
+
+
+class PersonUpdate(UpdateView):
+
+    model = Person
+    form_class = PersonForm
+    template_name = 'bib/person_edit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PersonUpdate, self).dispatch(*args, **kwargs)
+
+
+class PersonCreate(CreateView):
+
+    model = Person
+    form_class = PersonForm
+    template_name = 'bib/person_create.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PersonCreate, self).dispatch(*args, **kwargs)
+
+
+class PersonDelete(DeleteView):
+    model = Person
+    template_name = 'webpage/confirm_delete.html'
+    success_url = reverse_lazy('browsing:browse_persons')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PersonDelete, self).dispatch(*args, **kwargs)
 
 
 @login_required

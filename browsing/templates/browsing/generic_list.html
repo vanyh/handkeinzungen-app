@@ -3,7 +3,7 @@
 {% load django_tables2 %}
 {% load browsing_extras %}
 {% load i18n %}
-{% block Titel %} Browse {{ class_name }} {% endblock %}
+{% block title %} Browse {{ class_name }} {% endblock %}
 {% block scriptHeader %}
 {% endblock %}
 {% block content %}
@@ -28,11 +28,11 @@ $("#goto option").each(function() {
 <div class="panel panel-default">
     <div class="panel-heading procustom-panel-heading">
 
-        <h3><span class="fa fa-search" style="padding-left:10px; padding-right: 10px;"></span>Browse {% class_definition %} {% block list_title %}{% endblock %}</h3>
+        <h3><span class="fa fa-search" style="padding-left:10px; padding-right: 10px;"></span>{% class_definition %} durchblättern {% block list_title %}{% endblock %}</h3>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myFilter">
           <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
         </button>
-        <a class ="btn btn-default"  href=".">Reset search</a>
+        <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
     {%block customView %}{% endblock %}
     {% block create_button %}{% endblock %}
     </div>
@@ -40,7 +40,7 @@ $("#goto option").each(function() {
         <div class="row">
             <div class="col-md-12">
                 {% with table.paginator.count as total %}
-                <legend>Total results: {{ total }}</legend>
+                <legend>Treffer gesamt: {{ total }}</legend>
                 {% endwith %}
       {% block table %}
       <table{% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
@@ -96,7 +96,7 @@ $("#goto option").each(function() {
       <ul class="pagination">
 <div>
 {% with table.page.object_list|length as count %}
-<p>Page total: {{ count }}</p>
+<p>Seiten gesamt: {{ count }}</p>
 {% endwith %}
 </div>
 
@@ -118,7 +118,7 @@ $("#goto option").each(function() {
 <!--select form if more than 15 pages -->
 
 <div class="form-group">
-  <label for="goto">Go to page</label>
+  <label for="goto">Zu Seite</label>
     <select class="form-control" id="goto" onchange="javascript:location.href = this.value;">
         {% for p in table.paginator.page_range %}
             <option value="{% querystring table.prefixed_page_field=p %}">{{ p }}</option>
@@ -134,7 +134,7 @@ $("#goto option").each(function() {
 {% if table.page.has_previous or table.page.has_next %}
 {% block pagination.cardinality %}
 {% blocktrans with table.page.number as current and table.paginator.num_pages as total %}
-<p>Page {{ current }} of {{ total }}</p>
+<p>Seite {{ current }} von {{ total }}</p>
 {% endblocktrans %}
 {% endblock pagination.cardinality %}
 {% endif %}
@@ -202,17 +202,17 @@ $("#goto option").each(function() {
             <form action="." class="uniForm" method="get">
                 {% if togglable_colums %}
                 </br>
-                    <legend>Select additional columns</legend>
+                    <legend>Zusätzliche Spalten auswählen</legend>
                     {% column_selector  %}
                 {% endif %}
-                
+
                 </br>
-            <legend>Refine your search</legend>
+            <legend>Suche verfeinern</legend>
             {% crispy filter.form filter.form.helper %}
             </form>
 
           {% block reset_button %}
-          <a class ="btn btn-default"  href=".">Reset search</a>
+          <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
           {% endblock %}
       </div>
       <div class="modal-footer">
