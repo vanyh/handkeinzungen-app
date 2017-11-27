@@ -70,10 +70,10 @@ def create_place(request):
 			form.save()
 			return redirect('places:place_list')
 		else:
-			return render(request, 'places/edit_places.html', {'form': form})
+			return render(request, 'places/place_edit.html', {'form': form})
 	else:
 		form = PlaceFormCreate()
-		return render(request, 'places/edit_places.html', {'form': form})
+		return render(request, 'places/place_edit.html', {'form': form})
 
 
 @login_required
@@ -93,7 +93,7 @@ def edit_place(request, pk):
             form = PlaceForm(instance = instance)
             print(url)
             return render(
-                request, 'places/edit_places.html',
+                request, 'places/place_edit.html',
                 {'object':instance, 'form':form, 'responseJSON':responseJSON}
             )
         except requests.exceptions.RequestException as e:
@@ -102,7 +102,7 @@ def edit_place(request, pk):
         print(url)
         responseJSON = "hansi"
 		#form = OrtForm({'geonames_id':123})
-        return render(request, 'places/edit_places.html',
+        return render(request, 'places/place_edit.html',
 			{'object': instance, 'form' :form, 'responseJSON': responseJSON}
 			)
     else:

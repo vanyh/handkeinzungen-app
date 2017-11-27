@@ -34,6 +34,11 @@ class AlternativeName(IdProvider):
     def __str__(self):
         return "{}".format(self.name)
 
+    def get_classname(self):
+        """Returns the name of the class. Needed to fetch the class name in templates"""
+        class_name = "{}".format(self.__class__.__name__)
+        return class_name
+
 
 class Place(IdProvider):
     PLACE_TYPES = (

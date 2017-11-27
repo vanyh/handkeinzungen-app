@@ -3,7 +3,7 @@
 {% load django_tables2 %}
 {% load browsing_extras %}
 {% load i18n %}
-{% block title %} Browse {{ class_name }} {% endblock %}
+{% block title %} {{ class_name }} durchblättern {% endblock %}
 {% block scriptHeader %}
 {% endblock %}
 {% block content %}
@@ -216,7 +216,7 @@ $("#goto option").each(function() {
           {% endblock %}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
       </div>
     </div>
   </div>

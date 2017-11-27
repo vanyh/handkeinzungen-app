@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.detail import DetailView
-from .models import Book, Person
-from .forms import PersonForm
+from .models import Book, Person, Work
+from .forms import PersonForm, WorkForm
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -46,13 +46,45 @@ class PersonCreate(CreateView):
 
 
 class PersonDelete(DeleteView):
-    model = Person
+    model = Work
     template_name = 'webpage/confirm_delete.html'
     success_url = reverse_lazy('browsing:browse_persons')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(PersonDelete, self).dispatch(*args, **kwargs)
+
+
+class WorkUpdate(UpdateView):
+
+    model = Work
+    form_class = WorkForm
+    template_name = 'bib/work_edit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(WorkUpdate, self).dispatch(*args, **kwargs)
+
+
+class WorkCreate(CreateView):
+
+    model = Work
+    form_class = WorkForm
+    template_name = 'bib/work_create.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(WorkCreate, self).dispatch(*args, **kwargs)
+
+
+class WorkDelete(DeleteView):
+    model = Work
+    template_name = 'webpage/confirm_delete.html'
+    success_url = reverse_lazy('browsing:browse_work')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(WorkDelete, self).dispatch(*args, **kwargs)
 
 
 @login_required
