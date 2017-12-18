@@ -41,6 +41,12 @@ class Person(IdProvider):
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Personen'
+
 
 class Book(models.Model):
     """Bibliographische Informationen zu einem publizierten Buch."""
@@ -98,6 +104,12 @@ class Book(models.Model):
         class_name = "{}".format(self.__class__.__name__)
         return class_name
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Bücher'
+
 
 class Work(IdProvider):
     """Ein Werk an sich (unabhängig von seiner Nicht-/Publikation)"""
@@ -150,6 +162,12 @@ class Work(IdProvider):
     def get_absolute_url(self):
         return reverse('browsing:work_detail', kwargs={'pk': self.id})
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Werke'
+
 
 class Speaker(IdProvider):
     """Figur, die spricht"""
@@ -168,6 +186,12 @@ class Speaker(IdProvider):
         """Returns the name of the class. Needed to fetch the class name in templates"""
         class_name = "{}".format(self.__class__.__name__)
         return class_name
+
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Sprecher'
 
 
 class Quote(IdProvider):
@@ -214,6 +238,12 @@ class Quote(IdProvider):
     def get_absolute_url(self):
         return reverse('browsing:quote_detail', kwargs={'pk': self.id})
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Zitate'
+
 
 class PartOfQuote(IdProvider):
     """fremdsprachiger Zitatteil"""
@@ -259,3 +289,9 @@ class PartOfQuote(IdProvider):
 
     def __str__(self):
         return "{} - {}".format(self.id, self.text)
+
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Zitat-Teile'

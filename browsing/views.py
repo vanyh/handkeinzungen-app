@@ -29,10 +29,13 @@ class GenericListView(SingleTableView):
         context = super(GenericListView, self).get_context_data()
         context[self.context_filter_name] = self.filter
         context['docstring'] = "{}".format(self.model.__doc__)
-        if self.model.__name__.endswith('s'):
-            context['class_name'] = "{}".format(self.model.__name__)
-        else:
-            context['class_name'] = "{}s".format(self.model.__name__)
+        try:
+            context['class_name'] = self.model.get_alternative_classname()
+        except AttributeError:
+            if self.model.__name__.endswith('s'):
+                context['class_name'] = "{}".format(self.model.__name__)
+            else:
+                context['class_name'] = "{}s".format(self.model.__name__)
         return context
 
 

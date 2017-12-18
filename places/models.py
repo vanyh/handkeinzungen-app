@@ -39,6 +39,12 @@ class AlternativeName(IdProvider):
         class_name = "{}".format(self.__class__.__name__)
         return class_name
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Alternative Ortsbezeichnungen'
+
 
 class Place(IdProvider):
     PLACE_TYPES = (
@@ -98,3 +104,9 @@ class Place(IdProvider):
         if prev:
             return prev.first().id
         return False
+
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Orte'

@@ -43,6 +43,12 @@ class GermanLemma(IdProvider):
     def __str__(self):
         return "{}".format(self.lemma)
 
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Deutsche Lemmata'
+
 
 class ForeignLemma(IdProvider):
     lemma = models.CharField(max_length=250, blank=True, null=True)
@@ -74,3 +80,9 @@ class ForeignLemma(IdProvider):
 
     def __str__(self):
         return "{}".format(self.lemma)
+
+    @classmethod
+    def get_alternative_classname(self):
+        """Returns the alternative name of the class.
+        Needed to present the human readable name of class"""
+        return 'Fremdsprachige Lemmata'
