@@ -13,7 +13,7 @@ INSTALLED_APPS + [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db_test.sqlite3'),
     }
 }
 
@@ -21,7 +21,7 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 NOSE_ARGS = [
     '--with-coverage',          # generate coverage
-    '--cover-package=hiz,vocabs,webpage',
+    '--cover-package=hiz,vocabs,webpage,bib',
     '--cover-html',             # generate a html cover report
     '--nocapture',              # needed to show print output in console
     '--nologcapture',           # needed to show print output in console
