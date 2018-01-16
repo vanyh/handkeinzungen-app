@@ -1,0 +1,18 @@
+{% extends "webpage/base.html" %}
+{% block title %} Zitat erstellen {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Zitat erstellen</h1>
+    </div>
+    <div class="panel-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% crispy form %}
+        </form>
+   </div>
+</div>
+</div>
+{% endblock content %}

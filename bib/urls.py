@@ -16,5 +16,11 @@ urlpatterns = [
     url(r'^work/create/$', views.WorkCreate.as_view(),
         name='work_create'),
     url(r'^work/delete/(?P<pk>[0-9]+)$', views.WorkDelete.as_view(),
-        name='work_delete')
+        name='work_delete'),
+    url(r'^quote/edit/(?P<pk>[0-9]+)$', views.QuoteUpdate.as_view(),
+        name='quote_edit'),
+    url(r'^quote/create/$', views.QuoteCreate.as_view(),
+        name='quote_create'),
+    url(r'^quote/delete/(?P<pk>[0-9]+)$', views.QuoteDelete.as_view(),
+        name='quote_delete')
 ]

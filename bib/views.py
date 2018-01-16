@@ -3,8 +3,8 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.detail import DetailView
-from .models import Book, Person, Work
-from .forms import PersonForm, WorkForm
+from .models import Book, Person, Work, Quote
+from .forms import PersonForm, WorkForm, QuoteForm
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -85,6 +85,38 @@ class WorkDelete(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(WorkDelete, self).dispatch(*args, **kwargs)
+
+
+class QuoteUpdate(UpdateView):
+
+    model = Quote
+    form_class = QuoteForm
+    template_name = 'bib/quote_edit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(QuoteUpdate, self).dispatch(*args, **kwargs)
+
+
+class QuoteCreate(CreateView):
+
+    model = Quote
+    form_class = QuoteForm
+    template_name = 'bib/quote_create.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(QuoteCreate, self).dispatch(*args, **kwargs)
+
+
+class QuoteDelete(DeleteView):
+    model = Quote
+    template_name = 'webpage/confirm_delete.html'
+    success_url = reverse_lazy('browsing:browse_quotes')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(QuoteDelete, self).dispatch(*args, **kwargs)
 
 
 @login_required
