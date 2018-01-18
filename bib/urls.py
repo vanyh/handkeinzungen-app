@@ -34,5 +34,11 @@ urlpatterns = [
     url(r'^germanlemma/create/$', views.GermanLemmaCreate.as_view(),
         name='germanlemma_create'),
     url(r'^germanlemma/delete/(?P<pk>[0-9]+)$', views.GermanLemmaDelete.as_view(),
-        name='germanlemma_delete')
+        name='germanlemma_delete'),
+    url(r'^foreignlemma/edit/(?P<pk>[0-9]+)$', views.ForeignLemmaUpdate.as_view(),
+        name='foreignlemma_edit'),
+    url(r'^foreignlemma/create/$', views.ForeignLemmaCreate.as_view(),
+        name='foreignlemma_create'),
+    url(r'^foreignlemma/delete/(?P<pk>[0-9]+)$', views.ForeignLemmaDelete.as_view(),
+        name='foreignlemma_delete')
 ]

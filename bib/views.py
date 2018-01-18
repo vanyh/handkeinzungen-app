@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.detail import DetailView
 from .models import Book, Person, Work, Quote, PartOfQuote
-from words.models import GermanLemma
-from .forms import PersonForm, WorkForm, QuoteForm, PartOfQuoteForm, GermanLemmaForm
+from words.models import GermanLemma, ForeignLemma
+from .forms import PersonForm, WorkForm, QuoteForm, PartOfQuoteForm, GermanLemmaForm, ForeignLemmaForm
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -180,6 +180,36 @@ class GermanLemmaDelete(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(GermanLemmaDelete, self).dispatch(*args, **kwargs)
+
+
+class ForeignLemmaUpdate(UpdateView):
+    model = ForeignLemma
+    form_class = ForeignLemmaForm
+    template_name = 'bib/foreignlemma_edit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ForeignLemmaUpdate, self).dispatch(*args, **kwargs)
+
+
+class ForeignLemmaCreate(CreateView):
+    model = ForeignLemma
+    form_class = ForeignLemmaForm
+    template_name = 'bib/foreignlemma_create.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ForeignLemmaCreate, self).dispatch(*args, **kwargs)
+
+
+class ForeignLemmaDelete(DeleteView):
+    model = ForeignLemma
+    template_name = 'webpage/confirm_delete.html'
+    success_url = reverse_lazy('browsing:browse_foreignlemmas')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(ForeignLemmaDelete, self).dispatch(*args, **kwargs)
 
 
 @login_required
