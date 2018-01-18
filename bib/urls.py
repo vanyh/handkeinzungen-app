@@ -28,5 +28,11 @@ urlpatterns = [
     url(r'^partofquote/create/$', views.PartOfQuoteCreate.as_view(),
         name='partofquote_create'),
     url(r'^partofquote/delete/(?P<pk>[0-9]+)$', views.PartOfQuoteDelete.as_view(),
-        name='partofquote_delete')
+        name='partofquote_delete'),
+    url(r'^germanlemma/edit/(?P<pk>[0-9]+)$', views.GermanLemmaUpdate.as_view(),
+        name='germanlemma_edit'),
+    url(r'^germanlemma/create/$', views.GermanLemmaCreate.as_view(),
+        name='germanlemma_create'),
+    url(r'^germanlemma/delete/(?P<pk>[0-9]+)$', views.GermanLemmaDelete.as_view(),
+        name='germanlemma_delete')
 ]
