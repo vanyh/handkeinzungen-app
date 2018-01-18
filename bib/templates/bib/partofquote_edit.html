@@ -1,0 +1,22 @@
+{% extends "webpage/base.html" %}
+{% load staticfiles %}
+{% block title %} '{{object.text|truncatechars:33}}' bearbeiten {% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                  <h3>'{{object.text|truncatechars:33}}' bearbeiten</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% crispy form %}
+                </form>
+                {% if object %}
+                <a class ="btn btn-danger btn-sm" href="{% url 'bib:partofquote_delete' pk=object.id %}">Löschen</a>
+                {% endif %}
+           </div>
+       </div>
+
+{% endblock %}

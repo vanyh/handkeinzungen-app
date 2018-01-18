@@ -22,5 +22,11 @@ urlpatterns = [
     url(r'^quote/create/$', views.QuoteCreate.as_view(),
         name='quote_create'),
     url(r'^quote/delete/(?P<pk>[0-9]+)$', views.QuoteDelete.as_view(),
-        name='quote_delete')
+        name='quote_delete'),
+    url(r'^partofquote/edit/(?P<pk>[0-9]+)$', views.PartOfQuoteUpdate.as_view(),
+        name='partofquote_edit'),
+    url(r'^partofquote/create/$', views.PartOfQuoteCreate.as_view(),
+        name='partofquote_create'),
+    url(r'^partofquote/delete/(?P<pk>[0-9]+)$', views.PartOfQuoteDelete.as_view(),
+        name='partofquote_delete')
 ]

@@ -15,9 +15,15 @@
                 {% endif %}
                 </div>
                 <div class="col-md-8">
-                    <h3 style="text-align: center;">
-                    <small>part of quote:</small> <blockquote>{{ object.text }}</blockquote
-                  </h3>
+                    <h1 style="text-align: center;">
+                        <small>part of quote:</small> <blockquote>{{ object.text }}</blockquote>
+                        {% if user.is_authenticated %}
+                        <small><a href="{% url 'bib:partofquote_edit' pk=object.id %}">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
+                        </a>
+                        </small>
+                    {% endif %}
+                    </h1>
                 </div>
                 <div class="col-md-2">
                 {% if object.get_next %}
