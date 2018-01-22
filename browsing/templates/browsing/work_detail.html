@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>work:</small> {{ object.title }}
+                        <small>Werk:</small> {{ object.title }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'bib:work_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>

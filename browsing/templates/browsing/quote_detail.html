@@ -16,13 +16,12 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>quote:</small> <blockquote>{{ object }}</blockquote>
-                        {% if user.is_authenticated %}
+                        <small>Zitat:</small>{% if user.is_authenticated %}
                         <small><a href="{% url 'bib:quote_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
                         </a>
                         </small>
-                    {% endif %}
+                    {% endif %} <blockquote>{{ object }}</blockquote>
                     </h1>
                 </div>
                 <div class="col-md-2">
