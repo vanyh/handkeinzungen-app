@@ -36,6 +36,10 @@ class GenericListView(SingleTableView):
                 context['class_name'] = "{}".format(self.model.__name__)
             else:
                 context['class_name'] = "{}s".format(self.model.__name__)
+        try:
+            context['create_view_link'] = self.model.get_createview_url()
+        except AttributeError:
+            context['create_view_link'] = None
         return context
 
 

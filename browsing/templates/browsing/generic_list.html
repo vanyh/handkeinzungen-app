@@ -7,9 +7,7 @@
 {% block scriptHeader %}
 {% endblock %}
 {% block content %}
-<script>
-    var new_url = old_url.substring(0, window.location.href.indexOf('?'));
-</script>
+
 
 <script type="text/javascript">
 
@@ -27,12 +25,16 @@ $("#goto option").each(function() {
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading procustom-panel-heading">
-
         <h3><span class="fa fa-search" style="padding-left:10px; padding-right: 10px;"></span>{% class_definition %} durchblättern {% block list_title %}{% endblock %}</h3>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myFilter">
           <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
         </button>
         <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
+        {% if user.is_authenticated %}
+            {% if create_view_link  %}
+                <a class ="btn btn-default"  href="{{ create_view_link }}">Create new {{class_name}}</a>
+            {% endif %}
+        {% endif %}
     {%block customView %}{% endblock %}
     {% block create_button %}{% endblock %}
     </div>

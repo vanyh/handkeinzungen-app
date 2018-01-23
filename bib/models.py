@@ -20,6 +20,10 @@ class Person(IdProvider):
         verbose_name="GND-ID der Person")
 
     @classmethod
+    def get_createview_url(self):
+        return reverse('bib:person_create')
+
+    @classmethod
     def get_listview_url(self):
         return reverse('browsing:browse_persons')
 
