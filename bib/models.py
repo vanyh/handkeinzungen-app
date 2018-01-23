@@ -45,6 +45,9 @@ class Person(IdProvider):
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
+    # class Meta:
+    #     verbose_name = 'HANSI4EVER'
+
     @classmethod
     def get_alternative_classname(self):
         """Returns the alternative name of the class.

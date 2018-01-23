@@ -20,7 +20,7 @@ def create_object_count(app=None):
                 fetched_model = ContentType.objects.get(
                     app_label=app, model=modelname).model_class()
                 item = {
-                    'name': modelname.title(),
+                    'name': fetched_model.get_alternative_classname(),
                     'count': fetched_model.objects.count()
                 }
             except:
