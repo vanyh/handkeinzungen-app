@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-25 15:24+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\bib\models.py:126
+msgid "Work author"
+msgstr ""
+
+#: .\browsing\templates\browsing\generic_list.html:114
+#: .\browsing\templates\browsing\generic_list.html:163
+msgid "Previous"
+msgstr ""
+
+#: .\browsing\templates\browsing\generic_list.html:138
+#, python-format
+msgid ""
+"\n"
+"<p>Seite %(current)s von %(total)s</p>\n"
+msgstr ""
+
+#: .\browsing\templates\browsing\generic_list.html:149
+#: .\browsing\templates\browsing\generic_list.html:181
+msgid "Next"
+msgstr ""
+
+#: .\webpage\templates\webpage\base.html:100
+msgid "Search and curate entries"
+msgstr ""

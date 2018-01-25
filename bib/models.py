@@ -5,6 +5,7 @@ from idprovider.models import IdProvider
 from vocabs.models import SkosConcept
 from places.models import Place
 from .helper_functions import create_tag
+from django.utils.translation import ugettext_lazy
 
 
 class Person(IdProvider):
@@ -122,7 +123,7 @@ class Work(IdProvider):
     """Ein Werk an sich (unabhängig von seiner Nicht-/Publikation)"""
     work_author = models.ManyToManyField(
         Person, blank=True, related_name="has_work_created",
-        verbose_name="Autor*in des Werks")
+        verbose_name= ugettext_lazy("Work author"))
     work_translator = models.ManyToManyField(
         Person, blank=True, related_name="has_work_translated",
         verbose_name="Übersetzer*in des werks"

@@ -37,4 +37,5 @@ urlpatterns = [
     url(r'^bib/', include('bib.urls', namespace='bib')),
     url(r'^browsing/', include('browsing.urls', namespace='browsing')),
     url(r'^', include('webpage.urls', namespace='webpage')),
+    url(r'^i18n/', include('django.conf.urls.i18n'))
 ]

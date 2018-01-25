@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load i18n %}
 {% load staticfiles %}
 {% load webpage_extras %}
 <html lang="en">
@@ -50,7 +51,7 @@
     <script src="{% static 'webpage/libraries/cool-share/plugin.js' %}"></script>
     <!-- End fo cool-share -->
     <!-- Piwik -->
-        <script type="text/javascript">
+    <script type="text/javascript">
         var _paq = _paq || [];
         /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
         _paq.push(['trackPageView']);
@@ -62,7 +63,8 @@
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
         })();
-        </script>
+    </script>
+    <script src="{% static 'webpage/libraries/js/functions.js' %}"></script>
     <!-- End Piwik Code -->
     {% block scriptHeader %}
     {% endblock %}
@@ -95,7 +97,7 @@
                     <li class="dropdown">
                         {% if user.is_authenticated %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Einträge durchblättern und pflegen<span class="caret"></span>
+                            {% trans "Search and curate entries" %}<span class="caret"></span>
                         </a>
                         {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -161,6 +163,19 @@
                         {% endif %}
                     </li>
                 </ul>
+            </div>
+            <div>
+              <form action="{% url 'set_language' %}" method="post" id="language-form">
+                   {% csrf_token %}
+                   <input name="next" type="hidden" value="{{ redirect_to }}" />
+                   <input name="language" id="language" type="hidden" value="" />
+                   {% get_current_language as LANGUAGE_CODE %}
+                   {% get_available_languages as LANGUAGES %}
+                   {% get_language_info_list for LANGUAGES as languages %}
+                   {% for language in languages %}
+                       <span class="button {% if language.code == LANGUAGE_CODE %}selected{% endif %}" onclick="select_language('{{ language.code }}')">{{ language.code|upper }}</span>
+                   {% endfor %}
+              </form>
             </div>
         </div>
     </nav>

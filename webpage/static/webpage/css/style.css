@@ -63,6 +63,20 @@ footer {
     }
 }
 
+#language-form, #search-form {
+    float: left;
+}
+
+#language-form span {
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+#language-form span.selected {
+    background-color: white;
+    color: #4088c3;
+}
+
 /*Button's text is all in caps and bold. When adding html markup text should be all in lowercase. */
 .btn {
     font-weight: bold;
