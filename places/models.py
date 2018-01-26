@@ -45,6 +45,10 @@ class AlternativeName(IdProvider):
         Needed to present the human readable name of class"""
         return 'Alternative Ortsbezeichnungen'
 
+    @classmethod
+    def get_createview_url(self):
+        return reverse('places:alternativename_create')
+
 
 class Place(IdProvider):
     PLACE_TYPES = (
