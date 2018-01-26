@@ -32,7 +32,7 @@ $("#goto option").each(function() {
         <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
         {% if user.is_authenticated %}
             {% if create_view_link  %}
-                <a class ="btn btn-default"  href="{{ create_view_link }}">Create new {{class_name}}</a>
+                <a class ="btn btn-default"  href="{{ create_view_link }}"><span class="glyphicon glyphicon-plus" aria-hidden="true" title="add"></span></a>
             {% endif %}
         {% endif %}
     {%block customView %}{% endblock %}

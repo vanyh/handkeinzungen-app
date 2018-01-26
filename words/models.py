@@ -49,6 +49,10 @@ class GermanLemma(IdProvider):
         Needed to present the human readable name of class"""
         return 'Deutsche Lemmata'
 
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:germanlemma_create')
+
 
 class ForeignLemma(IdProvider):
     lemma = models.CharField(max_length=250, blank=True, null=True)
@@ -86,3 +90,7 @@ class ForeignLemma(IdProvider):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
         return 'Fremdsprachige Lemmata'
+
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:foreignlemma_create')

@@ -176,6 +176,10 @@ class Work(IdProvider):
         Needed to present the human readable name of class"""
         return 'Werke'
 
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:work_create')
+
 
 class Speaker(IdProvider):
     """Figur, die spricht"""
@@ -200,6 +204,10 @@ class Speaker(IdProvider):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
         return 'Sprecher'
+
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:speaker_create')
 
 
 class Quote(IdProvider):
@@ -252,6 +260,10 @@ class Quote(IdProvider):
         Needed to present the human readable name of class"""
         return 'Zitate'
 
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:quote_create')
+
 
 class PartOfQuote(IdProvider):
     """fremdsprachiger Zitatteil"""
@@ -303,3 +315,7 @@ class PartOfQuote(IdProvider):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
         return 'Zitat-Teile'
+
+    @classmethod
+    def get_createview_url(self):
+        return reverse('bib:partofquote_create')
