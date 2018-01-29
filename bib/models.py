@@ -88,6 +88,10 @@ class Book(models.Model):
     )
     book_type = models.ManyToManyField(SkosConcept, blank=True)
 
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_books')
+
     def get_absolute_url(self):
         return reverse('browsing:book_detail', kwargs={'pk': self.zoterokey})
         # return "hansi4ever"

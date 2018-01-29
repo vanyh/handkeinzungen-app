@@ -193,9 +193,9 @@ class BookListFilter(django_filters.FilterSet):
         )
 
     class Meta:
-        model = Work
+        model = Book
         fields = [
-            'id'
+            'zoterokey'
         ]
 
 

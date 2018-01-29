@@ -40,5 +40,9 @@ urlpatterns = [
     url(r'^foreignlemma/create/$', views.ForeignLemmaCreate.as_view(),
         name='foreignlemma_create'),
     url(r'^foreignlemma/delete/(?P<pk>[0-9]+)$', views.ForeignLemmaDelete.as_view(),
-        name='foreignlemma_delete')
+        name='foreignlemma_delete'),
+    url(r'^book/edit/(?P<pk>[\w\-]+)$', views.BookUpdate.as_view(),
+        name='book_edit'),
+    url(r'^book/delete/(?P<pk>[\w\-]+)$', views.BookDelete.as_view(),
+        name='book_delete')
 ]

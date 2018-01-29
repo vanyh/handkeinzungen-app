@@ -95,8 +95,8 @@ class BookTable(tables.Table):
     )
 
     class Meta:
-        model = Work
-        sequence = ('id', 'title',)
+        model = Book
+        sequence = ('zoterokey', 'title',)
         attrs = {"class": "table table-responsive table-hover"}
 
 
