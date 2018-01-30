@@ -40,8 +40,9 @@
                     <th>
                         Titel
                     </th>
+
                     <td>
-                        {{ object.book_source }}, S. {{ object.startpage }}-{{ object.endpage }}
+                        {% if object.book_source %}{{ object.book_source }}{% endif %}{% if object.startpage %}, S. {{ object.startpage }}{% endif %}{% if object.endpage %}-{{ object.endpage }}{% endif %}
                     </td>
                 </tr>
                 <tr>

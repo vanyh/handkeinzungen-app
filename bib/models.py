@@ -45,9 +45,6 @@ class Person(IdProvider):
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
-    # class Meta:
-    #     verbose_name = 'HANSI4EVER'
-
     @classmethod
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
@@ -218,8 +215,8 @@ class Quote(IdProvider):
     book_source = models.ForeignKey(
         Book, blank=True, null=True, related_name="has_quotes", verbose_name="Quelle"
     )
-    startpage = models.IntegerField(blank=True, verbose_name="Seite (von)")
-    endpage = models.IntegerField(blank=True, verbose_name="Seite (bis)")
+    startpage = models.IntegerField(blank=True, null=True, verbose_name="Seite (von)")
+    endpage = models.IntegerField(blank=True, null=True, verbose_name="Seite (bis)")
     text = models.TextField(blank=True, verbose_name="Text")
     quote_type = models.ManyToManyField(SkosConcept, blank=True, verbose_name="Zitattyp")
     part_of = models.ManyToManyField(

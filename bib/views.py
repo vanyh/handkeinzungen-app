@@ -47,7 +47,7 @@ class PersonCreate(CreateView):
 
 
 class PersonDelete(DeleteView):
-    model = Work
+    model = Person
     template_name = 'webpage/confirm_delete.html'
     success_url = reverse_lazy('browsing:browse_persons')
 
@@ -81,7 +81,7 @@ class WorkCreate(CreateView):
 class WorkDelete(DeleteView):
     model = Work
     template_name = 'webpage/confirm_delete.html'
-    success_url = reverse_lazy('browsing:browse_work')
+    success_url = reverse_lazy('browsing:browse_works')
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
