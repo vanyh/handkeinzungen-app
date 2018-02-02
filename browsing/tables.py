@@ -122,3 +122,15 @@ class AlternativeNameTable(tables.Table):
         model = AlternativeName
         sequence = ('name',)
         attrs = {"class": "table table-responsive table-hover"}
+
+
+class SpeakerTable(tables.Table):
+    name = tables.LinkColumn(
+        'browsing:speaker_detail',
+        args=[A('pk')], verbose_name='Name'
+    )
+
+    class Meta:
+        model = Speaker
+        sequence = ('name', 'definition',)
+        attrs = {"class": "table table-responsive table-hover"}

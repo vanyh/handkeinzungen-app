@@ -240,3 +240,17 @@ class AlternativeNameListFilter(django_filters.FilterSet):
         fields = [
             'id'
         ]
+
+
+class SpeakerListFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Speaker._meta.get_field('name').help_text,
+        label=Speaker._meta.get_field('name').verbose_name
+        )
+
+    class Meta:
+        model = Speaker
+        fields = [
+            'id'
+        ]

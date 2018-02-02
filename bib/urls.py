@@ -44,5 +44,11 @@ urlpatterns = [
     url(r'^book/edit/(?P<pk>[\w\-]+)$', views.BookUpdate.as_view(),
         name='book_edit'),
     url(r'^book/delete/(?P<pk>[\w\-]+)$', views.BookDelete.as_view(),
-        name='book_delete')
+        name='book_delete'),
+    url(r'^speaker/edit/(?P<pk>[0-9]+)$', views.SpeakerUpdate.as_view(),
+        name='speaker_edit'),
+    url(r'^speaker/delete/(?P<pk>[0-9]+)$', views.SpeakerDelete.as_view(),
+        name='speaker_delete'),
+    url(r'^speaker/create/$', views.SpeakerCreate.as_view(),
+        name='speaker_create')
 ]

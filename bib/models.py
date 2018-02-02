@@ -209,6 +209,25 @@ class Speaker(IdProvider):
     def get_createview_url(self):
         return reverse('bib:speaker_create')
 
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_speakers')
+
+    def get_next(self):
+        next = Speaker.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Speaker.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
+    def get_absolute_url(self):
+        return reverse('browsing:speaker_detail', kwargs={'pk': self.id})
+
 
 class Quote(IdProvider):
     """ein Zitat, das auch Kontext zu fremdsprachigen Textstellen beinhaltet"""

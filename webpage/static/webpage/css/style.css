@@ -73,3 +73,18 @@ footer {
 .btn-default {
     margin-bottom: 10px;
 }
+
+a{
+color:#888c81;
+text-decoration:none;
+}
+
+.btn-info {
+  background-color: #b5b8b1;
+  border-color: #fff;
+}
+
+/* pagination {
+  background-color: #b5b8b1;
+  border-color: #fff;
+} */

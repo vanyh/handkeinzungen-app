@@ -3,9 +3,9 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.views.generic.detail import DetailView
-from .models import Book, Person, Work, Quote, PartOfQuote, Book
+from .models import Book, Person, Work, Quote, PartOfQuote, Book, Speaker
 from words.models import GermanLemma, ForeignLemma
-from .forms import PersonForm, WorkForm, QuoteForm, PartOfQuoteForm, GermanLemmaForm, ForeignLemmaForm, BookForm
+from .forms import PersonForm, WorkForm, QuoteForm, PartOfQuoteForm, GermanLemmaForm, ForeignLemmaForm, BookForm, SpeakerForm
 from django.utils.decorators import method_decorator
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -210,6 +210,36 @@ class ForeignLemmaDelete(DeleteView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(ForeignLemmaDelete, self).dispatch(*args, **kwargs)
+
+
+class SpeakerUpdate(UpdateView):
+    model = Speaker
+    form_class = SpeakerForm
+    template_name = 'bib/speaker_edit.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(SpeakerUpdate, self).dispatch(*args, **kwargs)
+
+
+class SpeakerCreate(CreateView):
+    model = Speaker
+    form_class = SpeakerForm
+    template_name = 'bib/speaker_create.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(SpeakerCreate, self).dispatch(*args, **kwargs)
+
+
+class SpeakerDelete(DeleteView):
+    model = Speaker
+    template_name = 'webpage/confirm_delete.html'
+    success_url = reverse_lazy('browsing:browse_speakers')
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(SpeakerDelete, self).dispatch(*args, **kwargs)
 
 
 class BookUpdate(UpdateView):
