@@ -191,6 +191,12 @@ class Speaker(IdProvider):
         SkosConcept, blank=True, verbose_name="alternative Figurenbezeichnungen"
     )
 
+    def distinct_rel_works(self):
+        quotes = self.speaks.all().distinct()
+        works = set([x.source for x in quotes])
+
+        return works
+
     def __str__(self):
         return "Speaker: {}".format(self.name)
 
@@ -305,7 +311,9 @@ class PartOfQuote(IdProvider):
         SkosConcept, blank=True, null=True, related_name='quote_language', verbose_name="Sprache")
     partofquote_type = models.ManyToManyField(
         SkosConcept, blank=True, related_name='quote_type', verbose_name="Teilzitattyp")
-    speaker = models.ManyToManyField(Speaker, blank=True, verbose_name="Figur")
+    speaker = models.ManyToManyField(
+        Speaker, blank=True, verbose_name="Figur", related_name="speaks"
+    )
 
     def get_absolute_url(self):
         return reverse('browsing:partofquote_detail', kwargs={'pk': self.id})

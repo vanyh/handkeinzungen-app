@@ -123,8 +123,10 @@ class SpeakerTable(tables.Table):
         'browsing:speaker_detail',
         args=[A('pk')], verbose_name='Name'
     )
+    related_works = tables.TemplateColumn(
+        template_name='browsing/tables/speaker_work.html', orderable=False)
 
     class Meta:
         model = Speaker
-        sequence = ('name', 'definition',)
+        sequence = ('name', 'definition', 'related_works')
         attrs = {"class": "table table-responsive table-hover"}

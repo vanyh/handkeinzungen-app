@@ -318,7 +318,7 @@ class SpeakerListView(GenericListView):
     table_class = SpeakerTable
     filter_class = SpeakerListFilter
     formhelper_class = SpeakerFilterFormHelper
-    init_columns = ['name', 'definition', 'alt_name']
+    init_columns = ['name', 'definition', 'alt_name', 'related_works']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
