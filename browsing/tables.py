@@ -34,10 +34,13 @@ class PartOfQuoteTable(tables.Table):
         'browsing:partofquote_detail',
         args=[A('pk')], verbose_name='Text'
     )
+    speaker = tables.TemplateColumn(
+        template_name='browsing/tables/partofquote_speaker.html', orderable=False
+    )
 
     class Meta:
         model = PartOfQuote
-        sequence = ('text', 'part_of')
+        sequence = ('text', 'part_of', 'speaker')
         attrs = {"class": "table table-responsive table-hover"}
 
 

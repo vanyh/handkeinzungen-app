@@ -168,7 +168,7 @@ class PartOfQuoteListView(GenericListView):
     table_class = PartOfQuoteTable
     filter_class = PartOfQuoteListFilter
     formhelper_class = PartOfQuoteFilterFormHelper
-    init_columns = ['text', 'part_of', 'language']
+    init_columns = ['text', 'part_of', 'speaker', 'language']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
