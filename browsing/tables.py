@@ -10,7 +10,6 @@ class GermanLemmaTable(tables.Table):
         'browsing:germanlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
-    language = tables.Column()
 
     class Meta:
         model = GermanLemma
@@ -23,7 +22,6 @@ class ForeignLemmaTable(tables.Table):
         'browsing:foreignlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
-    language = tables.Column()
 
     class Meta:
         model = ForeignLemma
@@ -36,8 +34,6 @@ class PartOfQuoteTable(tables.Table):
         'browsing:partofquote_detail',
         args=[A('pk')], verbose_name='Text'
     )
-    part_of = tables.Column()
-    language = tables.Column()
 
     class Meta:
         model = PartOfQuote
@@ -50,7 +46,6 @@ class QuoteTable(tables.Table):
         'browsing:quote_detail',
         args=[A('pk')], verbose_name='Text'
     )
-    book_source = tables.Column()
 
     class Meta:
         model = Quote
@@ -63,8 +58,6 @@ class PersonTable(tables.Table):
         'browsing:person_detail',
         args=[A('pk')], verbose_name='Vorname'
     )
-    last_name = tables.Column()
-    person_gnd = tables.Column()
 
     class Meta:
         model = Person
@@ -79,8 +72,6 @@ class WorkTable(tables.Table):
     )
     author = tables.TemplateColumn(
         template_name='browsing/tables/work_author.html', orderable=False)
-    main_language = tables.Column()
-    creation_start_date = tables.Column()
 
     class Meta:
         model = Work

@@ -90,7 +90,7 @@ def edit_place(request, pk):
             response = r.text
             responseJSON = json.loads(response)
             responseJSON = responseJSON['geonames']
-            form = PlaceForm(instance = instance)
+            form = PlaceForm(instance=instance)
             print(url)
             return render(
                 request, 'places/place_edit.html',

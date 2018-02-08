@@ -114,3 +114,7 @@ class Place(IdProvider):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
         return 'Orte'
+
+    @classmethod
+    def get_createview_url(self):
+        return reverse('places:create_place')

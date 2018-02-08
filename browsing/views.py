@@ -27,7 +27,7 @@ class GenericListView(SingleTableView):
 
     def get_context_data(self, **kwargs):
         context = super(GenericListView, self).get_context_data()
-        context[self.context_filter_name] = self.filter
+        # context[self.context_filter_name] = self.filter
         context['docstring'] = "{}".format(self.model.__doc__)
         try:
             context['class_name'] = self.model.get_alternative_classname()
@@ -288,7 +288,7 @@ class PersonListView(GenericListView):
     table_class = PersonTable
     filter_class = PersonListFilter
     formhelper_class = PersonFilterFormHelper
-    init_columns = ['first_name', 'last_name']
+    init_columns = ['first_name', 'last_name', 'person_gnd']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
