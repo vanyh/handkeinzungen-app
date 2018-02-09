@@ -7,7 +7,7 @@ from vocabs.models import SkosConcept
 
 class GermanLemma(IdProvider):
     lemma = models.CharField(max_length=250, blank=True, null=True)
-    url = models.CharField(max_length=500, blank=True, null=True)
+    url = models.CharField(max_length=500, blank=True, null=True, verbose_name="Wörterbuch")
     pos = models.ForeignKey(SkosConcept, blank=True, null=True)
     language = models.ForeignKey(
         SkosConcept, blank=True, null=True,

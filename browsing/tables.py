@@ -10,10 +10,13 @@ class GermanLemmaTable(tables.Table):
         'browsing:germanlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
+    translation = tables.TemplateColumn(
+        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False
+    )
 
     class Meta:
         model = GermanLemma
-        sequence = ('id', 'lemma',)
+        sequence = ('lemma', 'url', 'pos', 'translation')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -22,10 +25,13 @@ class ForeignLemmaTable(tables.Table):
         'browsing:foreignlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
+    uebersetzung = tables.TemplateColumn(
+        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False
+    )
 
     class Meta:
         model = ForeignLemma
-        sequence = ('id', 'lemma',)
+        sequence = ('id', 'lemma', 'uebersetzung')
         attrs = {"class": "table table-responsive table-hover"}
 
 

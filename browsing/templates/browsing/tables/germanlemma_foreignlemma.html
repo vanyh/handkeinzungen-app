@@ -1,0 +1,3 @@
+{% for x in record.has_translation.all %}
+    <a href="{% url 'browsing:foreignlemma_detail' pk=x.id %}">{{ x }}</a>
+{% endfor %}

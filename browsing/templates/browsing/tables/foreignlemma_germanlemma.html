@@ -1,0 +1,3 @@
+{% for x in record.german.all %}
+    <a href="{% url 'browsing:germanlemma_detail' pk=x.id %}">{{ x }}</a>
+{% endfor %}
