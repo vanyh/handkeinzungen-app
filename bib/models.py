@@ -194,8 +194,17 @@ class Speaker(IdProvider):
     def distinct_rel_works(self):
         quotes = self.speaks.all().distinct()
         works = set([x.source for x in quotes])
-
         return works
+
+    def distinct_rel_languagestwo(self):
+        y = self.speaks.all().distinct()
+        z = set([x.language for x in y])
+        return z
+
+    def distinct_rel_quotes(self):
+        y = self.speaks.all().distinct()
+        z = set([x.part_of for x in y])
+        return z
 
     def __str__(self):
         return "Speaker: {}".format(self.name)

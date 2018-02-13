@@ -228,7 +228,7 @@ class WorkListView(GenericListView):
     table_class = WorkTable
     filter_class = WorkListFilter
     formhelper_class = WorkFilterFormHelper
-    init_columns = ['title', 'author', 'main_language', 'creation_start_date']
+    init_columns = ['title', 'veroeffentlicht', 'author', 'main_language', 'creation_start_date']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())

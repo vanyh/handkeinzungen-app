@@ -57,7 +57,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Foreign Lemmas
+                        Fremdsprachige Lemmata
                     </th>
                     <td>
                         {% for x in object.has_lemma.all %}
@@ -81,28 +81,31 @@
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
+                        Zitat-Teile
+                    </th>
+                    <td>
+                        {% for x in object.has_chunks.all %}
+                                {{ x.text }}<br/>
+                        {% endfor %}
+                    </td>
+                    <th>
                         Sprachen
                     </th>
                     <td>
                         {% for x in object.has_chunks.all %}
-                            <li>
-                                {{ x.language }}
-                            </li>
+                                {{ x.language }}<br/>
                         {% endfor %}
                     </td>
-                </tr>
-                <tr>
                     <th>
                         Sprecher
                     </th>
                     <td>
                         {% for x in object.has_chunks.all %}
-                            {% for y in x.speaker.all %}
-                                <li>
-                                    {{ y }}
-                                </li>
-                            {% endfor %}
-                        {% endfor %}
+                           {% for y in x.speaker.all %}
+                                   {{ y }}<br/>
+                           {% endfor %}
+                       {% endfor %}
+                        </ol>
                     </td>
                 </tr>
             </table>

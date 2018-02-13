@@ -86,11 +86,13 @@ class WorkTable(tables.Table):
         args=[A('pk')], verbose_name='Titel'
     )
     author = tables.TemplateColumn(
-        template_name='browsing/tables/work_author.html', orderable=False)
+        template_name='browsing/tables/work_author.html', orderable=False, verbose_name='Autor')
+    veroeffentlicht = tables.TemplateColumn(
+        template_name='browsing/tables/work_book.html', orderable=False, verbose_name='veröffentlicht in')
 
     class Meta:
         model = Work
-        sequence = ('title', 'author', 'main_language', 'creation_start_date',)
+        sequence = ('title', 'veroeffentlicht', 'author', 'main_language', 'creation_start_date',)
         attrs = {"class": "table table-responsive table-hover"}
 
 

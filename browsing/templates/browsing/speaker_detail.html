@@ -70,10 +70,10 @@
                         verwendete Sprachen
                     </th>
                     <td>
-                        {% for x in object.partofquote.language.all %}
-                        <li>
-                        <a href="{% url 'browsing:partofquote_detail' pk=x.id %}">{{ x }}</a>
-                        </li>
+                        {% for x in object.distinct_rel_languagestwo %}
+                                <li>
+                                    {{ x }}
+                                </li>
                         {% endfor %}
                     </td>
                 </tr>
@@ -82,31 +82,10 @@
                         Zitate dieses Sprechers
                     </th>
                     <td>
-                        {% for x in object.language.all %}
-                        <li>
-                        <a href="{% url 'browsing:partofquote_detail' pk=x.id %}">{{ x }}</a>
-                        </li>
-                        {% endfor %}
-
-                        {% for x in object.published_in.all %}
-                            <tr>
-                                <th><a href="{{ x.get_absolute_url }}">{{ x }}</a></th>
-                                <td>
-                                    {% for quote in x.has_quotes.all %}
-                                        <ul>
-                                            <a href="{{ quote.get_absolute_url }}">{{ quote }}</a>
-                                        </ul>
-                                    {% endfor %}
-                                </td>
-                                <td>{% for quote in x.has_quotes.all %}
-                                        {% for chunk in quote.has_chunks.all %}
-                                            <li>
-                                                <a href="{{ chunk.get_absolute_url }}">{{ chunk.text }}</a> {{ chunk.language }}
-                                            </li>
-                                        {% endfor %}
-                                    {% endfor %}
-                                </td>
-                            </tr>
+                        {% for x in object.distinct_rel_quotes %}
+                                <li>
+                                    <a href="{% url 'browsing:quote_detail' pk=x.id %}">{{ x }}</a>
+                                </li>
                         {% endfor %}
                     </td>
                 </tr>
