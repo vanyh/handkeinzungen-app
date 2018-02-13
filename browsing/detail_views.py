@@ -1,5 +1,5 @@
 from django.views.generic.detail import DetailView
-from bib.models import Work, Person, Quote, PartOfQuote, Book
+from bib.models import Work, Person, Quote, PartOfQuote, Book, Speaker
 from words.models import GermanLemma, ForeignLemma
 from places.models import Place, AlternativeName
 
@@ -47,3 +47,8 @@ class PlaceDetailView(DetailView):
 class AlternativeNameDetailView(DetailView):
         model = AlternativeName
         template_name = 'places/alternativenames_detail.html'
+
+
+class SpeakerDetailView(DetailView):
+        model = Speaker
+        template_name = 'browsing/speaker_detail.html'

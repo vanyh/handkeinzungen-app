@@ -10,11 +10,13 @@ class GermanLemmaTable(tables.Table):
         'browsing:germanlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
-    language = tables.Column()
+    translation = tables.TemplateColumn(
+        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False
+    )
 
     class Meta:
         model = GermanLemma
-        sequence = ('id', 'lemma',)
+        sequence = ('lemma', 'url', 'pos', 'translation')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -23,11 +25,13 @@ class ForeignLemmaTable(tables.Table):
         'browsing:foreignlemma_detail',
         args=[A('pk')], verbose_name='Lemma'
     )
-    language = tables.Column()
+    uebersetzung = tables.TemplateColumn(
+        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False
+    )
 
     class Meta:
         model = ForeignLemma
-        sequence = ('id', 'lemma',)
+        sequence = ('lemma', 'uebersetzung', 'language')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -36,12 +40,16 @@ class PartOfQuoteTable(tables.Table):
         'browsing:partofquote_detail',
         args=[A('pk')], verbose_name='Text'
     )
-    part_of = tables.Column()
-    language = tables.Column()
+    speaker = tables.TemplateColumn(
+        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name='Figur'
+    )
+    source = tables.LinkColumn(
+        'browsing:work_detail', args=[A('source.pk')], verbose_name='Werk'
+    )
 
     class Meta:
         model = PartOfQuote
-        sequence = ('text', 'part_of')
+        sequence = ('text', 'part_of', 'source', 'speaker')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -50,11 +58,13 @@ class QuoteTable(tables.Table):
         'browsing:quote_detail',
         args=[A('pk')], verbose_name='Text'
     )
-    book_source = tables.Column()
+    zitatsprache = tables.TemplateColumn(
+        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name='Sprache des Zitats'
+    )
 
     class Meta:
         model = Quote
-        sequence = ('text', 'book_source')
+        sequence = ('text', 'book_source', 'zitatsprache')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -63,8 +73,6 @@ class PersonTable(tables.Table):
         'browsing:person_detail',
         args=[A('pk')], verbose_name='Vorname'
     )
-    last_name = tables.Column()
-    person_gnd = tables.Column()
 
     class Meta:
         model = Person
@@ -78,13 +86,13 @@ class WorkTable(tables.Table):
         args=[A('pk')], verbose_name='Titel'
     )
     author = tables.TemplateColumn(
-        template_name='browsing/tables/work_author.html', orderable=False)
-    main_language = tables.Column()
-    creation_start_date = tables.Column()
+        template_name='browsing/tables/work_author.html', orderable=False, verbose_name='Autor')
+    veroeffentlicht = tables.TemplateColumn(
+        template_name='browsing/tables/work_book.html', orderable=False, verbose_name='veröffentlicht in')
 
     class Meta:
         model = Work
-        sequence = ('title', 'author', 'main_language', 'creation_start_date',)
+        sequence = ('title', 'veroeffentlicht', 'author', 'main_language', 'creation_start_date',)
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -95,8 +103,8 @@ class BookTable(tables.Table):
     )
 
     class Meta:
-        model = Work
-        sequence = ('id', 'title',)
+        model = Book
+        sequence = ('zoterokey', 'title',)
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -121,4 +129,18 @@ class AlternativeNameTable(tables.Table):
     class Meta:
         model = AlternativeName
         sequence = ('name',)
+        attrs = {"class": "table table-responsive table-hover"}
+
+
+class SpeakerTable(tables.Table):
+    name = tables.LinkColumn(
+        'browsing:speaker_detail',
+        args=[A('pk')], verbose_name='Name'
+    )
+    related_works = tables.TemplateColumn(
+        template_name='browsing/tables/speaker_work.html', orderable=False)
+
+    class Meta:
+        model = Speaker
+        sequence = ('name', 'definition', 'related_works')
         attrs = {"class": "table table-responsive table-hover"}

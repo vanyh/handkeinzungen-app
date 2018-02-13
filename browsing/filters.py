@@ -193,9 +193,9 @@ class BookListFilter(django_filters.FilterSet):
         )
 
     class Meta:
-        model = Work
+        model = Book
         fields = [
-            'id'
+            'zoterokey'
         ]
 
 
@@ -237,6 +237,20 @@ class AlternativeNameListFilter(django_filters.FilterSet):
 
     class Meta:
         model = AlternativeName
+        fields = [
+            'id'
+        ]
+
+
+class SpeakerListFilter(django_filters.FilterSet):
+    name = django_filters.CharFilter(
+        lookup_expr='icontains',
+        help_text=Speaker._meta.get_field('name').help_text,
+        label=Speaker._meta.get_field('name').verbose_name
+        )
+
+    class Meta:
+        model = Speaker
         fields = [
             'id'
         ]

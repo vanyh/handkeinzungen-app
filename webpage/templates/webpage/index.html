@@ -23,6 +23,7 @@
         <h3>Data Count</h3>
         {% create_object_count app='bib' as models %}
         {% for x in models %}
+        {% if x.name != 'Bücher'%}
         <div class="col-lg-4 col-md-4 col-sm-6 grid-item type-one">
             <div class="div-tile">
                 {% if x.link %}
@@ -34,6 +35,7 @@
                 <h5 class="count">{{x.count}}</h5>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
 
         {% create_object_count app='words' as models %}
@@ -53,6 +55,7 @@
 
         {% create_object_count app='places' as models %}
         {% for x in models %}
+        {% if x.name != 'Alternative Ortsbezeichnungen'%}
         <div class="col-lg-4 col-md-4 col-sm-6 grid-item type-one">
             <div class="div-tile">
                 {% if x.link %}
@@ -64,6 +67,7 @@
                 <h5 class="count">{{x.count}}</h5>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
 
         <div class="row">

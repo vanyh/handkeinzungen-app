@@ -29,5 +29,8 @@ urlpatterns = [
         name='place_detail'),
     url(r'altnames/$', views.AlternativeNameListView.as_view(), name='browse_altnames'),
     url(r'^altnames/(?P<pk>[0-9]+)$', detail_views.AlternativeNameDetailView.as_view(),
-        name='alternativename_detail')
+        name='alternativename_detail'),
+    url(r'speakers/$', views.SpeakerListView.as_view(), name='browse_speakers'),
+    url(r'^speakers/(?P<pk>[0-9]+)$', detail_views.SpeakerDetailView.as_view(),
+        name='speaker_detail')
 ]

@@ -46,9 +46,6 @@ class Person(IdProvider):
     def __str__(self):
         return "{}, {}".format(self.last_name, self.first_name)
 
-    # class Meta:
-    #     verbose_name = 'HANSI4EVER'
-
     @classmethod
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
@@ -88,6 +85,10 @@ class Book(models.Model):
         verbose_name="Item type laut Zotero-Eintrag"
     )
     book_type = models.ManyToManyField(SkosConcept, blank=True)
+
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_books')
 
     def get_absolute_url(self):
         return reverse('browsing:book_detail', kwargs={'pk': self.zoterokey})
@@ -191,6 +192,21 @@ class Speaker(IdProvider):
         SkosConcept, blank=True, verbose_name="alternative Figurenbezeichnungen"
     )
 
+    def distinct_rel_works(self):
+        quotes = self.speaks.all().distinct()
+        works = set([x.source for x in quotes])
+        return works
+
+    def distinct_rel_languagestwo(self):
+        y = self.speaks.all().distinct()
+        z = set([x.language for x in y])
+        return z
+
+    def distinct_rel_quotes(self):
+        y = self.speaks.all().distinct()
+        z = set([x.part_of for x in y])
+        return z
+
     def __str__(self):
         return "Speaker: {}".format(self.name)
 
@@ -209,20 +225,44 @@ class Speaker(IdProvider):
     def get_createview_url(self):
         return reverse('bib:speaker_create')
 
+    @classmethod
+    def get_listview_url(self):
+        return reverse('browsing:browse_speakers')
+
+    def get_next(self):
+        next = Speaker.objects.filter(id__gt=self.id)
+        if next:
+            return next.first().id
+        return False
+
+    def get_prev(self):
+        prev = Speaker.objects.filter(id__lt=self.id).order_by('-id')
+        if prev:
+            return prev.first().id
+        return False
+
+    def get_absolute_url(self):
+        return reverse('browsing:speaker_detail', kwargs={'pk': self.id})
+
 
 class Quote(IdProvider):
     """ein Zitat, das auch Kontext zu fremdsprachigen Textstellen beinhaltet"""
     book_source = models.ForeignKey(
         Book, blank=True, null=True, related_name="has_quotes", verbose_name="Quelle"
     )
-    startpage = models.IntegerField(blank=True, verbose_name="Seite (von)")
-    endpage = models.IntegerField(blank=True, verbose_name="Seite (bis)")
+    startpage = models.IntegerField(blank=True, null=True, verbose_name="Seite (von)")
+    endpage = models.IntegerField(blank=True, null=True, verbose_name="Seite (bis)")
     text = models.TextField(blank=True, verbose_name="Text")
     quote_type = models.ManyToManyField(SkosConcept, blank=True, verbose_name="Zitattyp")
     part_of = models.ManyToManyField(
         'self', blank=True, verbose_name="Teil von Zitat",
         help_text="Dieses Zitat ist Teil eines umfangreicheren Zitats")
     auto_trans = models.ManyToManyField('self', blank=True, verbose_name="Selbstübersetzung")
+
+    def distinct_rel_languages(self):
+        part_of_quote = self.has_chunks.all().distinct()
+        language = set([x.language for x in part_of_quote])
+        return language
 
     def serialize_quote(self):
         """ retuns the quote's text with tagged part of quote chunks"""
@@ -286,7 +326,9 @@ class PartOfQuote(IdProvider):
         SkosConcept, blank=True, null=True, related_name='quote_language', verbose_name="Sprache")
     partofquote_type = models.ManyToManyField(
         SkosConcept, blank=True, related_name='quote_type', verbose_name="Teilzitattyp")
-    speaker = models.ManyToManyField(Speaker, blank=True, verbose_name="Figur")
+    speaker = models.ManyToManyField(
+        Speaker, blank=True, verbose_name="Figur", related_name="speaks"
+    )
 
     def get_absolute_url(self):
         return reverse('browsing:partofquote_detail', kwargs={'pk': self.id})

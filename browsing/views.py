@@ -27,7 +27,7 @@ class GenericListView(SingleTableView):
 
     def get_context_data(self, **kwargs):
         context = super(GenericListView, self).get_context_data()
-        context[self.context_filter_name] = self.filter
+        # context[self.context_filter_name] = self.filter
         context['docstring'] = "{}".format(self.model.__doc__)
         try:
             context['class_name'] = self.model.get_alternative_classname()
@@ -108,7 +108,7 @@ class GermanLemmaListView(GenericListView):
     table_class = GermanLemmaTable
     filter_class = GermanLemmaListFilter
     formhelper_class = GermanLemmaFilterFormHelper
-    init_columns = ['id', 'lemma']
+    init_columns = ['lemma', 'url', 'pos', 'translation']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -138,7 +138,7 @@ class ForeignLemmaListView(GenericListView):
     table_class = ForeignLemmaTable
     filter_class = ForeignLemmaListFilter
     formhelper_class = ForeignLemmaFilterFormHelper
-    init_columns = ['id', 'lemma', 'language']
+    init_columns = ['lemma', 'language', 'uebersetzung']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -168,7 +168,7 @@ class PartOfQuoteListView(GenericListView):
     table_class = PartOfQuoteTable
     filter_class = PartOfQuoteListFilter
     formhelper_class = PartOfQuoteFilterFormHelper
-    init_columns = ['text', 'part_of', 'language']
+    init_columns = ['text', 'part_of', 'source', 'speaker', 'language']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -198,7 +198,7 @@ class QuoteListView(GenericListView):
     table_class = QuoteTable
     filter_class = QuoteListFilter
     formhelper_class = QuoteFilterFormHelper
-    init_columns = ['text', 'book_source']
+    init_columns = ['text', 'book_source', 'zitatsprache']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -228,7 +228,7 @@ class WorkListView(GenericListView):
     table_class = WorkTable
     filter_class = WorkListFilter
     formhelper_class = WorkFilterFormHelper
-    init_columns = ['title', 'author', 'main_language', 'creation_start_date']
+    init_columns = ['title', 'veroeffentlicht', 'author', 'main_language', 'creation_start_date']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -288,7 +288,7 @@ class PersonListView(GenericListView):
     table_class = PersonTable
     filter_class = PersonListFilter
     formhelper_class = PersonFilterFormHelper
-    init_columns = ['first_name', 'last_name']
+    init_columns = ['first_name', 'last_name', 'person_gnd']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -296,6 +296,36 @@ class PersonListView(GenericListView):
 
     def get_context_data(self, **kwargs):
         context = super(PersonListView, self).get_context_data()
+        context[self.context_filter_name] = self.filter
+        togglable_colums = [x for x in self.get_all_cols() if x not in self.init_columns]
+        context['togglable_colums'] = togglable_colums
+        return context
+
+    def get_table(self, **kwargs):
+        table = super(GenericListView, self).get_table()
+        RequestConfig(self.request, paginate={
+            'page': 1, 'per_page': self.paginate_by}).configure(table)
+        default_cols = self.init_columns
+        all_cols = self.get_all_cols()
+        selected_cols = self.request.GET.getlist("columns") + default_cols
+        exclude_vals = [x for x in all_cols if x not in selected_cols]
+        table.exclude = exclude_vals
+        return table
+
+
+class SpeakerListView(GenericListView):
+    model = Speaker
+    table_class = SpeakerTable
+    filter_class = SpeakerListFilter
+    formhelper_class = SpeakerFilterFormHelper
+    init_columns = ['name', 'definition', 'alt_name', 'related_works']
+
+    def get_all_cols(self):
+        all_cols = list(self.table_class.base_columns.keys())
+        return all_cols
+
+    def get_context_data(self, **kwargs):
+        context = super(SpeakerListView, self).get_context_data()
         context[self.context_filter_name] = self.filter
         togglable_colums = [x for x in self.get_all_cols() if x not in self.init_columns]
         context['togglable_colums'] = togglable_colums

@@ -1,0 +1,3 @@
+{% for x in record.distinct_rel_works %}
+    <a href="{% url 'browsing:work_detail' pk=x.id %}">{{ x.title }}</a>
+{% endfor %}
