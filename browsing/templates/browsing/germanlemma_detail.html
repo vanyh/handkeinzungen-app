@@ -35,17 +35,44 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>something</legend>
+            <legend>Angaben zum Deutschen Lemma</legend>
             <table class="table table-bordered table-hover">
                 <tr>
-                    <th>
-                        translation
-                    </th>
+                    <td>
+                        Wörterbucheintrag
+                    </td>
+                    <td><a href="{{ object.url }}">{{ object.url }}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Part of Speech
+                    </td>
+                    <td>{{ object.pos }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        Übersetzungen
+                    </td>
                     <td>
                         {% for x in object.has_translation.all %}
                             <li>
-                                <a href="{{x.get_absolute_url }}"/>{{ x }}</a> ({{ x.language }})
+                                <a href="{{ x.get_absolute_url }}">{{ x }}</a> ({{ x.language }})
                             </li>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        verwendet in
+                    </td>
+                    <td>
+                        {% for x in object.has_translation.all %}
+                            {% for quote in x.used_in.all %}
+                                <li>
+                                    <a href="{{ quote.get_absolute_url }}">{{ quote }}</a>
+                                </li>
+                            {% endfor %}
                         {% endfor %}
                     </td>
                 </tr>

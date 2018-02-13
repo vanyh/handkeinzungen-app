@@ -108,7 +108,7 @@ class GermanLemmaListView(GenericListView):
     table_class = GermanLemmaTable
     filter_class = GermanLemmaListFilter
     formhelper_class = GermanLemmaFilterFormHelper
-    init_columns = ['lemma', 'url', 'pos', 'translation',]
+    init_columns = ['lemma', 'url', 'pos', 'translation']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -138,7 +138,7 @@ class ForeignLemmaListView(GenericListView):
     table_class = ForeignLemmaTable
     filter_class = ForeignLemmaListFilter
     formhelper_class = ForeignLemmaFilterFormHelper
-    init_columns = ['id', 'lemma', 'language', 'uebersetzung']
+    init_columns = ['lemma', 'language', 'uebersetzung']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -168,7 +168,7 @@ class PartOfQuoteListView(GenericListView):
     table_class = PartOfQuoteTable
     filter_class = PartOfQuoteListFilter
     formhelper_class = PartOfQuoteFilterFormHelper
-    init_columns = ['text', 'part_of', 'speaker', 'language']
+    init_columns = ['text', 'part_of', 'source', 'speaker', 'language']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())
@@ -198,7 +198,7 @@ class QuoteListView(GenericListView):
     table_class = QuoteTable
     filter_class = QuoteListFilter
     formhelper_class = QuoteFilterFormHelper
-    init_columns = ['text', 'book_source']
+    init_columns = ['text', 'book_source', 'zitatsprache']
 
     def get_all_cols(self):
         all_cols = list(self.table_class.base_columns.keys())

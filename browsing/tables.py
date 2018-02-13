@@ -31,7 +31,7 @@ class ForeignLemmaTable(tables.Table):
 
     class Meta:
         model = ForeignLemma
-        sequence = ('id', 'lemma', 'uebersetzung')
+        sequence = ('lemma', 'uebersetzung', 'language')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -41,12 +41,15 @@ class PartOfQuoteTable(tables.Table):
         args=[A('pk')], verbose_name='Text'
     )
     speaker = tables.TemplateColumn(
-        template_name='browsing/tables/partofquote_speaker.html', orderable=False
+        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name='Figur'
+    )
+    source = tables.LinkColumn(
+        'browsing:work_detail', args=[A('source.pk')], verbose_name='Werk'
     )
 
     class Meta:
         model = PartOfQuote
-        sequence = ('text', 'part_of', 'speaker')
+        sequence = ('text', 'part_of', 'source', 'speaker')
         attrs = {"class": "table table-responsive table-hover"}
 
 
@@ -55,10 +58,13 @@ class QuoteTable(tables.Table):
         'browsing:quote_detail',
         args=[A('pk')], verbose_name='Text'
     )
+    zitatsprache = tables.TemplateColumn(
+        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name='Sprache des Zitats'
+    )
 
     class Meta:
         model = Quote
-        sequence = ('text', 'book_source')
+        sequence = ('text', 'book_source', 'zitatsprache')
         attrs = {"class": "table table-responsive table-hover"}
 
 

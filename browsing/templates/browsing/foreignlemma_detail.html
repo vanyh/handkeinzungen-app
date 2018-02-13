@@ -35,11 +35,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>something</legend>
+            <legend>Angaben zum Fremdsprachigen Lemma</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        german
+                        Übersetzung
                     </th>
                     <td>
                         {% for x in object.german.all %}
@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Verwendet in
+                        verwendet in
                     </th>
                     <td>
                         {% for x in object.used_in.all %}

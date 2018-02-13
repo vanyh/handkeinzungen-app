@@ -42,11 +42,7 @@
                         Figurenname
                     </th>
                     <td>
-                        {% for x in object.name.all %}
-                            <li>
-                                {{ x }}
-                            </li>
-                        {% endfor %}
+                        {{ object.name }}
                     </td>
                 </tr>
                 <tr>
@@ -54,11 +50,7 @@
                         weitere Informationen
                     </th>
                     <td>
-                        {% for x in object.definition.all %}
-                            <li>
-                                {{ x }}
-                            </li>
-                        {% endfor %}
+                        {{ object.definition }}
                     </td>
                 </tr>
                 <tr>

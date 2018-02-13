@@ -249,6 +249,11 @@ class Quote(IdProvider):
         help_text="Dieses Zitat ist Teil eines umfangreicheren Zitats")
     auto_trans = models.ManyToManyField('self', blank=True, verbose_name="Selbstübersetzung")
 
+    def distinct_rel_languages(self):
+        part_of_quote = self.has_chunks.all().distinct()
+        language = set([x.language for x in part_of_quote])
+        return language
+
     def serialize_quote(self):
         """ retuns the quote's text with tagged part of quote chunks"""
         partofs = PartOfQuote.objects.filter(part_of=self)

@@ -84,7 +84,7 @@ text-decoration:none;
   border-color: #fff;
 }
 
-/* pagination {
-  background-color: #b5b8b1;
-  border-color: #fff;
-} */
+
+.pagination>li>a, .pagination>li>span {
+  color: #888c81;
+}
