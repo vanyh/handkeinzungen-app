@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 15:24+0100\n"
+"POT-Creation-Date: 2018-02-15 13:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,220 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\bib\models.py:126
-msgid "Work author"
+#: .\bib\models.py:15
+msgid "Vorname der Person"
+msgstr ""
+
+#: .\bib\models.py:18
+msgid "Nachname der Person"
+msgstr ""
+
+#: .\bib\models.py:21
+msgid "GND-ID der Person"
+msgstr ""
+
+#: .\bib\models.py:59
+msgid "Zoterokey"
+msgstr ""
+
+#: .\bib\models.py:60
+msgid ""
+"Zoterokey des bibliographischen Eintrags aus der Zoterolibrary 'Peter Handke "
+"stage texts'"
+msgstr ""
+
+#: .\bib\models.py:63
+msgid "Objekttyp"
+msgstr ""
+
+#: .\bib\models.py:66
+msgid "Autor*innenname laut Zotero-Eintrag"
+msgstr ""
+
+#: .\bib\models.py:69
+msgid "Autor*innenname"
+msgstr ""
+
+#: .\bib\models.py:71 .\bib\models.py:133
+msgid "Titel des Werks"
+msgstr ""
+
+#: .\bib\models.py:73
+msgid "Sigle"
+msgstr ""
+
+#: .\bib\models.py:74
+msgid "Sigle des publizierten Werks (laut Handkeonline)"
+msgstr ""
+
+#: .\bib\models.py:78
+msgid "Jahr der Veröffentlichung"
+msgstr ""
+
+#: .\bib\models.py:80
+msgid "Ort der Veröffentlichung"
+msgstr ""
+
+#: .\bib\models.py:82
+msgid "GND-ID des Buchs"
+msgstr ""
+
+#: .\bib\models.py:85
+msgid "Item type laut Zotero-Eintrag"
+msgstr ""
+
+#: .\bib\models.py:106
+msgid "Bitte Zotero-Einstellungen bereitstellen"
+msgstr ""
+
+#: .\bib\models.py:120
+msgid "Bücher"
+msgstr ""
+
+#: .\bib\models.py:127
+msgid "Autor*in des Werks"
+msgstr ""
+
+#: .\bib\models.py:130
+msgid "Übersetzer*in des werks"
+msgstr ""
+
+#: .\bib\models.py:135
+msgid "Titelvarianten"
+msgstr ""
+
+#: .\bib\models.py:136
+msgid "entstanden von"
+msgstr ""
+
+#: .\bib\models.py:137
+msgid "entstanden bis"
+msgstr ""
+
+#: .\bib\models.py:138
+msgid "Anfangsdatum gesichert"
+msgstr ""
+
+#: .\bib\models.py:139
+msgid "Enddatum gesichert"
+msgstr ""
+
+#: .\bib\models.py:140
+msgid "Entstehungsort"
+msgstr ""
+
+#: .\bib\models.py:141
+msgid "Entstehungsort gesichert"
+msgstr ""
+
+#: .\bib\models.py:143
+msgid "veröffentlicht in"
+msgstr ""
+
+#: .\bib\models.py:144
+msgid "Werktyp"
+msgstr ""
+
+#: .\bib\models.py:147
+msgid "dominante Schreibsprache"
+msgstr ""
+
+#: .\bib\models.py:149 .\bib\models.py:320
+msgid "Übersetzung"
+msgstr ""
+
+#: .\bib\models.py:178
+msgid "Werke"
+msgstr ""
+
+#: .\bib\models.py:187
+msgid "Figurenname"
+msgstr ""
+
+#: .\bib\models.py:189
+msgid "weitere Informationen zur Figur"
+msgstr ""
+
+#: .\bib\models.py:192
+msgid "alternative Figurenbezeichnungen"
+msgstr ""
+
+#: .\bib\models.py:222
+msgid "Sprecher"
+msgstr ""
+
+#: .\bib\models.py:251 .\bib\models.py:315
+msgid "Quelle"
+msgstr ""
+
+#: .\bib\models.py:253
+msgid "Seite (von)"
+msgstr ""
+
+#: .\bib\models.py:254
+msgid "Seite (bis)"
+msgstr ""
+
+#: .\bib\models.py:255 .\bib\models.py:310
+msgid "Text"
+msgstr ""
+
+#: .\bib\models.py:256
+msgid "Zitattyp"
+msgstr ""
+
+#: .\bib\models.py:258 .\bib\models.py:313
+msgid "Teil von Zitat"
+msgstr ""
+
+#: .\bib\models.py:259
+msgid "Dieses Zitat ist Teil eines umfangreicheren Zitats"
+msgstr ""
+
+#: .\bib\models.py:260
+msgid "Selbstübersetzung"
+msgstr ""
+
+#: .\bib\models.py:301
+msgid "Zitate"
+msgstr ""
+
+#: .\bib\models.py:314
+msgid "Dieses Teilzitat ist Teil eines umfangreicheren Zitats"
+msgstr ""
+
+#: .\bib\models.py:318
+msgid "folgt auf"
+msgstr ""
+
+#: .\bib\models.py:318
+msgid "Dieses Teilzitat folgt einem anderen"
+msgstr ""
+
+#: .\bib\models.py:321
+msgid ""
+"Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb "
+"des Texts"
+msgstr ""
+
+#: .\bib\models.py:324
+msgid "Übersetzung korrekt"
+msgstr ""
+
+#: .\bib\models.py:326
+msgid "Sprache"
+msgstr ""
+
+#: .\bib\models.py:328
+msgid "Teilzitattyp"
+msgstr ""
+
+#: .\bib\models.py:330
+msgid "Figur"
+msgstr ""
+
+#: .\bib\models.py:359
+msgid "Zitat-Teile"
 msgstr ""
 
 #: .\browsing\templates\browsing\generic_list.html:114

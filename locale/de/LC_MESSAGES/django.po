@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-25 15:24+0100\n"
-"PO-Revision-Date: 2018-01-25 15:25+0100\n"
+"POT-Creation-Date: 2018-02-15 13:39+0100\n"
+"PO-Revision-Date: 2018-02-15 14:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,223 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 2.0.6\n"
 
-#: .\bib\models.py:126
-msgid "Work author"
-msgstr "Autor*in des Werkes"
+#: .\bib\models.py:15
+msgid "Vorname der Person"
+msgstr "person's first name"
+
+#: .\bib\models.py:18
+msgid "Nachname der Person"
+msgstr "person's surname"
+
+#: .\bib\models.py:21
+msgid "GND-ID der Person"
+msgstr "person's GND-ID"
+
+#: .\bib\models.py:59
+msgid "Zoterokey"
+msgstr "Zotero key"
+
+#: .\bib\models.py:60
+msgid ""
+"Zoterokey des bibliographischen Eintrags aus der Zoterolibrary 'Peter Handke "
+"stage texts'"
+msgstr ""
+"Zotero key found in the bibliographic entry in Zotero library 'Peter Handke "
+"stage texts'"
+
+#: .\bib\models.py:63
+msgid "Objekttyp"
+msgstr "item type"
+
+#: .\bib\models.py:66
+msgid "Autor*innenname laut Zotero-Eintrag"
+msgstr "work author according to Zotero entry"
+
+#: .\bib\models.py:69
+msgid "Autor*innenname"
+msgstr "work author"
+
+#: .\bib\models.py:71 .\bib\models.py:133
+msgid "Titel des Werks"
+msgstr "work title"
+
+#: .\bib\models.py:73
+msgid "Sigle"
+msgstr ""
+
+#: .\bib\models.py:74
+msgid "Sigle des publizierten Werks (laut Handkeonline)"
+msgstr ""
+
+#: .\bib\models.py:78
+msgid "Jahr der Veröffentlichung"
+msgstr "year of publication"
+
+#: .\bib\models.py:80
+msgid "Ort der Veröffentlichung"
+msgstr "place of publication"
+
+#: .\bib\models.py:82
+msgid "GND-ID des Buchs"
+msgstr "book GND-ID"
+
+#: .\bib\models.py:85
+msgid "Item type laut Zotero-Eintrag"
+msgstr "item type according to Zotero entry"
+
+#: .\bib\models.py:106
+msgid "Bitte Zotero-Einstellungen bereitstellen"
+msgstr "please provide Zotero settings"
+
+#: .\bib\models.py:120
+msgid "Bücher"
+msgstr "books"
+
+#: .\bib\models.py:127
+msgid "Autor*in des Werks"
+msgstr "work author"
+
+#: .\bib\models.py:130
+msgid "Übersetzer*in des werks"
+msgstr "work translator"
+
+#: .\bib\models.py:135
+msgid "Titelvarianten"
+msgstr "alternative titles"
+
+#: .\bib\models.py:136
+msgid "entstanden von"
+msgstr "written from"
+
+#: .\bib\models.py:137
+msgid "entstanden bis"
+msgstr "written until"
+
+#: .\bib\models.py:138
+msgid "Anfangsdatum gesichert"
+msgstr ""
+
+#: .\bib\models.py:139
+msgid "Enddatum gesichert"
+msgstr ""
+
+#: .\bib\models.py:140
+msgid "Entstehungsort"
+msgstr "place of creation"
+
+#: .\bib\models.py:141
+msgid "Entstehungsort gesichert"
+msgstr "agreed place of creation"
+
+#: .\bib\models.py:143
+msgid "veröffentlicht in"
+msgstr "published in"
+
+#: .\bib\models.py:144
+msgid "Werktyp"
+msgstr "work type"
+
+#: .\bib\models.py:147
+msgid "dominante Schreibsprache"
+msgstr "prevailing language"
+
+#: .\bib\models.py:149 .\bib\models.py:320
+msgid "Übersetzung"
+msgstr "translation"
+
+#: .\bib\models.py:178
+msgid "Werke"
+msgstr "works"
+
+#: .\bib\models.py:187
+msgid "Figurenname"
+msgstr "speaker name"
+
+#: .\bib\models.py:189
+msgid "weitere Informationen zur Figur"
+msgstr "further Information on speaker"
+
+#: .\bib\models.py:192
+msgid "alternative Figurenbezeichnungen"
+msgstr ""
+
+#: .\bib\models.py:222
+msgid "Sprecher"
+msgstr "speaker"
+
+#: .\bib\models.py:251 .\bib\models.py:315
+msgid "Quelle"
+msgstr "source"
+
+#: .\bib\models.py:253
+msgid "Seite (von)"
+msgstr "page (from)"
+
+#: .\bib\models.py:254
+msgid "Seite (bis)"
+msgstr "page (to)"
+
+#: .\bib\models.py:255 .\bib\models.py:310
+msgid "Text"
+msgstr "text"
+
+#: .\bib\models.py:256
+msgid "Zitattyp"
+msgstr "quote type"
+
+#: .\bib\models.py:258 .\bib\models.py:313
+msgid "Teil von Zitat"
+msgstr "part of quote"
+
+#: .\bib\models.py:259
+msgid "Dieses Zitat ist Teil eines umfangreicheren Zitats"
+msgstr "This quote is part of a greater quote."
+
+#: .\bib\models.py:260
+msgid "Selbstübersetzung"
+msgstr "self-translation"
+
+#: .\bib\models.py:301
+msgid "Zitate"
+msgstr "quotes"
+
+#: .\bib\models.py:314
+msgid "Dieses Teilzitat ist Teil eines umfangreicheren Zitats"
+msgstr "This part of quote is part of a greater quote."
+
+#: .\bib\models.py:318
+msgid "folgt auf"
+msgstr "following"
+
+#: .\bib\models.py:318
+msgid "Dieses Teilzitat folgt einem anderen"
+msgstr ""
+
+#: .\bib\models.py:321
+msgid ""
+"Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb "
+"des Texts"
+msgstr ""
+
+#: .\bib\models.py:324
+msgid "Übersetzung korrekt"
+msgstr "proper translation"
+
+#: .\bib\models.py:326
+msgid "Sprache"
+msgstr "language"
+
+#: .\bib\models.py:328
+msgid "Teilzitattyp"
+msgstr "part of quote type"
+
+#: .\bib\models.py:330
+msgid "Figur"
+msgstr "speaker"
+
+#: .\bib\models.py:359
+msgid "Zitat-Teile"
+msgstr "parts of quote"
 
 #: .\browsing\templates\browsing\generic_list.html:114
 #: .\browsing\templates\browsing\generic_list.html:163
@@ -44,3 +258,6 @@ msgstr "nächstes"
 #: .\webpage\templates\webpage\base.html:100
 msgid "Search and curate entries"
 msgstr "Einträge durchblättern und pflegen"
+
+#~ msgid "Work author"
+#~ msgstr "Autor*in des Werkes"
