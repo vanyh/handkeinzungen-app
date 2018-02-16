@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from idprovider.models import IdProvider
 from bib.models import Quote
 from vocabs.models import SkosConcept
+from django.utils.translation import ugettext_lazy
 
 
 class GermanLemma(IdProvider):
@@ -47,7 +48,7 @@ class GermanLemma(IdProvider):
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
-        return 'Deutsche Lemmata'
+        return ugettext_lazy('Deutsche Lemmata')
 
     @classmethod
     def get_createview_url(self):
@@ -89,7 +90,7 @@ class ForeignLemma(IdProvider):
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
-        return 'Fremdsprachige Lemmata'
+        return ugettext_lazy('Fremdsprachige Lemmata')
 
     @classmethod
     def get_createview_url(self):

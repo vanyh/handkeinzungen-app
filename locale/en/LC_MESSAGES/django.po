@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 13:39+0100\n"
+"POT-Creation-Date: 2018-02-16 07:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Entstehungsort gesichert"
 msgstr ""
 
-#: .\bib\models.py:143
+#: .\bib\models.py:143 .\browsing\tables.py:92
 msgid "veröffentlicht in"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Teilzitattyp"
 msgstr ""
 
-#: .\bib\models.py:330
+#: .\bib\models.py:330 .\browsing\tables.py:45
 msgid "Figur"
 msgstr ""
 
@@ -232,9 +232,59 @@ msgstr ""
 msgid "Zitat-Teile"
 msgstr ""
 
+#: .\browsing\forms.py:18 .\browsing\forms.py:28 .\browsing\forms.py:48
+#: .\browsing\forms.py:75 .\browsing\forms.py:96 .\browsing\forms.py:116
+#: .\browsing\forms.py:137 .\browsing\forms.py:172 .\browsing\forms.py:191
+#: .\browsing\forms.py:217 .\browsing\forms.py:236
+msgid "Suche"
+msgstr ""
+
+#: .\browsing\forms.py:32 .\browsing\forms.py:52 .\browsing\forms.py:79
+#: .\browsing\forms.py:100 .\browsing\forms.py:120 .\browsing\forms.py:141
+#: .\browsing\forms.py:176 .\browsing\forms.py:195 .\browsing\forms.py:221
+#: .\browsing\forms.py:240
+msgid "Einfache Suche"
+msgstr ""
+
+#: .\browsing\forms.py:147
+msgid "Entstehungszeit"
+msgstr ""
+
+#: .\browsing\forms.py:155 .\browsing\forms.py:201
+msgid "Erweiterte Suche"
+msgstr ""
+
+#: .\browsing\tables.py:12 .\browsing\tables.py:27
+msgid "Lemma"
+msgstr ""
+
+#: .\browsing\tables.py:48
+msgid "Werk"
+msgstr ""
+
+#: .\browsing\tables.py:63
+msgid "Sprache des Zitats"
+msgstr ""
+
+#: .\browsing\tables.py:75
+msgid "Vorname"
+msgstr ""
+
+#: .\browsing\tables.py:87 .\browsing\tables.py:103 .\browsing\tables.py:115
+msgid "Titel"
+msgstr ""
+
+#: .\browsing\tables.py:90
+msgid "Autor"
+msgstr ""
+
+#: .\browsing\tables.py:127 .\browsing\tables.py:139
+msgid "Name"
+msgstr ""
+
 #: .\browsing\templates\browsing\generic_list.html:114
 #: .\browsing\templates\browsing\generic_list.html:163
-msgid "Previous"
+msgid "voriges"
 msgstr ""
 
 #: .\browsing\templates\browsing\generic_list.html:138
@@ -249,6 +299,22 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
+#: .\places\models.py:47
+msgid "Alternative Ortsbezeichnungen"
+msgstr ""
+
+#: .\places\models.py:117
+msgid "Orte"
+msgstr ""
+
 #: .\webpage\templates\webpage\base.html:100
-msgid "Search and curate entries"
+msgid "Einträge durchblättern und pflegen"
+msgstr ""
+
+#: .\words\models.py:51
+msgid "Deutsche Lemmata"
+msgstr ""
+
+#: .\words\models.py:93
+msgid "Fremdsprachige Lemmata"
 msgstr ""

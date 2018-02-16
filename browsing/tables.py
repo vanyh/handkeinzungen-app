@@ -3,12 +3,13 @@ from django_tables2.utils import A
 from bib.models import *
 from words.models import ForeignLemma, GermanLemma
 from places.models import Place, AlternativeName
+from django.utils.translation import ugettext
 
 
 class GermanLemmaTable(tables.Table):
     lemma = tables.LinkColumn(
         'browsing:germanlemma_detail',
-        args=[A('pk')], verbose_name='Lemma'
+        args=[A('pk')], verbose_name=ugettext('Lemma')
     )
     translation = tables.TemplateColumn(
         template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False
@@ -23,7 +24,7 @@ class GermanLemmaTable(tables.Table):
 class ForeignLemmaTable(tables.Table):
     lemma = tables.LinkColumn(
         'browsing:foreignlemma_detail',
-        args=[A('pk')], verbose_name='Lemma'
+        args=[A('pk')], verbose_name=ugettext('Lemma')
     )
     uebersetzung = tables.TemplateColumn(
         template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False
@@ -41,10 +42,10 @@ class PartOfQuoteTable(tables.Table):
         args=[A('pk')], verbose_name='Text'
     )
     speaker = tables.TemplateColumn(
-        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name='Figur'
+        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name=ugettext('Figur')
     )
     source = tables.LinkColumn(
-        'browsing:work_detail', args=[A('source.pk')], verbose_name='Werk'
+        'browsing:work_detail', args=[A('source.pk')], verbose_name=ugettext('Werk')
     )
 
     class Meta:
@@ -59,7 +60,7 @@ class QuoteTable(tables.Table):
         args=[A('pk')], verbose_name='Text'
     )
     zitatsprache = tables.TemplateColumn(
-        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name='Sprache des Zitats'
+        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name=ugettext('Sprache des Zitats')
     )
 
     class Meta:
@@ -71,7 +72,7 @@ class QuoteTable(tables.Table):
 class PersonTable(tables.Table):
     first_name = tables.LinkColumn(
         'browsing:person_detail',
-        args=[A('pk')], verbose_name='Vorname'
+        args=[A('pk')], verbose_name=ugettext('Vorname')
     )
 
     class Meta:
@@ -83,12 +84,12 @@ class PersonTable(tables.Table):
 class WorkTable(tables.Table):
     title = tables.LinkColumn(
         'browsing:work_detail',
-        args=[A('pk')], verbose_name='Titel'
+        args=[A('pk')], verbose_name=ugettext('Titel')
     )
     author = tables.TemplateColumn(
-        template_name='browsing/tables/work_author.html', orderable=False, verbose_name='Autor')
+        template_name='browsing/tables/work_author.html', orderable=False, verbose_name=ugettext('Autor'))
     veroeffentlicht = tables.TemplateColumn(
-        template_name='browsing/tables/work_book.html', orderable=False, verbose_name='veröffentlicht in')
+        template_name='browsing/tables/work_book.html', orderable=False, verbose_name=ugettext('veröffentlicht in'))
 
     class Meta:
         model = Work
@@ -99,7 +100,7 @@ class WorkTable(tables.Table):
 class BookTable(tables.Table):
     title = tables.LinkColumn(
         'browsing:book_detail',
-        args=[A('pk')], verbose_name='Titel'
+        args=[A('pk')], verbose_name=ugettext('Titel')
     )
 
     class Meta:
@@ -111,7 +112,7 @@ class BookTable(tables.Table):
 class PlaceTable(tables.Table):
     title = tables.LinkColumn(
         'places:place_detail',
-        args=[A('pk')], verbose_name='Titel'
+        args=[A('pk')], verbose_name=ugettext('Titel')
     )
 
     class Meta:
@@ -123,7 +124,7 @@ class PlaceTable(tables.Table):
 class AlternativeNameTable(tables.Table):
     name = tables.LinkColumn(
         'places:alternativename_detail',
-        args=[A('pk')], verbose_name='Name'
+        args=[A('pk')], verbose_name=ugettext('Name')
     )
 
     class Meta:
@@ -135,7 +136,7 @@ class AlternativeNameTable(tables.Table):
 class SpeakerTable(tables.Table):
     name = tables.LinkColumn(
         'browsing:speaker_detail',
-        args=[A('pk')], verbose_name='Name'
+        args=[A('pk')], verbose_name=ugettext('Name')
     )
     related_works = tables.TemplateColumn(
         template_name='browsing/tables/speaker_work.html', orderable=False)

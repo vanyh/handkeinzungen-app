@@ -4,6 +4,7 @@ from crispy_forms.layout import Submit, Layout, Fieldset, Div, MultiField, HTML
 from crispy_forms.bootstrap import *
 from bib.models import *
 from words.models import ForeignLemma, GermanLemma
+from django.utils.translation import ugettext
 
 
 class GenericFilterFormHelper(FormHelper):
@@ -14,7 +15,7 @@ class GenericFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
 
 
 class GermanLemmaFilterFormHelper(FormHelper):
@@ -24,11 +25,11 @@ class GermanLemmaFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'lemma',
                     'pos',
                     css_id="basic_search_fields"
@@ -44,11 +45,11 @@ class ForeignLemmaFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'lemma',
                     'german',
                     css_id="basic_search_fields"
@@ -71,11 +72,11 @@ class PartOfQuoteFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'text',
                     'part_of',
                     'language',
@@ -92,11 +93,11 @@ class QuoteFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'text',
                     'book_source',
                     css_id="basic_search_fields"
@@ -112,11 +113,11 @@ class PersonFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'first_name',
                     'last_name',
                     'person_gnd',
@@ -133,17 +134,17 @@ class WorkFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'title',
                     'work_author',
                     css_id="basic_search_fields"
                 ),
                 AccordionGroup(
-                    'Entstehungszeit',
+                    ugettext('Entstehungszeit'),
                     'creation_start_date',
                     'start_date_sure',
                     'creation_end_date',
@@ -151,7 +152,7 @@ class WorkFilterFormHelper(FormHelper):
                     css_id="entstehungszeit"
                 ),
                 AccordionGroup(
-                    'Erweiterte Suche',
+                    ugettext('Erweiterte Suche'),
                     'work_translator',
                     'alt_title',
                     'main_language',
@@ -168,11 +169,11 @@ class BookFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'title',
                     css_id="basic_search_fields"
                 ),
@@ -187,17 +188,17 @@ class PlaceFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'name',
                     'alternative_name',
                     css_id="basic_search_fields"
                 ),
                 AccordionGroup(
-                    'Advanced search'
+                    ugettext('Erweiterte Suche'),
                     'geonames_id',
                     'part_of',
                     css_id="more"
@@ -213,11 +214,11 @@ class AlternativeNameFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     'name',
                     css_id="basic_search_fields"
                 ),
@@ -232,11 +233,11 @@ class SpeakerFilterFormHelper(FormHelper):
         self.form_class = 'genericFilterForm'
         self.form_method = 'GET'
         self.helper.form_tag = False
-        self.add_input(Submit('Filter', 'Search'))
+        self.add_input(Submit('Filter', ugettext('Suche')))
         self.layout = Layout(
             Accordion(
                 AccordionGroup(
-                    'Einfache Suche',
+                    ugettext('Einfache Suche'),
                     css_id="basic_search_fields"
                 ),
             ),

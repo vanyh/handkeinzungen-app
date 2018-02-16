@@ -111,7 +111,7 @@ $("#goto option").each(function() {
         {% if table.page.has_previous %}
         {% block pagination.previous.goto %}
         <li class="previous">
-          <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" style="border-radius: 0px;">{% trans "Previous" %}</a>
+          <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" style="border-radius: 0px;">{% trans "voriges" %}</a>
         </li>
         {% endblock pagination.previous.goto %}
         {% endif %}
@@ -160,7 +160,7 @@ $("#goto option").each(function() {
         {% if table.page.has_previous %}
         {% block pagination.previous %}
         <li class="previous">
-          <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" style="border-radius: 0px;">{% trans "Previous" %}</a>
+          <a href="{% querystring table.prefixed_page_field=table.page.previous_page_number %}" style="border-radius: 0px;">{% trans "voriges" %}</a>
         </li>
         {% endblock pagination.previous %}
         {% endif %}

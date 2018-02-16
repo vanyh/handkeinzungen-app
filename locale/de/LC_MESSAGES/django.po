@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-15 13:39+0100\n"
-"PO-Revision-Date: 2018-02-15 14:18+0100\n"
+"POT-Creation-Date: 2018-02-16 07:51+0100\n"
+"PO-Revision-Date: 2018-02-16 08:10+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de\n"
+"Language: en\n"
 "X-Generator: Poedit 2.0.6\n"
 
 #: .\bib\models.py:15
@@ -60,11 +60,11 @@ msgstr "work title"
 
 #: .\bib\models.py:73
 msgid "Sigle"
-msgstr ""
+msgstr "sigle"
 
 #: .\bib\models.py:74
 msgid "Sigle des publizierten Werks (laut Handkeonline)"
-msgstr ""
+msgstr "sigle of the published work (according to Handkeonline)"
 
 #: .\bib\models.py:78
 msgid "Jahr der Veröffentlichung"
@@ -112,11 +112,11 @@ msgstr "written until"
 
 #: .\bib\models.py:138
 msgid "Anfangsdatum gesichert"
-msgstr ""
+msgstr "start date sure"
 
 #: .\bib\models.py:139
 msgid "Enddatum gesichert"
-msgstr ""
+msgstr "end date sure"
 
 #: .\bib\models.py:140
 msgid "Entstehungsort"
@@ -126,7 +126,7 @@ msgstr "place of creation"
 msgid "Entstehungsort gesichert"
 msgstr "agreed place of creation"
 
-#: .\bib\models.py:143
+#: .\bib\models.py:143 .\browsing\tables.py:92
 msgid "veröffentlicht in"
 msgstr "published in"
 
@@ -156,7 +156,7 @@ msgstr "further Information on speaker"
 
 #: .\bib\models.py:192
 msgid "alternative Figurenbezeichnungen"
-msgstr ""
+msgstr "alternative speaker names"
 
 #: .\bib\models.py:222
 msgid "Sprecher"
@@ -208,13 +208,15 @@ msgstr "following"
 
 #: .\bib\models.py:318
 msgid "Dieses Teilzitat folgt einem anderen"
-msgstr ""
+msgstr "This part of quote follows another."
 
 #: .\bib\models.py:321
 msgid ""
 "Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb "
 "des Texts"
 msgstr ""
+"This part of quote has a translation in the immediate vicinity within the "
+"text."
 
 #: .\bib\models.py:324
 msgid "Übersetzung korrekt"
@@ -228,7 +230,7 @@ msgstr "language"
 msgid "Teilzitattyp"
 msgstr "part of quote type"
 
-#: .\bib\models.py:330
+#: .\bib\models.py:330 .\browsing\tables.py:45
 msgid "Figur"
 msgstr "speaker"
 
@@ -236,10 +238,60 @@ msgstr "speaker"
 msgid "Zitat-Teile"
 msgstr "parts of quote"
 
+#: .\browsing\forms.py:18 .\browsing\forms.py:28 .\browsing\forms.py:48
+#: .\browsing\forms.py:75 .\browsing\forms.py:96 .\browsing\forms.py:116
+#: .\browsing\forms.py:137 .\browsing\forms.py:172 .\browsing\forms.py:191
+#: .\browsing\forms.py:217 .\browsing\forms.py:236
+msgid "Suche"
+msgstr "search"
+
+#: .\browsing\forms.py:32 .\browsing\forms.py:52 .\browsing\forms.py:79
+#: .\browsing\forms.py:100 .\browsing\forms.py:120 .\browsing\forms.py:141
+#: .\browsing\forms.py:176 .\browsing\forms.py:195 .\browsing\forms.py:221
+#: .\browsing\forms.py:240
+msgid "Einfache Suche"
+msgstr "basic search"
+
+#: .\browsing\forms.py:147
+msgid "Entstehungszeit"
+msgstr "creation date"
+
+#: .\browsing\forms.py:155 .\browsing\forms.py:201
+msgid "Erweiterte Suche"
+msgstr "advanced search"
+
+#: .\browsing\tables.py:12 .\browsing\tables.py:27
+msgid "Lemma"
+msgstr "lemma"
+
+#: .\browsing\tables.py:48
+msgid "Werk"
+msgstr "work"
+
+#: .\browsing\tables.py:63
+msgid "Sprache des Zitats"
+msgstr "quote language"
+
+#: .\browsing\tables.py:75
+msgid "Vorname"
+msgstr "first name"
+
+#: .\browsing\tables.py:87 .\browsing\tables.py:103 .\browsing\tables.py:115
+msgid "Titel"
+msgstr "title"
+
+#: .\browsing\tables.py:90
+msgid "Autor"
+msgstr "author"
+
+#: .\browsing\tables.py:127 .\browsing\tables.py:139
+msgid "Name"
+msgstr "name"
+
 #: .\browsing\templates\browsing\generic_list.html:114
 #: .\browsing\templates\browsing\generic_list.html:163
-msgid "Previous"
-msgstr "voriges"
+msgid "voriges"
+msgstr "previous"
 
 #: .\browsing\templates\browsing\generic_list.html:138
 #, python-format
@@ -248,16 +300,38 @@ msgid ""
 "<p>Seite %(current)s von %(total)s</p>\n"
 msgstr ""
 "\n"
-"<p>Seite %(current)s von %(total)s</p>\n"
+"<p>Page %(current)s of %(total)s</p>\n"
 
 #: .\browsing\templates\browsing\generic_list.html:149
 #: .\browsing\templates\browsing\generic_list.html:181
 msgid "Next"
 msgstr "nächstes"
 
+#: .\places\models.py:47
+msgid "Alternative Ortsbezeichnungen"
+msgstr "alternative place names"
+
+#: .\places\models.py:117
+msgid "Orte"
+msgstr "places"
+
 #: .\webpage\templates\webpage\base.html:100
-msgid "Search and curate entries"
-msgstr "Einträge durchblättern und pflegen"
+msgid "Einträge durchblättern und pflegen"
+msgstr "search and curate entries"
+
+#: .\words\models.py:51
+msgid "Deutsche Lemmata"
+msgstr "german lemmas"
+
+#: .\words\models.py:93
+msgid "Fremdsprachige Lemmata"
+msgstr "foreign lemmas"
+
+#~ msgid "Previous"
+#~ msgstr "voriges"
+
+#~ msgid "Search and curate entries"
+#~ msgstr "Einträge durchblättern und pflegen"
 
 #~ msgid "Work author"
 #~ msgstr "Autor*in des Werkes"

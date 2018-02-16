@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from idprovider.models import IdProvider
+from django.utils.translation import ugettext_lazy
 
 
 class AlternativeName(IdProvider):
@@ -43,7 +44,7 @@ class AlternativeName(IdProvider):
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
-        return 'Alternative Ortsbezeichnungen'
+        return ugettext_lazy('Alternative Ortsbezeichnungen')
 
     @classmethod
     def get_createview_url(self):
@@ -113,7 +114,7 @@ class Place(IdProvider):
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
-        return 'Orte'
+        return ugettext_lazy('Orte')
 
     @classmethod
     def get_createview_url(self):
