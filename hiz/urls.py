@@ -36,5 +36,6 @@ urlpatterns = [
     url(r'places/', include('places.urls', namespace='places')),
     url(r'^bib/', include('bib.urls', namespace='bib')),
     url(r'^browsing/', include('browsing.urls', namespace='browsing')),
+    url(r'^words-ac/', include('words.dal_urls', namespace='words-ac')),
     url(r'^', include('webpage.urls', namespace='webpage')),
 ]

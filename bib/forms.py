@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+from dal import autocomplete
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -85,6 +85,9 @@ class ForeignLemmaForm(forms.ModelForm):
     class Meta:
         model = ForeignLemma
         fields = "__all__"
+        widgets = {
+            'german': autocomplete.ModelSelect2Multiple(url='words-ac:germanlemma-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(ForeignLemmaForm, self).__init__(*args, **kwargs)
