@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy
 
 
 class AlternativeName(IdProvider):
-    name = models.CharField(max_length=250, blank=True, help_text="Alternative Name")
+    name = models.CharField(max_length=250, blank=True, help_text=ugettext_lazy('Alternative Ortsbezeichnung'))
 
     def __str__(self):
         return self.name
@@ -59,12 +59,12 @@ class Place(IdProvider):
 
     """Holds information about places."""
     name = models.CharField(
-        max_length=250, blank=True, help_text="Normalized name"
+        max_length=250, blank=True, help_text=ugettext_lazy('Standardname')
     )
     alternative_name = models.ManyToManyField(
         AlternativeName,
         max_length=250, blank=True,
-        help_text="Alternative names",
+        help_text=ugettext_lazy('Alternative Ortsbezeichnungen'),
         related_name="related_places"
     )
     geonames_id = models.CharField(
@@ -79,7 +79,7 @@ class Place(IdProvider):
         max_digits=20, decimal_places=12, blank=True, null=True
     )
     part_of = models.ForeignKey(
-        "Place", null=True, blank=True, help_text="A place (country) this place is part of."
+        "Place", null=True, blank=True, help_text=ugettext_lazy('Ein Ort, von dem dieser Ort ein Teil ist.')
     )
     place_type = models.CharField(choices=PLACE_TYPES, null=True, blank=True, max_length=50)
 

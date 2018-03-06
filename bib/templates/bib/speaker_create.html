@@ -1,11 +1,12 @@
 {% extends "webpage/base.html" %}
-{% block title %} Sprecher erstellen {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Sprecher erstellen" %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1>Sprecher erstellen</h1>
+        <h1>{% trans "Sprecher erstellen" %}</h1>
     </div>
     <div class="panel-body">
 

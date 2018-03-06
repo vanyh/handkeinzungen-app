@@ -1,12 +1,13 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} '{{object.name}}' bearbeiten {% endblock %}
+{% load i18n %}
+{% block title %} '{{object.name}}' {% trans "bearbeiten" %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
 <div class="panel panel-default">
     <div class="panel-heading">
-      <h3>'{{object.name}}' bearbeiten</h3>
+      <h3>'{{object.name}}' {% trans "bearbeiten" %}</h3>
     </div>
     <div class="panel-body">
 
@@ -14,7 +15,7 @@
                     {% crispy form %}
 
                 {% if object %}
-                <a class ="btn btn-danger btn-sm" href="{% url 'bib:speaker_delete' pk=object.id %}">Löschen</a>
+                <a class ="btn btn-danger btn-sm" href="{% url 'bib:speaker_delete' pk=object.id %}">{% trans "Löschen" %}</a>
                 {% endif %}
     </div>
   </div>

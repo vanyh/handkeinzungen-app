@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %}Details für '{{object.name}}' {% endblock %}
+{% load i18n %}
+{% block title %}{% trans "Details für" %} '{{object.name}}' {% endblock %}
 
 {% block scriptHeader %}
 <!-- In case you are using any autocomplete-functions, don´t forget to
@@ -29,7 +30,7 @@ include 'autocomplete_light/static.html
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>place:</small> {{ object.name }}
+                        <small>{% trans "Ort" %}:</small> {{ object.name }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'places:place_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
@@ -50,11 +51,11 @@ include 'autocomplete_light/static.html
     <div class="panel-body">
         <div class="row">
             <div class="col-md-6">
-                <legend>About</legend>
+                <legend>{% trans "Über" %}</legend>
                 <table class="table table-bordered table-hover">
                     <tr>
                         <th>
-                            Name
+                            {% trans "Name" %}
                         </th>
                         <td>
                             {{ object.name }}
@@ -62,7 +63,7 @@ include 'autocomplete_light/static.html
                     </tr>
                     <tr>
                         <th>
-                            Coordinates
+                            {% trans "Koordinaten" %}
                         </th>
                         <td>
                             <abbr title="lat">{{ object.lat }}</abbr>
@@ -72,7 +73,7 @@ include 'autocomplete_light/static.html
                 </tr>
                 <tr>
                     <th>
-                        Alternative Names
+                        {% trans "Alternative Ortsbezeichnung" %}
                     </th>
                     <td>
                         <ul>
@@ -86,19 +87,19 @@ include 'autocomplete_light/static.html
                 </tr>
                 <tr>
                     <th>
-                        Part of
+                        {% trans "Teil von" %}
                     </th>
                     <td>
                         {% if object.part_of %}
                         <a href="{% url 'places:place_detail' pk=object.part_of.id %}">{{ object.part_of }}</a>
                         {% else %}
-                        No entry
+                        {% trans "kein Eintrag" %}
                         {% endif %}
                     </td>
 
                 </tr>
                 <tr>
-                    <th>has child</th>
+                    <th>{% trans "has child" %}</th>
                     <td>
                         <ul>
                             {% for x in object.has_child.all %}

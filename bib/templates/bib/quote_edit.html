@@ -1,20 +1,21 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} '{{object.text|truncatechars:33}}' bearbeiten {% endblock %}
+{% load i18n %}
+{% block title %} '{{object.text|truncatechars:33}}' {% trans "bearbeiten" %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                  <h3>'{{object.text|truncatechars:33}}' bearbeiten</h3>
+                  <h3>'{{object.text|truncatechars:33}}' {% trans "bearbeiten" %}</h3>
             </div>
             <div class="panel-body">
 
                     {% csrf_token %}
                     {% crispy form %}
-                
+
                 {% if object %}
-                <a class ="btn btn-danger btn-sm" href="{% url 'bib:quote_delete' pk=object.id %}">Löschen</a>
+                <a class ="btn btn-danger btn-sm" href="{% url 'bib:quote_delete' pk=object.id %}">{% trans "Löschen" %}</a>
                 {% endif %}
            </div>
        </div>

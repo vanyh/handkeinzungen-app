@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-16 07:51+0100\n"
+"POT-Creation-Date: 2018-03-06 16:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,6 +232,75 @@ msgstr ""
 msgid "Zitat-Teile"
 msgstr ""
 
+#: .\bib\templates\bib\book_edit.html:4 .\bib\templates\bib\book_edit.html:10
+#: .\bib\templates\bib\foreignlemma_edit.html:4
+#: .\bib\templates\bib\foreignlemma_edit.html:10
+#: .\bib\templates\bib\germanlemma_edit.html:4
+#: .\bib\templates\bib\germanlemma_edit.html:10
+#: .\bib\templates\bib\partofquote_edit.html:4
+#: .\bib\templates\bib\partofquote_edit.html:10
+#: .\bib\templates\bib\person_edit.html:4
+#: .\bib\templates\bib\person_edit.html:10
+#: .\bib\templates\bib\quote_edit.html:4
+#: .\bib\templates\bib\quote_edit.html:10
+#: .\bib\templates\bib\speaker_edit.html:4
+#: .\bib\templates\bib\speaker_edit.html:10
+#: .\bib\templates\bib\work_edit.html:4 .\bib\templates\bib\work_edit.html:10
+#: .\places\templates\places\alternativenames_create.html:5
+#: .\places\templates\places\alternativenames_create.html:17
+#: .\places\templates\places\place_edit.html:4
+#: .\places\templates\places\place_edit.html:27
+msgid "bearbeiten"
+msgstr ""
+
+#: .\bib\templates\bib\book_edit.html:18
+#: .\bib\templates\bib\foreignlemma_edit.html:18
+#: .\bib\templates\bib\germanlemma_edit.html:18
+#: .\bib\templates\bib\partofquote_edit.html:18
+#: .\bib\templates\bib\person_edit.html:18
+#: .\bib\templates\bib\quote_edit.html:18
+#: .\bib\templates\bib\speaker_edit.html:18
+#: .\bib\templates\bib\work_edit.html:18
+#: .\places\templates\places\alternativenames_create.html:28
+#: .\places\templates\places\place_edit.html:38
+msgid "Löschen"
+msgstr ""
+
+#: .\bib\templates\bib\foreignlemma_create.html:2
+#: .\bib\templates\bib\foreignlemma_create.html:9
+msgid "Fremdsprachiges Lemma erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\germanlemma_create.html:2
+#: .\bib\templates\bib\germanlemma_create.html:9
+msgid "Deutsches Lemma erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\partofquote_create.html:2
+#: .\bib\templates\bib\partofquote_create.html:9
+msgid "Zitat-Teil erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\person_create.html:2
+#: .\bib\templates\bib\person_create.html:9
+msgid "Person erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\quote_create.html:2
+#: .\bib\templates\bib\quote_create.html:9
+msgid "Zitat erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\speaker_create.html:2
+#: .\bib\templates\bib\speaker_create.html:9
+msgid "Sprecher erstellen"
+msgstr ""
+
+#: .\bib\templates\bib\work_create.html:2
+#: .\bib\templates\bib\work_create.html:9
+msgid "Werk erstellen"
+msgstr ""
+
 #: .\browsing\forms.py:18 .\browsing\forms.py:28 .\browsing\forms.py:48
 #: .\browsing\forms.py:75 .\browsing\forms.py:96 .\browsing\forms.py:116
 #: .\browsing\forms.py:137 .\browsing\forms.py:172 .\browsing\forms.py:191
@@ -279,6 +348,8 @@ msgid "Autor"
 msgstr ""
 
 #: .\browsing\tables.py:127 .\browsing\tables.py:139
+#: .\places\templates\places\list_places.html:32
+#: .\places\templates\places\place_detail.html:58
 msgid "Name"
 msgstr ""
 
@@ -299,12 +370,90 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: .\places\models.py:47
+#: .\places\models.py:8 .\places\templates\places\place_detail.html:76
+msgid "Alternative Ortsbezeichnung"
+msgstr ""
+
+#: .\places\models.py:47 .\places\models.py:67
 msgid "Alternative Ortsbezeichnungen"
 msgstr ""
 
-#: .\places\models.py:117
+#: .\places\models.py:62
+msgid "Standardname"
+msgstr ""
+
+#: .\places\models.py:82
+msgid "Ein Ort, von dem dieser Ort ein Teil ist."
+msgstr ""
+
+#: .\places\models.py:117 .\places\templates\places\list_places.html:4
+#: .\places\templates\places\list_places.html:19
+#: .\places\templates\places\list_places.html:95
 msgid "Orte"
+msgstr ""
+
+#: .\places\templates\places\alternativenames_create.html:7
+#: .\places\templates\places\alternativenames_create.html:19
+msgid "alternative Ortsbezeichnung erstellen"
+msgstr ""
+
+#: .\places\templates\places\alternativenames_detail.html:4
+#: .\places\templates\places\place_detail.html:4
+msgid "Details für"
+msgstr ""
+
+#: .\places\templates\places\alternativenames_detail.html:33
+msgid "alternative Ortsbezeichnung"
+msgstr ""
+
+#: .\places\templates\places\alternativenames_detail.html:52
+#: .\places\templates\places\place_detail.html:54
+msgid "Über"
+msgstr ""
+
+#: .\places\templates\places\alternativenames_detail.html:55
+msgid "verknüpfte Orte"
+msgstr ""
+
+#: .\places\templates\places\list_places.html:33
+msgid "GeoNames"
+msgstr ""
+
+#: .\places\templates\places\list_places.html:41
+msgid "(bearbeiten)"
+msgstr ""
+
+#: .\places\templates\places\list_places.html:57
+msgid "Geovisualisation"
+msgstr ""
+
+#: .\places\templates\places\list_places.html:98
+msgid "neuen Ort erstellen"
+msgstr ""
+
+#: .\places\templates\places\place_detail.html:33
+msgid "Ort"
+msgstr ""
+
+#: .\places\templates\places\place_detail.html:66
+msgid "Koordinaten"
+msgstr ""
+
+#: .\places\templates\places\place_detail.html:90
+msgid "Teil von"
+msgstr ""
+
+#: .\places\templates\places\place_detail.html:96
+msgid "kein Eintrag"
+msgstr ""
+
+#: .\places\templates\places\place_detail.html:102
+msgid "has child"
+msgstr ""
+
+#: .\places\templates\places\place_edit.html:4
+#: .\places\templates\places\place_edit.html:27
+msgid "Ort erstellen"
 msgstr ""
 
 #: .\webpage\templates\webpage\base.html:100

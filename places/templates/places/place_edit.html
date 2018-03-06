@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} {% if object %} '{{object.name}}' bearbeiten {% else %} Ort erstellen {% endif %} {% endblock %}
+{% load i18n %}
+{% block title %} {% if object %} '{{object.name}}' {% trans "bearbeiten" %} {% else %} {% trans "Ort erstellen" %} {% endif %} {% endblock %}
 
 {% block scriptHeader %}
 <!-- In case you are using any autocomplete-functions, don´t forget to
@@ -23,7 +24,7 @@
 {% endif %}
         <div class="panel panel-default">
             <div class="panel-heading">
-                  <h3>{%if object %} '{{object.name}}' bearbeiten {% else %} Ort erstellen {% endif %}</h3>
+                  <h3>{%if object %} '{{object.name}}' {% trans "bearbeiten" %} {% else %} {% trans "Ort erstellen" %} {% endif %}</h3>
             </div>
             <div class="panel-body">
                 <form action="" method="post">
@@ -34,7 +35,7 @@
                     {% endif %}
                     <input class="btn btn-primary btn-block" type="submit" value="Save" />
                     {% if object %}
-                    <a class ="btn btn-danger btn-sm" href="{% url 'places:place_delete' pk=object.id %}">Löschen</a>
+                    <a class ="btn btn-danger btn-sm" href="{% url 'places:place_delete' pk=object.id %}">{% trans "Löschen" %}</a>
                     {% endif %}
                 </form>
            </div>
