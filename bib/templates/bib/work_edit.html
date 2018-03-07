@@ -15,7 +15,7 @@
                     {% crispy form %}
 
                 {% if object %}
-                <a class ="btn btn-danger btn-sm" href="{% url 'bib:work_delete' pk=object.id %}">{% trans "Löschen" %}</a>
+                <a class ="btn btn-danger btn-sm" href="{% url 'bib:work_delete' pk=object.id %}">{% trans "löschen"|capfirst %}</a>
                 {% endif %}
     </div>
   </div>

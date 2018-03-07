@@ -1,8 +1,9 @@
 {% extends "webpage/base.html" %}
-{% block title %}logout{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "logout"|capfirst %}{% endblock %}
 {% block content %}
 <div class="jumbotron container">
     <h1>Sayōnara!</h1>
-    <p>Sie sind nun ausgeloggt.</p>
+    <p>{% trans "Sie sind nun ausgeloggt."|capfirst %}</p>
 </div>
 {% endblock content %}

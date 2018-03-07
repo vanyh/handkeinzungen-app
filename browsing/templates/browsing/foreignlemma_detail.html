@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} Details für '{{ object }}' {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Details für"|capfirst %} '{{ object }}' {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,7 +17,7 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>Fremdsprachiges Lemma:</small> {{ object }}
+                        <small>{% trans "Fremdsprachiges Lemma"|capfirst %}:</small> {{ object }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'bib:foreignlemma_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
@@ -35,11 +36,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Angaben zum Fremdsprachigen Lemma</legend>
+            <legend>{% trans "Angaben zum Fremdsprachigen Lemma"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Übersetzung
+                        {% trans "Übersetzung"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.german.all %}
@@ -51,7 +52,7 @@
                 </tr>
                 <tr>
                     <th>
-                        verwendet in
+                        {% trans "verwendet in"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.used_in.all %}
@@ -63,7 +64,7 @@
                 </tr>
                 <tr>
                     <th>
-                        vorhanden in den Sprachen
+                        {% trans "vorhanden in den Sprachen"|capfirst %}
                     </th>
                     <td>
                             <li>

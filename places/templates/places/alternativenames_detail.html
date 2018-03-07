@@ -1,7 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
-{% block title %}{% trans "Details für" %} {{ object.get_classname }}: {{object.name}}{% endblock %}
+{% block title %}{% trans "Details für"|capfirst %} {{ object.get_classname }}: {{object.name}}{% endblock %}
 
 {% block scriptHeader %}
 <!-- In case you are using any autocomplete-functions, don´t forget to
@@ -30,7 +30,7 @@ include 'autocomplete_light/static.html
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>{% trans "alternative Ortsbezeichnung" %}:</small> {{ object.name }}
+                        <small>{% trans "alternative Ortsbezeichnung"|capfirst %}:</small> {{ object.name }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'places:alternativename_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
@@ -49,10 +49,10 @@ include 'autocomplete_light/static.html
         </div>
     </div>
     <div class="panel-body">
-                <legend>{% trans "Über" %}</legend>
+                <legend>{% trans "über"|capfirst %}</legend>
                 <table class="table table-bordered table-hover">
                 <tr>
-                    <th>{% trans "verknüpfte Orte" %}</th>
+                    <th>{% trans "verknüpfte Orte"|capfirst %}</th>
                     <td>
                         <ul>
                             {% for x in object.related_places.all %}

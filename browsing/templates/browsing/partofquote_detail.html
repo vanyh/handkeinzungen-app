@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} Details für '{{ object.text }}' {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Details für"|capfirst %} '{{ object.text }}' {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,7 +17,7 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>Zitat-Teil:</small>{% if user.is_authenticated %}
+                        <small>{% trans "Zitat-Teil"|capfirst %}:</small>{% if user.is_authenticated %}
                         <small><a href="{% url 'bib:partofquote_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
                         </a>
@@ -34,11 +35,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Zungen</legend>
+            <legend>{% trans "Zungen"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Sprache
+                        {% trans "Sprache"|capfirst %}
                     </th>
                     <td>
                         {{ object.language }}
@@ -47,7 +48,7 @@
                 {% if object.translates.all %}
                     <tr>
                         <th>
-                            Übersetzung(en)
+                            {% trans "Übersetzung(en)"|capfirst %}
                         </th>
                         <td>
                             {% for x in object.translates.all %}
@@ -60,15 +61,15 @@
                 {% endif %}
             </table>
             {% if object.part_of %}
-            <legend>Kontext</legend>
+            <legend>{% trans "Kontext"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Zitat
+                        {% trans "Zitat"|capfirst %}
                     </th>
                     <td>
                         {{ object.part_of.serialize_quote|safe }}<br/>
-                        <small><a href="{% url 'browsing:quote_detail' pk=object.part_of.id %}">zum Zitat</a></small>
+                        <small><a href="{% url 'browsing:quote_detail' pk=object.part_of.id %}">{% trans "zum Zitat"|capfirst %}</a></small>
                     </td>
                 </tr>
                 <tr>

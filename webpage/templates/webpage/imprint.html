@@ -1,7 +1,8 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% load webpage_extras %}
-{% block title %} Imprint {% endblock %}
+{% block title %} {% trans "Impressum"|capfirst %} {% endblock %}
 {% block content %}
 <div class="container">
 <div class="imprint">

@@ -83,62 +83,62 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  <ul class="nav navbar-nav">
-                 <li><a href="/">Home</a></li>
+                 <li><a href="/">{% trans "home"|capfirst %}</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Über das Projekt
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "über das Projekt"|capfirst %}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'webpage:staticpage' template='about' %}">Beschreibung</a></li>
-                            <li><a href="{% url 'datamodel:plate' %}">Datenmodell</a></li>
-                            <li><a href="{% url 'webpage:staticpage' template='imprint' %}">Impressum</a></li>
+                            <li><a href="{% url 'webpage:staticpage' template='about' %}">{% trans "Beschreibung"|capfirst %}</a></li>
+                            <li><a href="{% url 'datamodel:plate' %}">{% trans "Datenmodell"|capfirst %}</a></li>
+                            <li><a href="{% url 'webpage:staticpage' template='imprint' %}">{% trans "Impressum"|capfirst %}</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         {% if user.is_authenticated %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            {% trans "Einträge durchblättern und pflegen" %}<span class="caret"></span>
+                            {% trans "Einträge durchblättern und pflegen"|capfirst %}<span class="caret"></span>
                         </a>
                         {% else %}
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Einträge durchblättern<span class="caret"></span>
+                            {% trans "Einträge durchblättern"|capfirst %}<span class="caret"></span>
                         </a>
                         {% endif %}
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'browsing:browse_works' %}">Werke</a></li>
-                            <li><a href="{% url 'browsing:browse_quotes' %}">Zitate</a></li>
-                            <li><a href="{% url 'browsing:browse_partofquotes' %}">Zitat-Teile</a></li>
-                            <li><a href="{% url 'browsing:browse_germanlemmas' %}">Deutsche Lemmata</a></li>
-                            <li><a href="{% url 'browsing:browse_foreignlemmas' %}">Fremdsprachige Lemmata</a></li>
-                            <li><a href="{% url 'browsing:browse_persons' %}">Personen</a></li>
-                            <li><a href="{% url 'browsing:browse_speakers' %}">Sprecher</a></li>
-                            <li><a href="{% url 'places:place_list' %}">Orte</a></li>
+                            <li><a href="{% url 'browsing:browse_works' %}">{% trans "Werke"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_quotes' %}">{% trans "Zitate"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_partofquotes' %}">{% trans "Zitat-Teile"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_germanlemmas' %}">{% trans "Deutsche Lemmata"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_foreignlemmas' %}">{% trans "Fremdsprachige Lemmata"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_persons' %}">{% trans "Personen"|capfirst %}</a></li>
+                            <li><a href="{% url 'browsing:browse_speakers' %}">{% trans "Sprecher"|capfirst %}</a></li>
+                            <li><a href="{% url 'places:place_list' %}">{% trans "Orte"|capfirst %}</a></li>
                             {% if user.is_authenticated %}
                                 <li role="separator" class="divider"></li>
-                                <li><a href="{% url 'bib:synczotero' %}">Einträge aus Zotero importieren</a></li>
+                                <li><a href="{% url 'bib:synczotero' %}">{% trans "Einträge aus Zotero importieren"|capfirst %}</a></li>
                             {% endif %}
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                           Daten wiederherstellen<span class="caret"></span>
+                           {% trans "Daten wiederherstellen"|capfirst %}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                        <li><a href="/api">API</a></li></ul>
+                        <li><a href="/api">{% trans "API"|capfirst %}</a></li></ul>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Vocabs Curation<span class="caret"></span>
+                            {% trans "Vocabs Curation"|capfirst %}<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'vocabs:skosconceptscheme_list' %}">Concept Schemes durchblättern</a></li>
-                            <li><a href="{% url 'vocabs:browse_vocabs' %}">Concepts durchblättern</a></li>
-                            <li><a href="{% url 'vocabs:skoslabel_list' %}">Labels durchblättern</a></li>
+                            <li><a href="{% url 'vocabs:skosconceptscheme_list' %}">{% trans "Concept Schemes durchblättern"|capfirst %}</a></li>
+                            <li><a href="{% url 'vocabs:browse_vocabs' %}">{% trans "Concepts durchblättern"|capfirst %}</a></li>
+                            <li><a href="{% url 'vocabs:skoslabel_list' %}">{% trans "Labels durchblättern"|capfirst %}</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="{% url 'vocabs:skos_import' %}">SKOS (RDF/XML) importieren</a></li>
-                            <li><a href="{% url 'vocabs:skos_csv_import' %}">Vocabs aus CSV importieren</a></li>
-                            <li><a href="{% url 'api-root' %}">SKOS (API) exportieren</a></li>
+                            <li><a href="{% url 'vocabs:skos_import' %}">{% trans "SKOS (RDF/XML) importieren"|capfirst %}</a></li>
+                            <li><a href="{% url 'vocabs:skos_csv_import' %}">{% trans "Vocabs aus CSV importieren"|capfirst %}</a></li>
+                            <li><a href="{% url 'api-root' %}">{% trans "SKOS (API) exportieren"|capfirst %}</a></li>
                         </ul>
                     </li>
                     {% endif %}
@@ -151,14 +151,14 @@
                                 {{ user.get_username }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{% url 'webpage:user_logout' %}">Log-out</a></li>
+                                <li><a href="{% url 'webpage:user_logout' %}">{% trans "Log-out"|capfirst %}</a></li>
                             </ul>
                         {% else %}
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{% url 'webpage:user_login' %}">Log-in</a></li>
+                                <li><a href="{% url 'webpage:user_login' %}">{% trans "Log-in"|capfirst %}</a></li>
                             </ul>
                         {% endif %}
                     </li>
@@ -182,7 +182,7 @@
 </header>
 <div class="alert alert-warning alert-dismissable">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <strong>Hinweis</strong> In Arbeit.
+{% trans "<strong>Hinweis</strong> In Arbeit."|capfirst %}
 </div>
 <section class="main-content">
     <div id="content" class="container">{% block content %}{% endblock %}</div>

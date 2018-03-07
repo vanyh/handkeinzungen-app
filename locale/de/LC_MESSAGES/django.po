@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-06 16:00+0100\n"
-"PO-Revision-Date: 2018-03-06 16:06+0100\n"
+"POT-Creation-Date: 2018-03-07 16:15+0100\n"
+"PO-Revision-Date: 2018-03-07 16:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,223 +20,230 @@ msgstr ""
 
 #: .\bib\models.py:15
 msgid "Vorname der Person"
-msgstr "person's first name"
+msgstr "Vorname der Person"
 
 #: .\bib\models.py:18
 msgid "Nachname der Person"
-msgstr "person's surname"
+msgstr "Nachname der Person"
 
 #: .\bib\models.py:21
 msgid "GND-ID der Person"
-msgstr "person's GND-ID"
+msgstr "GND-ID der Person"
 
-#: .\bib\models.py:59
+#: .\bib\models.py:59 .\browsing\templates\browsing\book_detail.html:31
 msgid "Zoterokey"
-msgstr "Zotero key"
+msgstr "Zoterokey"
 
 #: .\bib\models.py:60
 msgid ""
 "Zoterokey des bibliographischen Eintrags aus der Zoterolibrary 'Peter Handke "
 "stage texts'"
 msgstr ""
-"Zotero key found in the bibliographic entry in Zotero library 'Peter Handke "
+"Zoterokey des bibliographischen Eintrags aus der Zoterolibrary 'Peter Handke "
 "stage texts'"
 
 #: .\bib\models.py:63
 msgid "Objekttyp"
-msgstr "item type"
+msgstr "Objekttyp"
 
-#: .\bib\models.py:66
+#: .\bib\models.py:66 .\browsing\templates\browsing\book_detail.html:47
 msgid "Autor*innenname laut Zotero-Eintrag"
-msgstr "work author according to Zotero entry"
+msgstr "Autor*innenname laut Zotero-Eintrag"
 
-#: .\bib\models.py:69
+#: .\bib\models.py:69 .\browsing\templates\browsing\book_detail.html:55
 msgid "Autor*innenname"
-msgstr "work author"
+msgstr "Autor*innenname"
 
 #: .\bib\models.py:71 .\bib\models.py:133
 msgid "Titel des Werks"
-msgstr "work title"
+msgstr "Titel des Werks"
 
 #: .\bib\models.py:73
 msgid "Sigle"
-msgstr "sigle"
+msgstr "Sigle"
 
-#: .\bib\models.py:74
+#: .\bib\models.py:74 .\browsing\templates\browsing\book_detail.html:68
 msgid "Sigle des publizierten Werks (laut Handkeonline)"
-msgstr "sigle of the published work (according to Handkeonline)"
+msgstr "Sigle des publizierten Werks (laut Handkeonline)"
 
-#: .\bib\models.py:78
+#: .\bib\models.py:78 .\browsing\templates\browsing\book_detail.html:98
 msgid "Jahr der Veröffentlichung"
-msgstr "year of publication"
+msgstr "Jahr der Veröffentlichung"
 
-#: .\bib\models.py:80
+#: .\bib\models.py:80 .\browsing\templates\browsing\book_detail.html:108
 msgid "Ort der Veröffentlichung"
-msgstr "place of publication"
+msgstr "Ort der Veröffentlichung"
 
-#: .\bib\models.py:82
+#: .\bib\models.py:82 .\browsing\templates\browsing\book_detail.html:122
 msgid "GND-ID des Buchs"
-msgstr "book GND-ID"
+msgstr "GND-ID des Buchs"
 
-#: .\bib\models.py:85
+#: .\bib\models.py:85 .\browsing\templates\browsing\book_detail.html:39
 msgid "Item type laut Zotero-Eintrag"
-msgstr "item type according to Zotero entry"
+msgstr "Item type laut Zotero-Eintrag"
 
 #: .\bib\models.py:106
 msgid "Bitte Zotero-Einstellungen bereitstellen"
-msgstr "please provide Zotero settings"
+msgstr "Bitte Zotero-Einstellungen bereitstellen"
 
 #: .\bib\models.py:120
 msgid "Bücher"
-msgstr "books"
+msgstr "Bücher"
 
 #: .\bib\models.py:127
 msgid "Autor*in des Werks"
-msgstr "work author"
+msgstr "Autor*in des Werks"
 
 #: .\bib\models.py:130
 msgid "Übersetzer*in des werks"
-msgstr "work translator"
+msgstr "Übersetzer*in des werks"
 
 #: .\bib\models.py:135
 msgid "Titelvarianten"
-msgstr "alternative titles"
+msgstr "Titelvarianten"
 
 #: .\bib\models.py:136
 msgid "entstanden von"
-msgstr "written from"
+msgstr "entstanden von"
 
 #: .\bib\models.py:137
 msgid "entstanden bis"
-msgstr "written until"
+msgstr "entstanden bis"
 
 #: .\bib\models.py:138
 msgid "Anfangsdatum gesichert"
-msgstr "start date sure"
+msgstr "Anfangsdatum gesichert"
 
 #: .\bib\models.py:139
 msgid "Enddatum gesichert"
-msgstr "end date sure"
+msgstr "Enddatum gesichert"
 
 #: .\bib\models.py:140
 msgid "Entstehungsort"
-msgstr "place of creation"
+msgstr "Entstehungsort"
 
 #: .\bib\models.py:141
 msgid "Entstehungsort gesichert"
-msgstr "agreed place of creation"
+msgstr "Entstehungsort gesichert"
 
 #: .\bib\models.py:143 .\browsing\tables.py:92
 msgid "veröffentlicht in"
-msgstr "published in"
+msgstr "veröffentlicht in"
 
 #: .\bib\models.py:144
 msgid "Werktyp"
-msgstr "work type"
+msgstr "Werktyp"
 
 #: .\bib\models.py:147
 msgid "dominante Schreibsprache"
-msgstr "prevailing language"
+msgstr "dominante Schreibsprache"
 
-#: .\bib\models.py:149 .\bib\models.py:320
+#: .\bib\models.py:149 .\bib\models.py:320 .\browsing\tables.py:15
+#: .\browsing\tables.py:30
+#: .\browsing\templates\browsing\foreignlemma_detail.html:43
 msgid "Übersetzung"
-msgstr "translation"
+msgstr "Übersetzung"
 
-#: .\bib\models.py:178
+#: .\bib\models.py:178 .\webpage\templates\webpage\base.html:108
 msgid "Werke"
-msgstr "works"
+msgstr "Werke"
 
-#: .\bib\models.py:187
+#: .\bib\models.py:187 .\browsing\templates\browsing\speaker_detail.html:43
 msgid "Figurenname"
-msgstr "speaker name"
+msgstr "Figurenname"
 
 #: .\bib\models.py:189
 msgid "weitere Informationen zur Figur"
-msgstr "further Information on speaker"
+msgstr "weitere Informationen zur Figur"
 
-#: .\bib\models.py:192
+#: .\bib\models.py:192 .\browsing\templates\browsing\speaker_detail.html:59
 msgid "alternative Figurenbezeichnungen"
-msgstr "alternative speaker names"
+msgstr "alternative Figurenbezeichnungen"
 
-#: .\bib\models.py:222
+#: .\bib\models.py:222 .\browsing\templates\browsing\quote_detail.html:101
+#: .\browsing\templates\browsing\speaker_detail.html:20
+#: .\webpage\templates\webpage\base.html:114
 msgid "Sprecher"
-msgstr "speaker"
+msgstr "Sprecher"
 
 #: .\bib\models.py:251 .\bib\models.py:315
+#: .\browsing\templates\browsing\quote_detail.html:38
 msgid "Quelle"
-msgstr "source"
+msgstr "Quelle"
 
 #: .\bib\models.py:253
 msgid "Seite (von)"
-msgstr "page (from)"
+msgstr "Seite (von)"
 
 #: .\bib\models.py:254
 msgid "Seite (bis)"
-msgstr "page (to)"
+msgstr "Seite (bis)"
 
 #: .\bib\models.py:255 .\bib\models.py:310
 msgid "Text"
-msgstr "text"
+msgstr "Text"
 
 #: .\bib\models.py:256
 msgid "Zitattyp"
-msgstr "quote type"
+msgstr "Zitattyp"
 
 #: .\bib\models.py:258 .\bib\models.py:313
 msgid "Teil von Zitat"
-msgstr "part of quote"
+msgstr "Teil von Zitat"
 
 #: .\bib\models.py:259
 msgid "Dieses Zitat ist Teil eines umfangreicheren Zitats"
-msgstr "This quote is part of a greater quote."
+msgstr "Dieses Zitat ist Teil eines umfangreicheren Zitats"
 
 #: .\bib\models.py:260
 msgid "Selbstübersetzung"
-msgstr "self-translation"
+msgstr "Selbstübersetzung"
 
-#: .\bib\models.py:301
+#: .\bib\models.py:301 .\webpage\templates\webpage\base.html:109
 msgid "Zitate"
-msgstr "quotes"
+msgstr "Zitate"
 
 #: .\bib\models.py:314
 msgid "Dieses Teilzitat ist Teil eines umfangreicheren Zitats"
-msgstr "This part of quote is part of a greater quote."
+msgstr "Dieses Teilzitat ist Teil eines umfangreicheren Zitats"
 
 #: .\bib\models.py:318
 msgid "folgt auf"
-msgstr "following"
+msgstr "folgt auf"
 
 #: .\bib\models.py:318
 msgid "Dieses Teilzitat folgt einem anderen"
-msgstr "This part of quote follows another."
+msgstr "Dieses Teilzitat folgt einem anderen"
 
 #: .\bib\models.py:321
 msgid ""
 "Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb "
 "des Texts"
 msgstr ""
-"This part of quote has a translation in the immediate vicinity within the "
-"text."
+"Dieses Teilzitat hat eine Übersetzung in unmittelbarer Umgebung innerhalb "
+"des Texts"
 
 #: .\bib\models.py:324
 msgid "Übersetzung korrekt"
-msgstr "proper translation"
+msgstr "Übersetzung korrekt"
 
-#: .\bib\models.py:326
+#: .\bib\models.py:326 .\browsing\templates\browsing\partofquote_detail.html:42
+#: .\words\models.py:15
 msgid "Sprache"
-msgstr "language"
+msgstr "Sprache"
 
 #: .\bib\models.py:328
 msgid "Teilzitattyp"
-msgstr "part of quote type"
+msgstr "Teilzitattyp"
 
 #: .\bib\models.py:330 .\browsing\tables.py:45
 msgid "Figur"
-msgstr "speaker"
+msgstr "Figur"
 
-#: .\bib\models.py:359
+#: .\bib\models.py:359 .\browsing\templates\browsing\quote_detail.html:85
+#: .\webpage\templates\webpage\base.html:110
 msgid "Zitat-Teile"
-msgstr "parts of quote"
+msgstr "Zitat-Teile"
 
 #: .\bib\templates\bib\book_edit.html:4 .\bib\templates\bib\book_edit.html:10
 #: .\bib\templates\bib\foreignlemma_edit.html:4
@@ -256,7 +263,7 @@ msgstr "parts of quote"
 #: .\places\templates\places\place_edit.html:4
 #: .\places\templates\places\place_edit.html:27
 msgid "bearbeiten"
-msgstr "edit"
+msgstr "bearbeiten"
 
 #: .\bib\templates\bib\book_edit.html:18
 #: .\bib\templates\bib\foreignlemma_edit.html:18
@@ -268,100 +275,180 @@ msgstr "edit"
 #: .\bib\templates\bib\work_edit.html:18
 #: .\places\templates\places\alternativenames_create.html:28
 #: .\places\templates\places\place_edit.html:38
-msgid "Löschen"
-msgstr "delete"
+msgid "löschen"
+msgstr "löschen"
 
-#: .\bib\templates\bib\foreignlemma_create.html:2
+#: .\bib\templates\bib\foreignlemma_create.html:3
 #: .\bib\templates\bib\foreignlemma_create.html:9
 msgid "Fremdsprachiges Lemma erstellen"
-msgstr "create foreign lemma"
+msgstr "Fremdsprachiges Lemma erstellen"
 
-#: .\bib\templates\bib\germanlemma_create.html:2
+#: .\bib\templates\bib\germanlemma_create.html:3
 #: .\bib\templates\bib\germanlemma_create.html:9
 msgid "Deutsches Lemma erstellen"
-msgstr "create german lemma"
+msgstr "Deutsches Lemma erstellen"
 
-#: .\bib\templates\bib\partofquote_create.html:2
+#: .\bib\templates\bib\partofquote_create.html:3
 #: .\bib\templates\bib\partofquote_create.html:9
 msgid "Zitat-Teil erstellen"
-msgstr "create part of quote"
+msgstr "Zitat-Teil erstellen"
 
-#: .\bib\templates\bib\person_create.html:2
+#: .\bib\templates\bib\person_create.html:3
 #: .\bib\templates\bib\person_create.html:9
 msgid "Person erstellen"
-msgstr ""
+msgstr "Person erstellen"
 
-#: .\bib\templates\bib\quote_create.html:2
+#: .\bib\templates\bib\quote_create.html:3
 #: .\bib\templates\bib\quote_create.html:9
 msgid "Zitat erstellen"
-msgstr "create quote"
+msgstr "Zitat erstellen"
 
-#: .\bib\templates\bib\speaker_create.html:2
+#: .\bib\templates\bib\speaker_create.html:3
 #: .\bib\templates\bib\speaker_create.html:9
 msgid "Sprecher erstellen"
-msgstr "create speaker"
+msgstr "Sprecher erstellen"
 
-#: .\bib\templates\bib\work_create.html:2
+#: .\bib\templates\bib\work_create.html:3
 #: .\bib\templates\bib\work_create.html:9
 msgid "Werk erstellen"
-msgstr ""
+msgstr "Werk erstellen"
 
 #: .\browsing\forms.py:18 .\browsing\forms.py:28 .\browsing\forms.py:48
 #: .\browsing\forms.py:75 .\browsing\forms.py:96 .\browsing\forms.py:116
 #: .\browsing\forms.py:137 .\browsing\forms.py:172 .\browsing\forms.py:191
 #: .\browsing\forms.py:217 .\browsing\forms.py:236
 msgid "Suche"
-msgstr "search"
+msgstr "Suche"
 
 #: .\browsing\forms.py:32 .\browsing\forms.py:52 .\browsing\forms.py:79
 #: .\browsing\forms.py:100 .\browsing\forms.py:120 .\browsing\forms.py:141
 #: .\browsing\forms.py:176 .\browsing\forms.py:195 .\browsing\forms.py:221
 #: .\browsing\forms.py:240
 msgid "Einfache Suche"
-msgstr "basic search"
+msgstr "Einfache Suche"
 
 #: .\browsing\forms.py:147
 msgid "Entstehungszeit"
-msgstr "creation date"
+msgstr "Entstehungszeit"
 
 #: .\browsing\forms.py:155 .\browsing\forms.py:201
 msgid "Erweiterte Suche"
-msgstr "advanced search"
+msgstr "Erweiterte Suche"
 
 #: .\browsing\tables.py:12 .\browsing\tables.py:27
 msgid "Lemma"
-msgstr "lemma"
+msgstr "Lemma"
 
-#: .\browsing\tables.py:48
+#: .\browsing\tables.py:48 .\browsing\templates\browsing\work_detail.html:20
 msgid "Werk"
-msgstr "work"
+msgstr "Werk"
 
 #: .\browsing\tables.py:63
 msgid "Sprache des Zitats"
-msgstr "quote language"
+msgstr "Sprache des Zitats"
 
 #: .\browsing\tables.py:75
 msgid "Vorname"
-msgstr "first name"
+msgstr "Vorname"
 
 #: .\browsing\tables.py:87 .\browsing\tables.py:103 .\browsing\tables.py:115
+#: .\browsing\templates\browsing\quote_detail.html:42
 msgid "Titel"
-msgstr "title"
+msgstr "Titel"
 
 #: .\browsing\tables.py:90
 msgid "Autor"
-msgstr "author"
+msgstr "Autor"
 
 #: .\browsing\tables.py:127 .\browsing\tables.py:139
 #: .\places\templates\places\list_places.html:32
 #: .\places\templates\places\place_detail.html:58
 msgid "Name"
-msgstr "name"
+msgstr "Name"
+
+#: .\browsing\templates\browsing\book_detail.html:14
+msgid "Buch"
+msgstr "Buch"
+
+#: .\browsing\templates\browsing\book_detail.html:27
+msgid "Angaben zum Buch"
+msgstr "Angaben zum Buch"
+
+#: .\browsing\templates\browsing\book_detail.html:78
+msgid "Publikationstitel"
+msgstr "Publikationstitel"
+
+#: .\browsing\templates\browsing\book_detail.html:88
+msgid "Kurztitel"
+msgstr "Kurztitel"
+
+#: .\browsing\templates\browsing\book_detail.html:131
+msgid "Book Type"
+msgstr "Book Type"
+
+#: .\browsing\templates\browsing\book_detail.html:142
+msgid "verknüpfte Werke"
+msgstr "verknüpfte Werke"
+
+#: .\browsing\templates\browsing\foreignlemma_detail.html:4
+#: .\browsing\templates\browsing\germanlemma_detail.html:4
+#: .\browsing\templates\browsing\partofquote_detail.html:4
+#: .\browsing\templates\browsing\person_detail.html:4
+#: .\browsing\templates\browsing\quote_detail.html:4
+#: .\browsing\templates\browsing\speaker_detail.html:4
+#: .\browsing\templates\browsing\work_detail.html:4
+#: .\places\templates\places\alternativenames_detail.html:4
+#: .\places\templates\places\place_detail.html:4
+msgid "Details für"
+msgstr "Details für"
+
+#: .\browsing\templates\browsing\foreignlemma_detail.html:20
+msgid "Fremdsprachiges Lemma"
+msgstr "Fremdsprachiges Lemma"
+
+#: .\browsing\templates\browsing\foreignlemma_detail.html:39
+msgid "Angaben zum Fremdsprachigen Lemma"
+msgstr "Angaben zum Fremdsprachigen Lemma"
+
+#: .\browsing\templates\browsing\foreignlemma_detail.html:55
+#: .\browsing\templates\browsing\germanlemma_detail.html:68
+msgid "verwendet in"
+msgstr "verwendet in"
+
+#: .\browsing\templates\browsing\foreignlemma_detail.html:67
+msgid "vorhanden in den Sprachen"
+msgstr "vorhanden in den Sprachen"
+
+#: .\browsing\templates\browsing\generic_list.html:6
+msgid "durchblättern"
+msgstr "durchblättern"
+
+#: .\browsing\templates\browsing\generic_list.html:28
+#, python-format
+msgid "durchblättern %(name)s"
+msgstr "%(name)s durchblättern"
+
+#: .\browsing\templates\browsing\generic_list.html:32
+#: .\browsing\templates\browsing\generic_list.html:217
+msgid "Suche zurücksetzen"
+msgstr "Suche zurücksetzen"
+
+#: .\browsing\templates\browsing\generic_list.html:45
+msgid "Treffer gesamt"
+msgstr "Treffer gesamt"
+
+#: .\browsing\templates\browsing\generic_list.html:101
+msgid "Seiten gesamt"
+msgstr "Seiten gesamt"
 
 #: .\browsing\templates\browsing\generic_list.html:114
 #: .\browsing\templates\browsing\generic_list.html:163
 msgid "voriges"
-msgstr "previous"
+msgstr "voriges"
+
+#: .\browsing\templates\browsing\generic_list.html:123
+msgid "zu Seite"
+msgstr "zu Seite"
 
 #: .\browsing\templates\browsing\generic_list.html:138
 #, python-format
@@ -370,89 +457,217 @@ msgid ""
 "<p>Seite %(current)s von %(total)s</p>\n"
 msgstr ""
 "\n"
-"<p>Page %(current)s of %(total)s</p>\n"
+"<p>Seite %(current)s von %(total)s</p>\n"
 
 #: .\browsing\templates\browsing\generic_list.html:149
 #: .\browsing\templates\browsing\generic_list.html:181
-msgid "Next"
+msgid "nächstes"
 msgstr "nächstes"
 
-#: .\places\models.py:8 .\places\templates\places\place_detail.html:76
+#: .\browsing\templates\browsing\generic_list.html:207
+msgid "zusätzliche Spalten auswählen"
+msgstr "zusätzliche Spalten auswählen"
+
+#: .\browsing\templates\browsing\generic_list.html:212
+msgid "Suche verfeinern"
+msgstr "Suche verfeinern"
+
+#: .\browsing\templates\browsing\generic_list.html:221
+msgid "schließen"
+msgstr "schließen"
+
+#: .\browsing\templates\browsing\germanlemma_detail.html:20
+msgid "Deutsches Lemma"
+msgstr "Deutsches Lemma"
+
+#: .\browsing\templates\browsing\germanlemma_detail.html:39
+msgid "Angaben zum Deutschen Lemma"
+msgstr "Angaben zum Deutschen Lemma"
+
+#: .\browsing\templates\browsing\germanlemma_detail.html:43
+msgid "Wörterbucheintrag"
+msgstr "Wörterbucheintrag"
+
+#: .\browsing\templates\browsing\germanlemma_detail.html:50
+msgid "Part of Speech"
+msgstr "Part of Speech"
+
+#: .\browsing\templates\browsing\germanlemma_detail.html:56
+msgid "Übersetzungen"
+msgstr "Übersetzungen"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:20
+msgid "Zitat-Teil"
+msgstr "Zitat-Teil"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:38
+msgid "Zungen"
+msgstr "Zungen"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:51
+msgid "Übersetzung(en)"
+msgstr "Übersetzung(en)"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:64
+msgid "Kontext"
+msgstr "Kontext"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:68
+#: .\browsing\templates\browsing\quote_detail.html:20
+#: .\browsing\templates\browsing\work_detail.html:93
+msgid "Zitat"
+msgstr "Zitat"
+
+#: .\browsing\templates\browsing\partofquote_detail.html:72
+msgid "zum Zitat"
+msgstr "zum Zitat"
+
+#: .\browsing\templates\browsing\person_detail.html:20
+msgid "Person"
+msgstr "Person"
+
+#: .\browsing\templates\browsing\person_detail.html:39
+msgid "Werke von"
+msgstr "Werke von"
+
+#: .\browsing\templates\browsing\quote_detail.html:46
+msgid "S."
+msgstr "S."
+
+#: .\browsing\templates\browsing\quote_detail.html:61
+#: .\webpage\templates\webpage\base.html:112 .\words\models.py:93
+msgid "Fremdsprachige Lemmata"
+msgstr "Fremdsprachige Lemmata"
+
+#: .\browsing\templates\browsing\quote_detail.html:78
+msgid "Auswertung"
+msgstr "Auswertung"
+
+#: .\browsing\templates\browsing\quote_detail.html:93
+msgid "Sprachen"
+msgstr "Sprachen"
+
+#: .\browsing\templates\browsing\speaker_detail.html:39
+msgid "Angaben zum Sprecher"
+msgstr "Angaben zum Sprecher"
+
+#: .\browsing\templates\browsing\speaker_detail.html:51
+msgid "weitere Informationen"
+msgstr "weitere Informationen"
+
+#: .\browsing\templates\browsing\speaker_detail.html:71
+msgid "verwendete Sprachen"
+msgstr "languages used"
+
+#: .\browsing\templates\browsing\speaker_detail.html:83
+msgid "Zitate dieses Sprechers"
+msgstr "quotes by this speaker"
+
+#: .\browsing\templates\browsing\work_detail.html:39
+msgid "Angaben zum Werk"
+msgstr "work details"
+
+#: .\browsing\templates\browsing\work_detail.html:43
+msgid "Alternative Titel"
+msgstr "alternative title"
+
+#: .\browsing\templates\browsing\work_detail.html:55
+msgid "Autor(en)"
+msgstr "author(s)"
+
+#: .\browsing\templates\browsing\work_detail.html:67
+msgid "Übersetzer"
+msgstr "translator"
+
+#: .\browsing\templates\browsing\work_detail.html:79
+msgid "Entstehungszeitraum"
+msgstr "creation date"
+
+#: .\browsing\templates\browsing\work_detail.html:88
+msgid "Ausgaben und Zitate dieses Werkes"
+msgstr "Ausgaben und Zitate dieses Werkes"
+
+#: .\browsing\templates\browsing\work_detail.html:92
+msgid "Ausgabe"
+msgstr "Ausgabe"
+
+#: .\browsing\templates\browsing\work_detail.html:94
+msgid "Chunk"
+msgstr "Chunk"
+
+#: .\places\models.py:8
 msgid "Alternative Ortsbezeichnung"
-msgstr "alternative place name"
+msgstr "Alternative Ortsbezeichnung"
 
 #: .\places\models.py:47 .\places\models.py:67
 msgid "Alternative Ortsbezeichnungen"
-msgstr "alternative place names"
+msgstr "Alternative Ortsbezeichnungen"
 
 #: .\places\models.py:62
 msgid "Standardname"
-msgstr "normalized name"
+msgstr "Standardname"
 
 #: .\places\models.py:82
 msgid "Ein Ort, von dem dieser Ort ein Teil ist."
-msgstr "A place (country) this place is part of."
+msgstr "Ein Ort, von dem dieser Ort ein Teil ist."
 
 #: .\places\models.py:117 .\places\templates\places\list_places.html:4
 #: .\places\templates\places\list_places.html:19
 #: .\places\templates\places\list_places.html:95
+#: .\webpage\templates\webpage\base.html:115
 msgid "Orte"
-msgstr "places"
+msgstr "Orte"
 
 #: .\places\templates\places\alternativenames_create.html:7
 #: .\places\templates\places\alternativenames_create.html:19
 msgid "alternative Ortsbezeichnung erstellen"
-msgstr "create alternative place name"
-
-#: .\places\templates\places\alternativenames_detail.html:4
-#: .\places\templates\places\place_detail.html:4
-msgid "Details für"
-msgstr "Details for"
+msgstr "alternative Ortsbezeichnung erstellen"
 
 #: .\places\templates\places\alternativenames_detail.html:33
+#: .\places\templates\places\place_detail.html:76
 msgid "alternative Ortsbezeichnung"
-msgstr "alternative place name"
+msgstr "alternative Ortsbezeichnung"
 
 #: .\places\templates\places\alternativenames_detail.html:52
 #: .\places\templates\places\place_detail.html:54
-msgid "Über"
-msgstr "About"
+msgid "über"
+msgstr "über"
 
 #: .\places\templates\places\alternativenames_detail.html:55
 msgid "verknüpfte Orte"
-msgstr "related places"
+msgstr "verknüpfte Orte"
 
 #: .\places\templates\places\list_places.html:33
 msgid "GeoNames"
-msgstr ""
+msgstr "GeoNames"
 
 #: .\places\templates\places\list_places.html:41
 msgid "(bearbeiten)"
-msgstr "(edit)"
+msgstr "(bearbeiten)"
 
 #: .\places\templates\places\list_places.html:57
 msgid "Geovisualisation"
-msgstr "geovisualization"
+msgstr "Geovisualisation"
 
 #: .\places\templates\places\list_places.html:98
 msgid "neuen Ort erstellen"
-msgstr "create new place"
+msgstr "neuen Ort erstellen"
 
 #: .\places\templates\places\place_detail.html:33
 msgid "Ort"
-msgstr "place"
+msgstr "Ort"
 
 #: .\places\templates\places\place_detail.html:66
 msgid "Koordinaten"
-msgstr "coordinates"
+msgstr "Koordinaten"
 
 #: .\places\templates\places\place_detail.html:90
 msgid "Teil von"
-msgstr "part of"
+msgstr "Teil von"
 
 #: .\places\templates\places\place_detail.html:96
 msgid "kein Eintrag"
-msgstr "no entry"
+msgstr "kein Eintrag"
 
 #: .\places\templates\places\place_detail.html:102
 msgid "has child"
@@ -461,19 +676,147 @@ msgstr ""
 #: .\places\templates\places\place_edit.html:4
 #: .\places\templates\places\place_edit.html:27
 msgid "Ort erstellen"
-msgstr "create place"
+msgstr "Ort erstellen"
+
+#: .\webpage\templates\webpage\about.html:5
+#: .\webpage\templates\webpage\base.html:92
+msgid "Beschreibung"
+msgstr "Beschreibung"
+
+#: .\webpage\templates\webpage\base.html:86
+msgid "home"
+msgstr "home"
+
+#: .\webpage\templates\webpage\base.html:88
+msgid "über das Projekt"
+msgstr "über das Projekt"
+
+#: .\webpage\templates\webpage\base.html:93
+msgid "Datenmodell"
+msgstr "Datenmodell"
+
+#: .\webpage\templates\webpage\base.html:94
+#: .\webpage\templates\webpage\imprint.html:5
+msgid "Impressum"
+msgstr "Impressum"
 
 #: .\webpage\templates\webpage\base.html:100
 msgid "Einträge durchblättern und pflegen"
-msgstr "search and curate entries"
+msgstr "Einträge durchblättern und pflegen"
 
-#: .\words\models.py:51
+#: .\webpage\templates\webpage\base.html:104
+msgid "Einträge durchblättern"
+msgstr "Einträge durchblättern"
+
+#: .\webpage\templates\webpage\base.html:111 .\words\models.py:51
 msgid "Deutsche Lemmata"
-msgstr "german lemmas"
+msgstr "Deutsche Lemmata"
 
-#: .\words\models.py:93
-msgid "Fremdsprachige Lemmata"
-msgstr "foreign lemmas"
+#: .\webpage\templates\webpage\base.html:113
+msgid "Personen"
+msgstr "Personen"
+
+#: .\webpage\templates\webpage\base.html:118
+msgid "Einträge aus Zotero importieren"
+msgstr "Einträge aus Zotero importieren"
+
+#: .\webpage\templates\webpage\base.html:124
+msgid "Daten wiederherstellen"
+msgstr "Daten wiederherstellen"
+
+#: .\webpage\templates\webpage\base.html:127
+msgid "API"
+msgstr ""
+
+#: .\webpage\templates\webpage\base.html:132
+msgid "Vocabs Curation"
+msgstr "Vocabs Curation"
+
+#: .\webpage\templates\webpage\base.html:135
+msgid "Concept Schemes durchblättern"
+msgstr "Concept Schemes durchblättern"
+
+#: .\webpage\templates\webpage\base.html:136
+msgid "Concepts durchblättern"
+msgstr "Concepts durchblättern"
+
+#: .\webpage\templates\webpage\base.html:137
+msgid "Labels durchblättern"
+msgstr "Labels durchblättern"
+
+#: .\webpage\templates\webpage\base.html:139
+msgid "SKOS (RDF/XML) importieren"
+msgstr "SKOS (RDF/XML) importieren"
+
+#: .\webpage\templates\webpage\base.html:140
+msgid "Vocabs aus CSV importieren"
+msgstr "Vocabs aus CSV importieren"
+
+#: .\webpage\templates\webpage\base.html:141
+msgid "SKOS (API) exportieren"
+msgstr "SKOS (API) exportieren"
+
+#: .\webpage\templates\webpage\base.html:154
+msgid "Log-out"
+msgstr "Log-out"
+
+#: .\webpage\templates\webpage\base.html:161
+msgid "Log-in"
+msgstr "Log-in"
+
+#: .\webpage\templates\webpage\base.html:185
+msgid "<strong>Hinweis</strong> In Arbeit."
+msgstr "<strong>Hinweis</strong> In Arbeit."
+
+#: .\webpage\templates\webpage\confirm_delete.html:4
+#: .\webpage\templates\webpage\confirm_delete.html:12
+msgid "löschen bestätigen"
+msgstr "löschen bestätigen"
+
+#: .\webpage\templates\webpage\confirm_delete.html:18
+msgid "möchten Sie"
+msgstr "möchten Sie"
+
+#: .\webpage\templates\webpage\confirm_delete.html:18
+msgid "wirklich löschen"
+msgstr "wirklich löschen"
+
+#: .\webpage\templates\webpage\confirm_delete.html:20
+msgid "Ja, löschen"
+msgstr "Ja, löschen"
+
+#: .\webpage\templates\webpage\index.html:23
+msgid ""
+"ein Forschungsprojekt zu Fremdsprachen in den Bühnentexten von Peter Handke"
+msgstr ""
+"ein Forschungsprojekt zu Fremdsprachen in den Bühnentexten von Peter Handke"
+
+#: .\webpage\templates\webpage\index.html:24
+msgid "Data Count"
+msgstr "Data Count"
+
+#: .\webpage\templates\webpage\index.html:76
+msgid "Nachrichten"
+msgstr "Nachrichten"
+
+#: .\webpage\templates\webpage\index.html:81
+msgid "auf Twitter"
+msgstr "auf Twitter"
+
+#: .\webpage\templates\webpage\user_logout.html:3
+msgid "logout"
+msgstr "logout"
+
+#: .\webpage\templates\webpage\user_logout.html:7
+msgid "Sie sind nun ausgeloggt."
+msgstr "Sie sind nun ausgeloggt."
+
+#: .\words\models.py:11
+msgid "Wörterbuch"
+msgstr "Wörterbuch"
+
+#~ msgid "Next"
+#~ msgstr "nächstes"
 
 #~ msgid "Previous"
 #~ msgstr "voriges"

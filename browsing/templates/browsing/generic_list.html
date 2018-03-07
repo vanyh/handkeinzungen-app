@@ -1,9 +1,9 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% load django_tables2 %}
 {% load browsing_extras %}
-{% load i18n %}
-{% block title %} {{ class_name }} durchblättern {% endblock %}
+{% block title %} {% blocktrans with name=class_name %}durchblättern {{ name }}{% endblocktrans %} {% endblock %}
 {% block scriptHeader %}
 {% endblock %}
 {% block content %}
@@ -25,14 +25,14 @@ $("#goto option").each(function() {
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading procustom-panel-heading">
-        <h3><span class="fa fa-search" style="padding-left:10px; padding-right: 10px;"></span>{% class_definition %} durchblättern {% block list_title %}{% endblock %}</h3>
+        <h3><span class="fa fa-search" style="padding-left:10px; padding-right: 10px;"></span>{% blocktrans with name=class_name %}durchblättern {{ name }}{% endblocktrans %} {% block list_title %}{% endblock %}</h3>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myFilter">
           <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
         </button>
-        <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
+        <a class ="btn btn-default"  href=".">{% trans "Suche zurücksetzen"|capfirst %}</a>
         {% if user.is_authenticated %}
             {% if create_view_link  %}
-                <a class ="btn btn-default"  href="{{ create_view_link }}"><span class="glyphicon glyphicon-plus" aria-hidden="true" title="add"></span></a>
+                <a class ="btn btn-default"  href="{{ create_view_link }}"><span class="glyphicon glyphicon-plus" aria-hidden="true" title="hinzufügen"></span></a>
             {% endif %}
         {% endif %}
     {%block customView %}{% endblock %}
@@ -42,7 +42,7 @@ $("#goto option").each(function() {
         <div class="row">
             <div class="col-md-12">
                 {% with table.paginator.count as total %}
-                <legend>Treffer gesamt: {{ total }}</legend>
+                <legend>{% trans "Treffer gesamt"|capfirst %}: {{ total }}</legend>
                 {% endwith %}
       {% block table %}
       <table{% if table.attrs %} {{ table.attrs.as_html }}{% endif %}>
@@ -98,7 +98,7 @@ $("#goto option").each(function() {
       <ul class="pagination">
 <div>
 {% with table.page.object_list|length as count %}
-<p>Seiten gesamt: {{ count }}</p>
+<p>{% trans "Seiten gesamt"|capfirst %}: {{ count }}</p>
 {% endwith %}
 </div>
 
@@ -120,7 +120,7 @@ $("#goto option").each(function() {
 <!--select form if more than 15 pages -->
 
 <div class="form-group">
-  <label for="goto">Zu Seite</label>
+  <label for="goto">{% trans "zu Seite"|capfirst %}</label>
     <select class="form-control" id="goto" onchange="javascript:location.href = this.value;">
         {% for p in table.paginator.page_range %}
             <option value="{% querystring table.prefixed_page_field=p %}">{{ p }}</option>
@@ -146,7 +146,7 @@ $("#goto option").each(function() {
 {% if table.page.has_next %}
 {% block pagination.next.goto %}
   <li class="next">
-  <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" style="border-radius: 0px;">{% trans "Next" %}</a>
+  <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" style="border-radius: 0px;">{% trans "nächstes" %}</a>
   </li>
 {% endblock pagination.next.goto %}
 {% endif %}
@@ -178,7 +178,7 @@ $("#goto option").each(function() {
         {% if table.page.has_next %}
         {% block pagination.next %}
           <li class="next">
-          <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" style="border-radius: 0px;">{% trans "Next" %}</a>
+          <a href="{% querystring table.prefixed_page_field=table.page.next_page_number %}" style="border-radius: 0px;">{% trans "nächstes" %}</a>
           </li>
         {% endblock pagination.next %}
         {% endif %}
@@ -204,21 +204,21 @@ $("#goto option").each(function() {
             <form action="." class="uniForm" method="get">
                 {% if togglable_colums %}
                 </br>
-                    <legend>Zusätzliche Spalten auswählen</legend>
+                    <legend>{% trans "zusätzliche Spalten auswählen"|capfirst %}</legend>
                     {% column_selector  %}
                 {% endif %}
 
                 </br>
-            <legend>Suche verfeinern</legend>
+            <legend>{% trans "Suche verfeinern" %}</legend>
             {% crispy filter.form filter.form.helper %}
             </form>
 
           {% block reset_button %}
-          <a class ="btn btn-default"  href=".">Suche zurücksetzen</a>
+          <a class ="btn btn-default"  href=".">{% trans "Suche zurücksetzen"|capfirst %}</a>
           {% endblock %}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "schließen"|capfirst %}</button>
       </div>
     </div>
   </div>

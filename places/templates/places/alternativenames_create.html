@@ -4,7 +4,7 @@
     {% if object %}
             '{{object.name}}' {% trans "bearbeiten" %}
         {% else %}
-            {% trans "alternative Ortsbezeichnung erstellen" %}
+            {% trans "alternative Ortsbezeichnung erstellen"|capfirst %}
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -16,7 +16,7 @@
                     {% if object %}
                         '{{object.name}}' {% trans "bearbeiten" %}
                     {% else %}
-                        {% trans "alternative Ortsbezeichnung erstellen" %}
+                        {% trans "alternative Ortsbezeichnung erstellen"|capfirst %}
                     {% endif %}
                 </h1>
             </div>
@@ -25,7 +25,7 @@
                     {% csrf_token %}
                     {% crispy form %}
                     {% if object %}
-                        <a class ="btn btn-danger btn-sm" href="{% url 'places:alternativename_delete' pk=object.id %}">{% trans "Löschen" %}</a>
+                        <a class ="btn btn-danger btn-sm" href="{% url 'places:alternativename_delete' pk=object.id %}">{% trans "löschen"|capfirst %}</a>
                     {% endif %}
                 </form>
            </div>

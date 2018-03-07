@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} Details für '{{object.text|truncatechars:33}}' {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Details für"|capfirst %} '{{object.text|truncatechars:33}}' {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,7 +17,7 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>Zitat:</small>{% if user.is_authenticated %}
+                        <small>{% trans "Zitat"|capfirst %}:</small>{% if user.is_authenticated %}
                         <small><a href="{% url 'bib:quote_edit' pk=object.id %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
                         </a>
@@ -34,15 +35,15 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Quelle</legend>
+            <legend>{% trans "Quelle"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Titel
+                        {% trans "Titel"|capfirst %}
                     </th>
 
                     <td>
-                        {% if object.book_source %}{{ object.book_source }}{% endif %}{% if object.startpage %}, S. {{ object.startpage }}{% endif %}{% if object.endpage %}-{{ object.endpage }}{% endif %}
+                        {% if object.book_source %}{{ object.book_source }}{% endif %}{% if object.startpage %}, {% trans "S."|capfirst %} {{ object.startpage }}{% endif %}{% if object.endpage %}-{{ object.endpage }}{% endif %}
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +58,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Fremdsprachige Lemmata
+                        {% trans "Fremdsprachige Lemmata"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.has_lemma.all %}
@@ -74,14 +75,14 @@
                 <tr>
             </table>
 
-            <legend>Analyze</legend>
+            <legend>{% trans "Auswertung"|capfirst %}</legend>
             <blockquote>
                 {{ object.serialize_quote|safe }}
             </blockquote>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Zitat-Teile
+                        {% trans "Zitat-Teile"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.has_chunks.all %}
@@ -89,7 +90,7 @@
                         {% endfor %}
                     </td>
                     <th>
-                        Sprachen
+                        {% trans "Sprachen"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.has_chunks.all %}
@@ -97,7 +98,7 @@
                         {% endfor %}
                     </td>
                     <th>
-                        Sprecher
+                        {% trans "Sprecher"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.has_chunks.all %}

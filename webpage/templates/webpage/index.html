@@ -1,5 +1,6 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% load webpage_extras %}
 {% load stats_extras %}
 {% load news_extras %}
@@ -19,8 +20,8 @@
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"></a>
             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"></a>
         </div>
-        <h3><a href="about">Ein Forschungsprojekt zu Fremdsprachen in den Bühnentexten von Peter Handke</a></h3>
-        <h3>Data Count</h3>
+        <h3><a href="about">{% trans "ein Forschungsprojekt zu Fremdsprachen in den Bühnentexten von Peter Handke"|capfirst %}</a></h3>
+        <h3>{% trans "Data Count"|capfirst %}</h3>
         {% create_object_count app='bib' as models %}
         {% for x in models %}
         {% if x.name != 'Bücher'%}
@@ -72,12 +73,12 @@
 
         <div class="row">
             <div class="col-md-8">
-                <h3><b>Nachrichten</b></h3>
+                <h3><b>{% trans "Nachrichten"|capfirst %}</b></h3>
                 {% newsfeed_bootstrap_panel %}
             </div>
 
             <div class="col-md-4">
-              <h3><b><a href="https://twitter.com/search?q=%23digEdsCat" style="color: black;">@HandkeinZungen</a> auf Twitter</b></h3>
+              <h3><b><a href="https://twitter.com/search?q=%23digEdsCat" style="color: black;">@HandkeinZungen</a> {% trans "auf Twitter" %}</b></h3>
               <div class="panel panel-default news-wrapper">
                 <div class="panel-heading">
                   </div>

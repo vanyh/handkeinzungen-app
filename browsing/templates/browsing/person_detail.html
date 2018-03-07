@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} Details für '{{object.last_name}}, {{object.first_name}}' {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Details für"|capfirst %} '{{object.last_name}}, {{object.first_name}}' {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,10 +17,10 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                    <small>Person:</small> {{ object }}
+                    <small>{% trans "Person"|capfirst %}:</small> {{ object }}
                     {% if user.is_authenticated %}
                     <small><a href="{% url 'bib:person_edit' pk=object.id %}">
-                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="bearbeiten"></span>
                     </a>
                 </small>
                 {% endif %}
@@ -35,7 +36,7 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Werke von {{ object }}</legend>
+            <legend>{% trans "Werke von"|capfirst %} {{ object }}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <td>

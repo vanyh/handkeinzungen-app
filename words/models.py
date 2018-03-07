@@ -8,11 +8,11 @@ from django.utils.translation import ugettext_lazy
 
 class GermanLemma(IdProvider):
     lemma = models.CharField(max_length=250, blank=True, null=True)
-    url = models.CharField(max_length=500, blank=True, null=True, verbose_name="Wörterbuch")
+    url = models.CharField(max_length=500, blank=True, null=True, verbose_name=ugettext_lazy("Wörterbuch"))
     pos = models.ForeignKey(SkosConcept, blank=True, null=True)
     language = models.ForeignKey(
         SkosConcept, blank=True, null=True,
-        related_name='language_of_german_lemma',
+        related_name='language_of_german_lemma', verbose_name=ugettext_lazy("Sprache")
     )
 
     @classmethod

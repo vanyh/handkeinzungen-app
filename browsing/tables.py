@@ -12,7 +12,7 @@ class GermanLemmaTable(tables.Table):
         args=[A('pk')], verbose_name=ugettext('Lemma')
     )
     translation = tables.TemplateColumn(
-        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False
+        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False, verbose_name=ugettext('Übersetzung')
     )
 
     class Meta:
@@ -27,7 +27,7 @@ class ForeignLemmaTable(tables.Table):
         args=[A('pk')], verbose_name=ugettext('Lemma')
     )
     uebersetzung = tables.TemplateColumn(
-        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False
+        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False, verbose_name=ugettext('Übersetzung')
     )
 
     class Meta:

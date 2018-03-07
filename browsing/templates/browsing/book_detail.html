@@ -1,5 +1,6 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
+{% load i18n %}
 {% block title %} {{ object.title }} {% endblock %}
 {% block content %}
 
@@ -10,7 +11,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>Buch:</small> {{ object.title }}
+                        <small>{% trans "Buch"|capfirst %}:</small> {{ object.title }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'bib:book_edit' pk=object.zoterokey %}">
                             <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
@@ -23,11 +24,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Angaben zum Buch</legend>
+            <legend>{% trans "Angaben zum Buch"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Zoterokey
+                        {% trans "Zoterokey"|capfirst %}
                     </th>
                     <td>
                         <a href="{{object.get_zotero_url}}">{{object.zoterokey}}</a>
@@ -35,7 +36,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Item type laut Zotero-Eintrag
+                        {% trans "Item type laut Zotero-Eintrag"|capfirst %}
                     </th>
                     <td>
                         {{ object.item_type }}
@@ -43,7 +44,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Autor*innenname laut Zotero-Eintrag
+                        {% trans "Autor*innenname laut Zotero-Eintrag"|capfirst %}
                     </th>
                     <td>
                         {{ object.author }}
@@ -51,7 +52,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Autor*innenname
+                        {% trans "Autor*innenname"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.book_author.all %}
@@ -64,7 +65,7 @@
                 {% if object.siglum %}
                 <tr>
                     <th>
-                        Sigle des publizierten Werks (laut Handkeonline)
+                        {% trans "Sigle des publizierten Werks (laut Handkeonline)"|capfirst %}
                     </th>
                     <td>
                         {{ object.siglum }}
@@ -74,7 +75,7 @@
                 {% if object.publication_title %}
                 <tr>
                     <th>
-                        Publikationstitel
+                        {% trans "Publikationstitel"|capfirst %}
                     </th>
                     <td>
                         {{ object.publication_title }}
@@ -84,7 +85,7 @@
                 {% if object.short_title %}
                 <tr>
                     <th>
-                        Kurztitel
+                        {% trans "Kurztitel"|capfirst %}
                     </th>
                     <td>
                         {{ object.short_title }}
@@ -94,7 +95,7 @@
                 {% if object.publication_year %}
                 <tr>
                     <th>
-                        Jahr der Veröffentlichung
+                        {% trans "Jahr der Veröffentlichung"|capfirst %}
                     </th>
                     <td>
                         {{ object.publication_year }}
@@ -104,7 +105,7 @@
                 {% if object.pub_place.all %}
                 <tr>
                     <th>
-                        Ort der Veröffentlichung
+                        {% trans "Ort der Veröffentlichung"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.pub_place.all %}
@@ -118,7 +119,7 @@
                 {% if object.book_gnd %}
                 <tr>
                     <th>
-                        GND-ID des Buchs
+                        {% trans "GND-ID des Buchs"|capfirst %}
                     </th>
                     <td>
                         {{ object.book_gnd }}
@@ -127,7 +128,7 @@
                 {% endif %}
                 <tr>
                     <th>
-                        Book Type
+                        {% trans "Book Type"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.book_type.all %}
@@ -138,7 +139,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>related works</th>
+                    <th>{% trans "verknüpfte Werke"|capfirst %}</th>
                     <td>
                         {% for x in object.publication_of_work.all %}
                             <a href="{{ x.get_absolute_url }}">{{ x }}</a>

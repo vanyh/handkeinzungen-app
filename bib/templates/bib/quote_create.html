@@ -1,12 +1,12 @@
 {% extends "webpage/base.html" %}
 {% load i18n %}
-{% block title %} {% trans "Zitat erstellen" %} {% endblock %}
+{% block title %} {% trans "Zitat erstellen"|capfirst %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container">
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h1>{% trans "Zitat erstellen" %}</h1>
+        <h1>{% trans "Zitat erstellen"|capfirst %}</h1>
     </div>
     <div class="panel-body">
 

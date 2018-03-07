@@ -1,6 +1,7 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
-{% block title %} Details für '{{ object.name }}' {% endblock %}
+{% load i18n %}
+{% block title %} {% trans "Details für"|capfirst %} '{{ object.name }}' {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -16,10 +17,10 @@
                 </div>
                 <div class="col-md-8">
                     <h1 style="text-align: center;">
-                        <small>Sprecher:</small> {{ object.name }}
+                        <small> {% trans "Sprecher"|capfirst %}:</small> {{ object.name }}
                         {% if user.is_authenticated %}
                         <small><a href="{% url 'bib:speaker_edit' pk=object.id %}">
-                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="edit"></span>
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="bearbeiten"></span>
                         </a>
                     </small>
                     {% endif %}
@@ -35,11 +36,11 @@
             </div>
         </div>
         <div class="panel-body">
-            <legend>Angaben zum Sprecher</legend>
+            <legend>{% trans "Angaben zum Sprecher"|capfirst %}</legend>
             <table class="table table-bordered table-hover">
                 <tr>
                     <th>
-                        Figurenname
+                        {% trans "Figurenname"|capfirst %}
                     </th>
                     <td>
                         {{ object.name }}
@@ -47,7 +48,7 @@
                 </tr>
                 <tr>
                     <th>
-                        weitere Informationen
+                        {% trans "weitere Informationen"|capfirst %}
                     </th>
                     <td>
                         {{ object.definition }}
@@ -55,7 +56,7 @@
                 </tr>
                 <tr>
                     <th>
-                        alternative Figurenbezeichnungen
+                        {% trans "alternative Figurenbezeichnungen"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.alt_name.all %}
@@ -67,7 +68,7 @@
                 </tr>
                 <tr>
                     <th>
-                        verwendete Sprachen
+                        {% trans "verwendete Sprachen"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.distinct_rel_languagestwo %}
@@ -79,7 +80,7 @@
                 </tr>
                 <tr>
                     <th>
-                        Zitate dieses Sprechers
+                        {% trans "Zitate dieses Sprechers"|capfirst %}
                     </th>
                     <td>
                         {% for x in object.distinct_rel_quotes %}
