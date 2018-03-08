@@ -60,7 +60,7 @@ class ForeignLemma(IdProvider):
     pos = models.ForeignKey(SkosConcept, blank=True, null=True)
     german = models.ManyToManyField(GermanLemma, blank=True, related_name="has_translation")
     language = models.ForeignKey(
-        SkosConcept, blank=True, null=True, related_name='language_of_foreign_lemma'
+        SkosConcept, blank=True, null=True, related_name='language_of_foreign_lemma', verbose_name=ugettext_lazy('Sprache')
     )
     used_in = models.ManyToManyField(Quote, blank=True, related_name="has_lemma")
 

@@ -24,7 +24,7 @@
         <h3>{% trans "Data Count"|capfirst %}</h3>
         {% create_object_count app='bib' as models %}
         {% for x in models %}
-        {% if x.name != 'Bücher'%}
+        {% if x.name != 'Bücher' and x.name != 'books' %}
         <div class="col-lg-4 col-md-4 col-sm-6 grid-item type-one">
             <div class="div-tile">
                 {% if x.link %}
@@ -56,7 +56,7 @@
 
         {% create_object_count app='places' as models %}
         {% for x in models %}
-        {% if x.name != 'Alternative Ortsbezeichnungen'%}
+        {% if x.name != 'Alternative Ortsbezeichnungen' and x.name != 'alternative place names' %}
         <div class="col-lg-4 col-md-4 col-sm-6 grid-item type-one">
             <div class="div-tile">
                 {% if x.link %}

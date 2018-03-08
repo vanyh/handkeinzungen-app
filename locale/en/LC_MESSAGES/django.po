@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-07 16:15+0100\n"
-"PO-Revision-Date: 2018-03-07 16:24+0100\n"
+"POT-Creation-Date: 2018-03-08 10:04+0100\n"
+"PO-Revision-Date: 2018-03-08 15:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,10 @@ msgstr "person's surname"
 #: .\bib\models.py:21
 msgid "GND-ID der Person"
 msgstr "person's GND-ID"
+
+#: .\bib\models.py:53 .\webpage\templates\webpage\base.html:113
+msgid "Personen"
+msgstr "persons"
 
 #: .\bib\models.py:59 .\browsing\templates\browsing\book_detail.html:31
 msgid "Zoterokey"
@@ -128,7 +132,7 @@ msgstr "agreed place of creation"
 
 #: .\bib\models.py:143 .\browsing\tables.py:92
 msgid "veröffentlicht in"
-msgstr "published in"
+msgstr "Published in"
 
 #: .\bib\models.py:144
 msgid "Werktyp"
@@ -142,7 +146,7 @@ msgstr "prevailing language"
 #: .\browsing\tables.py:30
 #: .\browsing\templates\browsing\foreignlemma_detail.html:43
 msgid "Übersetzung"
-msgstr "translation"
+msgstr "Translation"
 
 #: .\bib\models.py:178 .\webpage\templates\webpage\base.html:108
 msgid "Werke"
@@ -154,7 +158,7 @@ msgstr "speaker name"
 
 #: .\bib\models.py:189
 msgid "weitere Informationen zur Figur"
-msgstr "further Information on speaker"
+msgstr "further information on speaker"
 
 #: .\bib\models.py:192 .\browsing\templates\browsing\speaker_detail.html:59
 msgid "alternative Figurenbezeichnungen"
@@ -179,9 +183,10 @@ msgstr "page (from)"
 msgid "Seite (bis)"
 msgstr "page (to)"
 
-#: .\bib\models.py:255 .\bib\models.py:310
+#: .\bib\models.py:255 .\bib\models.py:310 .\browsing\tables.py:42
+#: .\browsing\tables.py:60
 msgid "Text"
-msgstr "text"
+msgstr "Text"
 
 #: .\bib\models.py:256
 msgid "Zitattyp"
@@ -238,7 +243,7 @@ msgstr "part of quote type"
 
 #: .\bib\models.py:330 .\browsing\tables.py:45
 msgid "Figur"
-msgstr "speaker"
+msgstr "Speaker"
 
 #: .\bib\models.py:359 .\browsing\templates\browsing\quote_detail.html:85
 #: .\webpage\templates\webpage\base.html:110
@@ -337,34 +342,34 @@ msgstr "advanced search"
 
 #: .\browsing\tables.py:12 .\browsing\tables.py:27
 msgid "Lemma"
-msgstr "lemma"
+msgstr "Lemma"
 
 #: .\browsing\tables.py:48 .\browsing\templates\browsing\work_detail.html:20
 msgid "Werk"
-msgstr "work"
+msgstr "Work"
 
 #: .\browsing\tables.py:63
 msgid "Sprache des Zitats"
-msgstr "quote language"
+msgstr "Quote language"
 
 #: .\browsing\tables.py:75
 msgid "Vorname"
-msgstr "first name"
+msgstr "First name"
 
 #: .\browsing\tables.py:87 .\browsing\tables.py:103 .\browsing\tables.py:115
 #: .\browsing\templates\browsing\quote_detail.html:42
 msgid "Titel"
-msgstr "title"
+msgstr "Title"
 
 #: .\browsing\tables.py:90
 msgid "Autor"
-msgstr "author"
+msgstr "Author"
 
 #: .\browsing\tables.py:127 .\browsing\tables.py:139
 #: .\places\templates\places\list_places.html:32
 #: .\places\templates\places\place_detail.html:58
 msgid "Name"
-msgstr "name"
+msgstr "Name"
 
 #: .\browsing\templates\browsing\book_detail.html:14
 msgid "Buch"
@@ -388,7 +393,7 @@ msgstr "book type"
 
 #: .\browsing\templates\browsing\book_detail.html:142
 msgid "verknüpfte Werke"
-msgstr "related works"
+msgstr "Related works"
 
 #: .\browsing\templates\browsing\foreignlemma_detail.html:4
 #: .\browsing\templates\browsing\germanlemma_detail.html:4
@@ -420,9 +425,6 @@ msgid "vorhanden in den Sprachen"
 msgstr "languages available"
 
 #: .\browsing\templates\browsing\generic_list.html:6
-msgid "durchblättern"
-msgstr "Browse"
-
 #: .\browsing\templates\browsing\generic_list.html:28
 #, python-format
 msgid "durchblättern %(name)s"
@@ -712,10 +714,6 @@ msgstr "search entries"
 msgid "Deutsche Lemmata"
 msgstr "german lemmas"
 
-#: .\webpage\templates\webpage\base.html:113
-msgid "Personen"
-msgstr "persons"
-
 #: .\webpage\templates\webpage\base.html:118
 msgid "Einträge aus Zotero importieren"
 msgstr "import zotero entries"
@@ -813,6 +811,9 @@ msgstr "You are logged out."
 #: .\words\models.py:11
 msgid "Wörterbuch"
 msgstr "dictionary"
+
+#~ msgid "durchblättern"
+#~ msgstr "Browse"
 
 #~ msgid "Next"
 #~ msgstr "nächstes"

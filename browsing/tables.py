@@ -3,16 +3,15 @@ from django_tables2.utils import A
 from bib.models import *
 from words.models import ForeignLemma, GermanLemma
 from places.models import Place, AlternativeName
-from django.utils.translation import ugettext
 
 
 class GermanLemmaTable(tables.Table):
     lemma = tables.LinkColumn(
         'browsing:germanlemma_detail',
-        args=[A('pk')], verbose_name=ugettext('Lemma')
+        args=[A('pk')], verbose_name=ugettext_lazy('Lemma')
     )
     translation = tables.TemplateColumn(
-        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False, verbose_name=ugettext('Übersetzung')
+        template_name='browsing/tables/germanlemma_foreignlemma.html', orderable=False, verbose_name=ugettext_lazy('Übersetzung')
     )
 
     class Meta:
@@ -24,10 +23,10 @@ class GermanLemmaTable(tables.Table):
 class ForeignLemmaTable(tables.Table):
     lemma = tables.LinkColumn(
         'browsing:foreignlemma_detail',
-        args=[A('pk')], verbose_name=ugettext('Lemma')
+        args=[A('pk')], verbose_name=ugettext_lazy('Lemma')
     )
     uebersetzung = tables.TemplateColumn(
-        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False, verbose_name=ugettext('Übersetzung')
+        template_name='browsing/tables/foreignlemma_germanlemma.html', orderable=False, verbose_name=ugettext_lazy('Übersetzung')
     )
 
     class Meta:
@@ -39,13 +38,13 @@ class ForeignLemmaTable(tables.Table):
 class PartOfQuoteTable(tables.Table):
     text = tables.LinkColumn(
         'browsing:partofquote_detail',
-        args=[A('pk')], verbose_name='Text'
+        args=[A('pk')], verbose_name=ugettext_lazy('Text')
     )
     speaker = tables.TemplateColumn(
-        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name=ugettext('Figur')
+        template_name='browsing/tables/partofquote_speaker.html', orderable=True, verbose_name=ugettext_lazy('Figur')
     )
     source = tables.LinkColumn(
-        'browsing:work_detail', args=[A('source.pk')], verbose_name=ugettext('Werk')
+        'browsing:work_detail', args=[A('source.pk')], verbose_name=ugettext_lazy('Werk')
     )
 
     class Meta:
@@ -57,10 +56,10 @@ class PartOfQuoteTable(tables.Table):
 class QuoteTable(tables.Table):
     text = tables.LinkColumn(
         'browsing:quote_detail',
-        args=[A('pk')], verbose_name='Text'
+        args=[A('pk')], verbose_name=ugettext_lazy('Text')
     )
     zitatsprache = tables.TemplateColumn(
-        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name=ugettext('Sprache des Zitats')
+        template_name='browsing/tables/quote_partofquote.html', orderable=True, verbose_name=ugettext_lazy('Sprache des Zitats')
     )
 
     class Meta:
@@ -72,7 +71,7 @@ class QuoteTable(tables.Table):
 class PersonTable(tables.Table):
     first_name = tables.LinkColumn(
         'browsing:person_detail',
-        args=[A('pk')], verbose_name=ugettext('Vorname')
+        args=[A('pk')], verbose_name=ugettext_lazy('Vorname')
     )
 
     class Meta:
@@ -84,12 +83,12 @@ class PersonTable(tables.Table):
 class WorkTable(tables.Table):
     title = tables.LinkColumn(
         'browsing:work_detail',
-        args=[A('pk')], verbose_name=ugettext('Titel')
+        args=[A('pk')], verbose_name=ugettext_lazy('Titel')
     )
     author = tables.TemplateColumn(
-        template_name='browsing/tables/work_author.html', orderable=False, verbose_name=ugettext('Autor'))
+        template_name='browsing/tables/work_author.html', orderable=False, verbose_name=ugettext_lazy('Autor'))
     veroeffentlicht = tables.TemplateColumn(
-        template_name='browsing/tables/work_book.html', orderable=False, verbose_name=ugettext('veröffentlicht in'))
+        template_name='browsing/tables/work_book.html', orderable=False, verbose_name=ugettext_lazy('veröffentlicht in'))
 
     class Meta:
         model = Work
@@ -100,7 +99,7 @@ class WorkTable(tables.Table):
 class BookTable(tables.Table):
     title = tables.LinkColumn(
         'browsing:book_detail',
-        args=[A('pk')], verbose_name=ugettext('Titel')
+        args=[A('pk')], verbose_name=ugettext_lazy('Titel')
     )
 
     class Meta:
@@ -112,7 +111,7 @@ class BookTable(tables.Table):
 class PlaceTable(tables.Table):
     title = tables.LinkColumn(
         'places:place_detail',
-        args=[A('pk')], verbose_name=ugettext('Titel')
+        args=[A('pk')], verbose_name=ugettext_lazy('Titel')
     )
 
     class Meta:
@@ -124,7 +123,7 @@ class PlaceTable(tables.Table):
 class AlternativeNameTable(tables.Table):
     name = tables.LinkColumn(
         'places:alternativename_detail',
-        args=[A('pk')], verbose_name=ugettext('Name')
+        args=[A('pk')], verbose_name=ugettext_lazy('Name')
     )
 
     class Meta:
@@ -136,10 +135,10 @@ class AlternativeNameTable(tables.Table):
 class SpeakerTable(tables.Table):
     name = tables.LinkColumn(
         'browsing:speaker_detail',
-        args=[A('pk')], verbose_name=ugettext('Name')
+        args=[A('pk')], verbose_name=ugettext_lazy('Name')
     )
     related_works = tables.TemplateColumn(
-        template_name='browsing/tables/speaker_work.html', orderable=False)
+        template_name='browsing/tables/speaker_work.html', orderable=False, verbose_name=ugettext_lazy('verknüpfte Werke'))
 
     class Meta:
         model = Speaker

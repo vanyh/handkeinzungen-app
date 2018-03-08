@@ -50,7 +50,7 @@ class Person(IdProvider):
     def get_alternative_classname(self):
         """Returns the alternative name of the class.
         Needed to present the human readable name of class"""
-        return 'Personen'
+        return ugettext_lazy('Personen')
 
 
 class Book(models.Model):

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-07 16:15+0100\n"
-"PO-Revision-Date: 2018-03-07 16:25+0100\n"
+"POT-Creation-Date: 2018-03-08 10:04+0100\n"
+"PO-Revision-Date: 2018-03-08 15:45+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,10 @@ msgstr "Nachname der Person"
 #: .\bib\models.py:21
 msgid "GND-ID der Person"
 msgstr "GND-ID der Person"
+
+#: .\bib\models.py:53 .\webpage\templates\webpage\base.html:113
+msgid "Personen"
+msgstr "Personen"
 
 #: .\bib\models.py:59 .\browsing\templates\browsing\book_detail.html:31
 msgid "Zoterokey"
@@ -128,7 +132,7 @@ msgstr "Entstehungsort gesichert"
 
 #: .\bib\models.py:143 .\browsing\tables.py:92
 msgid "veröffentlicht in"
-msgstr "veröffentlicht in"
+msgstr "Veröffentlicht in"
 
 #: .\bib\models.py:144
 msgid "Werktyp"
@@ -179,7 +183,8 @@ msgstr "Seite (von)"
 msgid "Seite (bis)"
 msgstr "Seite (bis)"
 
-#: .\bib\models.py:255 .\bib\models.py:310
+#: .\bib\models.py:255 .\bib\models.py:310 .\browsing\tables.py:42
+#: .\browsing\tables.py:60
 msgid "Text"
 msgstr "Text"
 
@@ -388,7 +393,7 @@ msgstr "Book Type"
 
 #: .\browsing\templates\browsing\book_detail.html:142
 msgid "verknüpfte Werke"
-msgstr "verknüpfte Werke"
+msgstr "Verknüpfte Werke"
 
 #: .\browsing\templates\browsing\foreignlemma_detail.html:4
 #: .\browsing\templates\browsing\germanlemma_detail.html:4
@@ -420,9 +425,6 @@ msgid "vorhanden in den Sprachen"
 msgstr "vorhanden in den Sprachen"
 
 #: .\browsing\templates\browsing\generic_list.html:6
-msgid "durchblättern"
-msgstr "durchblättern"
-
 #: .\browsing\templates\browsing\generic_list.html:28
 #, python-format
 msgid "durchblättern %(name)s"
@@ -712,10 +714,6 @@ msgstr "Einträge durchblättern"
 msgid "Deutsche Lemmata"
 msgstr "Deutsche Lemmata"
 
-#: .\webpage\templates\webpage\base.html:113
-msgid "Personen"
-msgstr "Personen"
-
 #: .\webpage\templates\webpage\base.html:118
 msgid "Einträge aus Zotero importieren"
 msgstr "Einträge aus Zotero importieren"
@@ -814,6 +812,9 @@ msgstr "Sie sind nun ausgeloggt."
 #: .\words\models.py:11
 msgid "Wörterbuch"
 msgstr "Wörterbuch"
+
+#~ msgid "durchblättern"
+#~ msgstr "durchblättern"
 
 #~ msgid "Next"
 #~ msgstr "nächstes"
