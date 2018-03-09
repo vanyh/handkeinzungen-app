@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-09 15:34+0100\n"
-"PO-Revision-Date: 2018-03-09 11:24+0100\n"
+"PO-Revision-Date: 2018-03-09 15:47+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -237,8 +237,7 @@ msgstr ""
 msgid "Übersetzung korrekt"
 msgstr "Übersetzung korrekt"
 
-#: .\bib\models.py:326
-#: .\browsing\templates\browsing\partofquote_detail.html:42
+#: .\bib\models.py:326 .\browsing\templates\browsing\partofquote_detail.html:42
 #: .\words\models.py:15 .\words\models.py:63
 msgid "Sprache"
 msgstr "Sprache"
@@ -265,8 +264,7 @@ msgstr "Zitat-Teile"
 #: .\bib\templates\bib\partofquote_edit.html:10
 #: .\bib\templates\bib\person_edit.html:4
 #: .\bib\templates\bib\person_edit.html:10
-#: .\bib\templates\bib\quote_edit.html:4
-#: .\bib\templates\bib\quote_edit.html:10
+#: .\bib\templates\bib\quote_edit.html:4 .\bib\templates\bib\quote_edit.html:10
 #: .\bib\templates\bib\speaker_edit.html:4
 #: .\bib\templates\bib\speaker_edit.html:10
 #: .\bib\templates\bib\work_edit.html:4 .\bib\templates\bib\work_edit.html:10
@@ -564,7 +562,7 @@ msgstr "weitere Informationen"
 
 #: .\browsing\templates\browsing\speaker_detail.html:71
 msgid "verwendete Sprachen"
-msgstr "languages used"
+msgstr "verwendete Sprachen"
 
 #: .\browsing\templates\browsing\speaker_detail.html:83
 msgid "Zitate dieses Sprechers"

@@ -78,6 +78,7 @@
                         {% endfor %}
                     </td>
                 </tr>
+                {% if object.distinct_rel_quotes %}
                 <tr>
                     <th>
                         {% trans "Zitate dieses Sprechers"|capfirst %}
@@ -85,11 +86,12 @@
                     <td>
                         {% for x in object.distinct_rel_quotes %}
                                 <li>
-                                    <a href="{% url 'browsing:quote_detail' pk=x.id %}">{{ x }}</a>
+                                    <a href="{{ x.get_absolute_url }}">{{ x }}</a>
                                 </li>
                         {% endfor %}
                     </td>
                 </tr>
+                {% endif %}
             </table>
         </div>
     </div>
