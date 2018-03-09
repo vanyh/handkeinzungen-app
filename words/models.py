@@ -62,7 +62,7 @@ class ForeignLemma(IdProvider):
     language = models.ForeignKey(
         SkosConcept, blank=True, null=True, related_name='language_of_foreign_lemma', verbose_name=ugettext_lazy('Sprache')
     )
-    used_in = models.ManyToManyField(Quote, blank=True, related_name="has_lemma")
+    used_in = models.ManyToManyField(Quote, blank=True, related_name="has_lemma", verbose_name=ugettext_lazy('verwendet in'))
 
     @classmethod
     def get_listview_url(self):

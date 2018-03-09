@@ -4,6 +4,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from .models import Person, Work, Quote, PartOfQuote, Book, Speaker
 from words.models import GermanLemma, ForeignLemma
+from django.utils.translation import ugettext
 
 
 class PersonForm(forms.ModelForm):
@@ -18,7 +19,7 @@ class PersonForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class WorkForm(forms.ModelForm):
@@ -33,7 +34,7 @@ class WorkForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class QuoteForm(forms.ModelForm):
@@ -48,7 +49,7 @@ class QuoteForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class PartOfQuoteForm(forms.ModelForm):
@@ -63,7 +64,7 @@ class PartOfQuoteForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class GermanLemmaForm(forms.ModelForm):
@@ -78,7 +79,7 @@ class GermanLemmaForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class ForeignLemmaForm(forms.ModelForm):
@@ -96,7 +97,7 @@ class ForeignLemmaForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class BookForm(forms.ModelForm):
@@ -111,7 +112,7 @@ class BookForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)
 
 
 class SpeakerForm(forms.ModelForm):
@@ -126,4 +127,4 @@ class SpeakerForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.label_class = 'col-md-3'
         self.helper.field_class = 'col-md-9'
-        self.helper.add_input(Submit('submit', 'save'),)
+        self.helper.add_input(Submit('submit', ugettext("save")),)

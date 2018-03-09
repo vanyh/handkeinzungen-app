@@ -1,13 +1,13 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
-{% block title %} '{{object.last_name}}, {{object.first_name}}' {% trans "bearbeiten" %} {% endblock %}
+{% block title %} {% blocktrans with name=object.last_name %}bearbeiten '{{ name }}'{% endblocktrans %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                  <h3>'{{object.last_name}}, {{object.first_name}}' {% trans "bearbeiten" %}</h3>
+                  <h3>{% blocktrans with name=object.last_name %}bearbeiten '{{ name }}'{% endblocktrans %}</h3>
             </div>
             <div class="panel-body">
 

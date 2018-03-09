@@ -1,13 +1,13 @@
 {% extends "webpage/base.html" %}
 {% load staticfiles %}
 {% load i18n %}
-{% block title %} '{{object.lemma}}' {% trans "bearbeiten" %} {% endblock %}
+{% block title %} {% blocktrans with name=object.lemma %}bearbeiten '{{ name }}'{% endblocktrans %} {% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                  <h3>'{{object.lemma}}' {% trans "bearbeiten" %}</h3>
+                  <h3>{% blocktrans with name=object.lemma %}bearbeiten '{{ name }}'{% endblocktrans %}</h3>
             </div>
             <div class="panel-body">
 

@@ -64,8 +64,8 @@ class Place(IdProvider):
     alternative_name = models.ManyToManyField(
         AlternativeName,
         max_length=250, blank=True,
-        help_text=ugettext_lazy('Alternative Ortsbezeichnungen'),
-        related_name="related_places"
+        help_text=ugettext_lazy('Alternative Ortsbezeichnung'),
+        related_name="related_places", verbose_name=ugettext_lazy('Alternative Ortsbezeichnung')
     )
     geonames_id = models.CharField(
         max_length=50, blank=True,
@@ -79,9 +79,11 @@ class Place(IdProvider):
         max_digits=20, decimal_places=12, blank=True, null=True
     )
     part_of = models.ForeignKey(
-        "Place", null=True, blank=True, help_text=ugettext_lazy('Ein Ort, von dem dieser Ort ein Teil ist.')
+        "Place", null=True, blank=True, help_text=ugettext_lazy('Ein Ort, von dem dieser Ort ein Teil ist.'),
+        verbose_name=ugettext_lazy('Teil von')
     )
-    place_type = models.CharField(choices=PLACE_TYPES, null=True, blank=True, max_length=50)
+    place_type = models.CharField(choices=PLACE_TYPES, null=True, blank=True, max_length=50, verbose_name=ugettext_lazy('Art des Ortes')
+    )
 
     @classmethod
     def get_listview_url(self):
