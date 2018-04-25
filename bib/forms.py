@@ -41,6 +41,10 @@ class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
         fields = "__all__"
+        widgets = {
+            'book_source': autocomplete.ModelSelect2(url='bib-ac:quotebooksource-autocomplete'),
+            'quote_type': autocomplete.ModelSelect2(url='bib-ac:quotequotetype-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(QuoteForm, self).__init__(*args, **kwargs)
@@ -71,6 +75,10 @@ class GermanLemmaForm(forms.ModelForm):
     class Meta:
         model = GermanLemma
         fields = "__all__"
+        widgets = {
+            'pos': autocomplete.ModelSelect2Multiple(url='words-ac:germanlemmapos-autocomplete'),
+            'language': autocomplete.ModelSelect2(url='words-ac:germanlemmalanguage-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(GermanLemmaForm, self).__init__(*args, **kwargs)
@@ -87,7 +95,10 @@ class ForeignLemmaForm(forms.ModelForm):
         model = ForeignLemma
         fields = "__all__"
         widgets = {
-            'german': autocomplete.ModelSelect2Multiple(url='words-ac:germanlemma-autocomplete')
+            'german': autocomplete.ModelSelect2Multiple(url='words-ac:foreignlemmagerman-autocomplete'),
+            'pos': autocomplete.ModelSelect2Multiple(url='words-ac:foreignlemmapos-autocomplete'),
+            'language': autocomplete.ModelSelect2(url='words-ac:foreignlemmalanguage-autocomplete'),
+            'used_in': autocomplete.ModelSelect2Multiple(url='words-ac:foreignlemmausedin-autocomplete')
         }
 
     def __init__(self, *args, **kwargs):
@@ -119,6 +130,9 @@ class SpeakerForm(forms.ModelForm):
     class Meta:
         model = Speaker
         fields = "__all__"
+        widgets = {
+            'alt_name': autocomplete.ModelSelect2Multiple(url='bib-ac:speakeraltname-autocomplete'),
+        }
 
     def __init__(self, *args, **kwargs):
         super(SpeakerForm, self).__init__(*args, **kwargs)
