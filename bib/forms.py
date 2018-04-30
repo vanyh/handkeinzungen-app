@@ -43,7 +43,9 @@ class QuoteForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             'book_source': autocomplete.ModelSelect2(url='bib-ac:quotebooksource-autocomplete'),
-            'quote_type': autocomplete.ModelSelect2(url='bib-ac:quotequotetype-autocomplete')
+            'quote_type': autocomplete.ModelSelect2(url='bib-ac:quotequotetype-autocomplete'),
+            'part_of': autocomplete.ModelSelect2Multiple(url='bib-ac:quotepartofquote-autocomplete'),
+            'auto_trans': autocomplete.ModelSelect2Multiple(url='bib-ac:quoteselftranslation-autocomplete')
         }
 
     def __init__(self, *args, **kwargs):
@@ -60,6 +62,15 @@ class PartOfQuoteForm(forms.ModelForm):
     class Meta:
         model = PartOfQuote
         fields = "__all__"
+        widgets = {
+            'part_of': autocomplete.ModelSelect2(url='bib-ac:partofquotepartofquote-autocomplete'),
+            'source': autocomplete.ModelSelect2(url='bib-ac:partofquotesource-autocomplete'),
+            'follows': autocomplete.ModelSelect2(url='bib-ac:partofquotefollows-autocomplete'),
+            'translates': autocomplete.ModelSelect2(url='bib-ac:partofquotetranslation-autocomplete'),
+            'language': autocomplete.ModelSelect2(url='bib-ac:partofquotelanguage-autocomplete'),
+            'partofquote_type': autocomplete.ModelSelect2(url='bib-ac:partofquotepartofquotetype-autocomplete'),
+            'speaker': autocomplete.ModelSelect2(url='bib-ac:partofquotespeaker-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(PartOfQuoteForm, self).__init__(*args, **kwargs)
