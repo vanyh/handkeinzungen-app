@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from dal import autocomplete
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -35,6 +36,10 @@ class PlaceForm(forms.ModelForm):
     class Meta:
         model = Place
         fields = "__all__"
+        widgets = {
+            'alternative_name': autocomplete.ModelSelect2Multiple(url='places-ac:placealternativename-autocomplete'),
+            'part_of': autocomplete.ModelSelect2(url='places-ac:placepartof-autocomplete')
+            }
 
     def __init__(self, *args, **kwargs):
         super(PlaceForm, self).__init__(*args, **kwargs)

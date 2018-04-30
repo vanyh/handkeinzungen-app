@@ -26,6 +26,16 @@ class WorkForm(forms.ModelForm):
     class Meta:
         model = Work
         fields = "__all__"
+        widgets = {
+            'work_author': autocomplete.ModelSelect2(url='bib-ac:workworkauthor-autocomplete'),
+            'work_translator': autocomplete.ModelSelect2(url='bib-ac:workworktranslator-autocomplete'),
+            'alt_title': autocomplete.ModelSelect2Multiple(url='bib-ac:workalttitle-autocomplete'),
+            'creation_place': autocomplete.ModelSelect2(url='bib-ac:workcreationplace-autocomplete'),
+            'published_in': autocomplete.ModelSelect2(url='bib-ac:workpublishedin-autocomplete'),
+            'work_type': autocomplete.ModelSelect2(url='bib-ac:workworktype-autocomplete'),
+            'main_language': autocomplete.ModelSelect2(url='bib-ac:workmainlanguage-autocomplete'),
+            'has_translation': autocomplete.ModelSelect2(url='bib-ac:worktranslation-autocomplete')
+        }
 
     def __init__(self, *args, **kwargs):
         super(WorkForm, self).__init__(*args, **kwargs)

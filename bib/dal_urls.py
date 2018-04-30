@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from .dal_views import SpeakerAltNameAC, QuoteBookSourceAC, QuoteQuoteTypeAC, QuotePartOfQuoteAC, QuoteSelfTranslationAC, PartOfQuotePartOfQuoteAC, PartOfQuoteSourceAC, PartOfQuoteFollowsAC, PartOfQuoteTranslationAC, PartOfQuoteLanguageAC, PartOfQuotePartOfQuoteTypeAC, PartOfQuoteSpeakerAC
-from .models import Speaker, Book, Quote, Work, PartOfQuote
+from .dal_views import SpeakerAltNameAC, QuoteBookSourceAC, QuoteQuoteTypeAC, QuotePartOfQuoteAC, QuoteSelfTranslationAC, PartOfQuotePartOfQuoteAC, PartOfQuoteSourceAC, PartOfQuoteFollowsAC, PartOfQuoteTranslationAC, PartOfQuoteLanguageAC, PartOfQuotePartOfQuoteTypeAC, PartOfQuoteSpeakerAC, WorkWorkAuthorAC, WorkWorkTranslatorAC, WorkAltTitleAC, WorkCreationPlaceAC, WorkPublishedInAC, WorkWorkTypeAC, WorkMainLanguageAC, WorkTranslationAC
+from .models import Speaker, Book, Quote, Work, PartOfQuote, Person
+from places.models import Place
 from vocabs.models import SkosConcept
 
 
@@ -12,7 +13,7 @@ urlpatterns = [
     ),
     url(
         r'^quotebooksource-autocomplete/$', QuoteBookSourceAC.as_view(
-            model=Book, create_field='title',),
+            model=Book, create_field='short_title',),
         name='quotebooksource-autocomplete',
     ),
     url(
@@ -64,5 +65,50 @@ urlpatterns = [
         r'^partofquotespeaker-autocomplete/$', PartOfQuoteSpeakerAC.as_view(
             model=Speaker, create_field='name',),
         name='partofquotespeaker-autocomplete',
+    ),
+    url(
+        r'^workworkauthor-autocomplete/$', WorkWorkAuthorAC.as_view(
+            model=Person, create_field='name',),
+        name='workworkauthor-autocomplete',
+    ),
+    url(
+        r'^workworktranslator-autocomplete/$', WorkWorkAuthorAC.as_view(
+            model=Person, create_field='name',),
+        name='workworktranslator-autocomplete',
+    ),
+    url(
+        r'^workalttitle-autocomplete/$', WorkAltTitleAC.as_view(
+            model=SkosConcept, create_field='pref_label',),
+        name='workalttitle-autocomplete',
+    ),
+    url(
+        r'^workcreationplace-autocomplete/$', WorkCreationPlaceAC.as_view(
+            model=Place, create_field='name',),
+        name='workcreationplace-autocomplete',
+    ),
+    url(
+        r'^workpublishedin-autocomplete/$', WorkPublishedInAC.as_view(
+            model=Book, create_field='title',),
+        name='workpublishedin-autocomplete',
+    ),
+    url(
+        r'^workworktype-autocomplete/$', WorkWorkTypeAC.as_view(
+            model=SkosConcept, create_field='pref_label',),
+        name='workworktype-autocomplete',
+    ),
+    url(
+        r'^workworktype-autocomplete/$', WorkWorkTypeAC.as_view(
+            model=SkosConcept, create_field='pref_label',),
+        name='workworktype-autocomplete',
+    ),
+    url(
+        r'^workmainlanguage-autocomplete/$', WorkMainLanguageAC.as_view(
+            model=SkosConcept, create_field='pref_label',),
+        name='workmainlanguage-autocomplete',
+    ),
+    url(
+        r'^worktranslation-autocomplete/$', WorkTranslationAC.as_view(
+            model=Work, create_field='title',),
+        name='worktranslation-autocomplete',
     )
     ]

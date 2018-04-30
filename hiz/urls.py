@@ -39,5 +39,6 @@ urlpatterns = [
     url(r'^words-ac/', include('words.dal_urls', namespace='words-ac')),
     url(r'^bib-ac/', include('bib.dal_urls', namespace='bib-ac')),
     url(r'^', include('webpage.urls', namespace='webpage')),
+    url(r'^places-ac/', include('places.dal_urls', namespace='places-ac')),
     url(r'^i18n/', include('django.conf.urls.i18n'))
 ]
